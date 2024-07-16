@@ -20,7 +20,7 @@
 
 </script>
 
-<style>
+<style scoped>
 
   .frame {  
     background-color: transparent;
@@ -32,6 +32,12 @@
     height: 100%;
 
     box-sizing: border-box;
+
+    opacity: 0.3;
+  }
+
+  .frame:hover {  
+    opacity: 1;
   }
 
   .frame-back {

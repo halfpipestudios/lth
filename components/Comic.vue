@@ -31,10 +31,7 @@
       dialog-left=-4px
     />
 
-    <Frame 
-      class="panel04"
-      background="/img/fire.png"
-    />
+    <LogoFrame class="panel04"/>
 
     <Frame 
       class="panel05"
@@ -46,12 +43,7 @@
       background="/img/booking.png"
     />
 
-    <Frame 
-      class="panel07"
-      commentary="INDICA TUS FECHAS..."
-      commentary-color="white"
-      background="/img/comic_background.png"
-    />
+    <ReserveFrame class="panel07" />
 
     <Frame 
       class="panel08"
@@ -173,42 +165,5 @@
     grid-column: 20 / span 4;
     grid-row: 17 / span 4;
   }
-
-  .name-container {
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 16px;
-
-    background-color: red;
-    border: 4px solid black;
-    padding: 4px 8px 4px 8px;
-
-    font-family: "comic";
-    font-weight: bold;
-    font-style: italic;
-    color: white;
-  }
-
-  .name-container h1 {
-    padding: 0;
-    margin: 0;
-  }
-
-  .comic-input {
-    background-color: white;
-    border: 2px solid black;
-    font-family: "comic";
-    padding: 8px;
-  
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-
-  }
-
-
 
 </style>
