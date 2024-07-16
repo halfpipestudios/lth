@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ComicFrame />
+        <Comic />
     </div>
 </template>
 
@@ -16,7 +16,7 @@
 
 <style scoped>
     div {
-        background-color: black;
+        background-color: white;
         display: flex;
         flex-direction: column;
         align-items: center;
