@@ -1,0 +1,28 @@
+@font-face {
+    font-family: comic;
+    src: url(/font/AnimeAce3BB_Regular.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: comic;
+    src: url(/font/AnimeAce3BB_Italic.otf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: comic;
+    src: url(/font/AnimeAce3BB_Bold.otf);
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: comic;
+    src: url(/font/AnimeAce3BB_BoldItalic.otf);
+    font-weight: bold;
+    font-style: italic;
+}
+  

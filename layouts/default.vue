@@ -1,33 +1,26 @@
 
 <template>
-    
     <div>
         <header>
-            <ul>
-                <NuxtLink class="navbtn" to="/">Home</NuxtLink>
-                <NuxtLink class="navbtn" to="/about">About</NuxtLink>
-            </ul>
+            <img class="spider" src="/img/spider.png" alt="">
         </header>
-        
         <slot />
-
     </div>
-    
 </template>
 
 <style>
 
-.navbtn {
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-    border: 1px solid black;
-    background-color: aquamarine;
-    text-decoration: none;
-}
+    header {
+        padding-top: 40px;
+        background-color: black;
 
-.navbtn:hover{
-    background-color: gray;
-}
+        position: relative;
+    }
+
+    .spider {
+        position: absolute;
+        top: 0;
+        left: 100px;
+    }
 
 </style>
