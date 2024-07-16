@@ -6,16 +6,29 @@
       commentary="MIENTRAS TANTO EN MENDOZA..."
       commentary-color="yellow"
       background="/img/asado.png"
+    
+      dialog="/img/dialog1.svg"
+      dialog-top=160px
+      dialog-left=10px
+    
     />
 
     <Frame 
       class="panel02"
       background="/img/montain.png"
+
+      dialog="/img/dialog2.svg"
+      dialog-top=60px
+      dialog-left=80px
     />
 
     <Frame 
       class="panel03"
       background="/img/wine.png"
+
+      dialog="/img/dialog3.svg"
+      dialog-top=-20px
+      dialog-left=-4px
     />
 
     <Frame 
@@ -43,6 +56,10 @@
     <Frame 
       class="panel08"
       background="/img/table.png"
+
+      dialog="/img/dialog6.svg"
+      dialog-top=320px
+      dialog-left=40px
     />
 
     <Frame 
@@ -63,6 +80,10 @@
     <Frame 
       class="panel12"
       background="/img/tatoo.png"
+
+      dialog="/img/dialog5.svg"
+      dialog-top=50px
+      dialog-left=120px
     />
 
     <Frame 

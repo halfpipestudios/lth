@@ -4,6 +4,7 @@
       <div v-if="commentary" class="frame-commentary" :style="{backgroundColor: commentaryColor}">
         {{ commentary || "No props passed yet" }}
       </div>
+      <img v-if="dialog" class="frame-body" :src="dialog" :style="{ top: dialogTop, left: dialogLeft}" />
     </div>
 </template>
 
@@ -11,7 +12,10 @@
   const props = defineProps({
     commentary : String, 
     commentaryColor : String, 
-    background : String
+    background : String,
+    dialog: String,
+    dialogTop: String,
+    dialogLeft: String
   })
 
 </script>
@@ -28,7 +32,6 @@
     height: 100%;
 
     box-sizing: border-box;
-
   }
 
   .frame-back {
@@ -44,12 +47,7 @@
   }
 
   .frame-body {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-
+    position: absolute;
     z-index: 1;
   }
 
