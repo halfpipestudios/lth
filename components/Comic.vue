@@ -8,8 +8,8 @@
       background="/img/asado.png"
     
       dialog="/img/dialog1.svg"
-      dialog-top=64px
-      dialog-left=10px
+      dialog-top=28%
+      dialog-left=10%
     
     />
 
@@ -18,8 +18,8 @@
       background="/img/montain.png"
 
       dialog="/img/dialog2.svg"
-      dialog-top=16px
-      dialog-left=90px
+      dialog-top=20%
+      dialog-left=40%
     />
 
     <Frame 
@@ -27,7 +27,7 @@
       background="/img/wine.png"
 
       dialog="/img/dialog3.svg"
-      dialog-top=-20px
+      dialog-top=-18%
       dialog-left=-4px
     />
 
@@ -50,8 +50,8 @@
       background="/img/table.png"
 
       dialog="/img/dialog6.svg"
-      dialog-top=260px
-      dialog-left=40px
+      dialog-top=70%
+      dialog-left=24%
     />
 
     <Frame 
@@ -74,8 +74,8 @@
       background="/img/tatoo.png"
 
       dialog="/img/dialog5.svg"
-      dialog-top=20px
-      dialog-left=120px
+      dialog-top=40%
+      dialog-left=40%
     />
 
     <Frame 
@@ -90,13 +90,16 @@
   
   .comic {
 
+    --comic-w: 1300px;
+    --comic-h: 1100px;
+
     background-color: transparent;
-    width: 1300px;
-    height: 1100px;
+    width: var(--comic-w);
+    height: var(--comic-h);
 
     display: grid;
     grid-template-columns: repeat(23, 1fr);
-    grid-template-rows: repeat(calc(23 * 1100px / 1100), 1fr);
+    grid-template-rows: repeat(calc(23 * var(--comic-h) / var(--comic-w)), 1fr);
 
     gap: 14px;
 
