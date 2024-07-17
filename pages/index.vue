@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="main">
+        <Spidey />
         <Comic />
     </div>
 </template>
@@ -15,18 +16,10 @@
 </script>
 
 <style scoped>
-    div {
+    .main {
         background-color: white;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-
-    h1 {
-        color: yellow;
-        font-family: "comic";
-        font-weight: bold;
-        font-style: normal;
-    }
-    
 </style>

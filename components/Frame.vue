@@ -32,21 +32,22 @@
     height: 100%;
 
     box-sizing: border-box;
-
-    opacity: 0.3;
+    filter: grayscale(100%);
+    opacity: 0.5;
   }
 
   @keyframes opacity-anim {
-    from { scale: 1; opacity: 0.3; }
-    to { scale: 1.05; opacity: 1; }
+    from { scale: 1; filter: grayscale(100%); opacity: 0.5}
+    to { scale: 1.05; filter: grayscale(0%);  opacity: 1}
   }
   
   .frame:hover {  
     animation-name: opacity-anim;
     animation-duration: 0.5s;
     animation-timing-function: ease-out;
-    opacity: 1;
+    filter: grayscale(0%);
     scale: 1.05;
+    opacity: 1;
   }
 
   .frame-back {

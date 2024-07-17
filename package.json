@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "gsap": "^3.12.5",
     "nuxt": "^3.12.3",
     "pocketbase": "^0.21.3",
     "vue": "latest"
