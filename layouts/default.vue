@@ -11,7 +11,6 @@
 
     header {
         background-color: white;
-
         position: relative;
     }
 

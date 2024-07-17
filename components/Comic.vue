@@ -98,7 +98,9 @@
     grid-template-columns: repeat(23, 1fr);
     grid-template-rows: repeat(calc(23 * 900 / 1100), 1fr);
 
-    gap: 10px;
+    gap: 14px;
+
+    padding-top: 14px;
   }
 
   .panel01 {
