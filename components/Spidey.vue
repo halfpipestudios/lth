@@ -16,13 +16,14 @@
         ctx.value = $gsap.context((self) => {
             const spidey = self.selector(".spidey")[0];
             $gsap.to(spidey, {
-                y: 900,
                 scrollTrigger: {
                     trigger: spidey,
-                    start: "top top",
-                    end: "+=1100",
-                    scrub: 1,
-                }
+                    toggleActions:"restart none reverse none",
+                    start: "bottom top",
+                    markers: true,
+                },
+                y: 700,
+                duration: 1
             })
         }, main.value);
     });
@@ -37,7 +38,7 @@
 <style scoped>
     .spidey {
         position: absolute;
-        top: 0px;
+        top: -170px;
         left: 0px;
         z-index: 3;
     }
