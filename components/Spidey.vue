@@ -6,7 +6,7 @@
 
             <div class="dialog">
                 <p class="text">RESERVANDO HOY TENES UN 15% DE DTO EN TU ALOJAMIENTO</p>
-                <!-- <img class="triangle" src="/img/tail.svg" alt=""> -->
+                <img class="triangle" src="/img/tail.svg" alt="">
             </div>
         </div>
         <div class="trigger"></div>
@@ -28,8 +28,7 @@
             const trigger = self.selector(".trigger")[0];
 
             var tl = $gsap.timeline();
-
-            tl.to(spidey, {y: 700, duration: 1, ease: "bounce.out"});
+            tl.to(spidey, {y: 600, duration: 1, ease: "bounce.out"});
             tl.to(dialog, {opacity: 1, duration: .5});
 
             $ScrollTrigger.create({
@@ -54,33 +53,38 @@
 <style scoped>
     .spidey {
         position: fixed;
-        top: -1100px;
-        left: 0px;
+        top: -920px;
+        left: 15px;
         z-index: 3;
     }
 
     .text{
         font-family: "comic";
-        border-radius: 50%;
         padding: 20px;
-        max-width: 250px;
+        height: 34px;
         text-align: center;
     
         background-color: white;
-        border: 2px solid black;
+        border: 3px solid black;
+        border-top-right-radius: 24px;
+        border-bottom-right-radius: 24px;
+        padding-right: 40px;
     }
 
     .triangle {
         position: absolute;
-        top: 4px;
-        left: -96px;
+        top: -.5px;
+        left: -106px;
     }
 
     .dialog {
         position: relative;
-        top: -80px;
+        top: -50px;
         left: 220px;
         opacity: 0;
+
+
+
     }
 
     .trigger {

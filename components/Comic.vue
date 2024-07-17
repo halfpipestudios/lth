@@ -91,12 +91,12 @@
   .comic {
 
     background-color: transparent;
-    width: 1100px;
-    height: 900px;
+    width: 1300px;
+    height: 1100px;
 
     display: grid;
     grid-template-columns: repeat(23, 1fr);
-    grid-template-rows: repeat(calc(23 * 900 / 1100), 1fr);
+    grid-template-rows: repeat(calc(23 * 1100px / 1100), 1fr);
 
     gap: 14px;
 
