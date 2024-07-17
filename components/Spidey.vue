@@ -1,7 +1,15 @@
 
 <template>
     <div ref="main">
-        <img class="spidey" src="/img/spider.png" alt="">
+        <div class="spidey">
+            <img src="/img/spider.png" alt="">
+
+            <div class="dialog">
+                <p class="text">RESERVANDO HOY TENES UN 15% DE DTO EN TU ALOJAMIENTO</p>
+                <!-- <img class="triangle" src="/img/tail.svg" alt=""> -->
+            </div>
+
+        </div>
     </div>
 </template>
 
@@ -14,18 +22,18 @@
 
     onMounted(() => {
         ctx.value = $gsap.context((self) => {
+            
             const spidey = self.selector(".spidey")[0];
-            $gsap.to(spidey, {
-                scrollTrigger: {
-                    trigger: spidey,
-                    toggleActions:"restart none reverse none",
-                    start: "bottom top",
-                    markers: true,
-                },
-                y: 700,
-                duration: 1
-            })
+            const dialog = self.selector(".dialog")[0];
+
+
+            var tl = $gsap.timeline();
+
+            tl.to(spidey, {y: 700, duration: 1, ease: "bounce.out"});
+            tl.to(dialog, {opacity: 1, duration: .5});
+
         }, main.value);
+
     });
 
     onUnmounted(() => {
@@ -37,9 +45,34 @@
 
 <style scoped>
     .spidey {
-        position: absolute;
-        top: -170px;
+        position: fixed;
+        top: -1100px;
         left: 0px;
         z-index: 3;
     }
+
+    .text{
+        font-family: "comic";
+        border-radius: 50%;
+        padding: 20px;
+        max-width: 250px;
+        text-align: center;
+    
+        background-color: white;
+        border: 2px solid black;
+    }
+
+    .triangle {
+        position: absolute;
+        top: 4px;
+        left: -96px;
+    }
+
+    .dialog {
+        position: relative;
+        top: -80px;
+        left: 220px;
+        opacity: 0;
+    }
+
 </style>
