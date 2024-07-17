@@ -2,7 +2,6 @@
 <template>
     <div>
         <header>
-            <img class="spider" src="/img/spider.png" alt="">
         </header>
         <slot />
     </div>
@@ -11,7 +10,6 @@
 <style>
 
     header {
-        padding-top: 60px;
         background-color: white;
 
         position: relative;

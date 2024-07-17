@@ -36,8 +36,17 @@
     opacity: 0.3;
   }
 
+  @keyframes opacity-anim {
+    from { scale: 1; opacity: 0.3; }
+    to { scale: 1.05; opacity: 1; }
+  }
+  
   .frame:hover {  
+    animation-name: opacity-anim;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
     opacity: 1;
+    scale: 1.05;
   }
 
   .frame-back {
