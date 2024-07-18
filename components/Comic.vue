@@ -89,10 +89,9 @@
 <style scoped>
   
   .comic {
-
-    --comic-w: 1300px;
-    --comic-h: 1100px;
-
+    --comic-w: 70%;
+    --comic-h: 97%;
+    
     background-color: transparent;
     width: var(--comic-w);
     height: var(--comic-h);
@@ -100,10 +99,9 @@
     display: grid;
     grid-template-columns: repeat(23, 1fr);
     grid-template-rows: repeat(calc(23 * var(--comic-h) / var(--comic-w)), 1fr);
-
+    
     gap: 14px;
 
-    padding-top: 14px;
   }
 
   .panel01 {
@@ -148,27 +146,27 @@
 
   .panel09 {
     grid-column: 1 / span 6;
-    grid-row: 13 / span 8;
+    grid-row: 13 / span 7;
   }
 
   .panel10 {
     grid-column: 7 / span 6;
-    grid-row: 13 / span 8;
+    grid-row: 13 / span 7;
   }
 
   .panel11 {
     grid-column: 13 / span 7;
-    grid-row: 13 / span 4;
+    grid-row: 13 / span 3;
   }
 
   .panel12 {
     grid-column: 13 / span 7;
-    grid-row: 17 / span 4;
+    grid-row: 16 / span 4;
   }
 
   .panel13 {
     grid-column: 20 / span 4;
-    grid-row: 17 / span 4;
+    grid-row: 17 / span 3;
   }
 
 </style>

@@ -29,7 +29,7 @@
 
             var tl = $gsap.timeline();
             tl.to(spidey, {y: 600, duration: 1, ease: "bounce.out"});
-            tl.to(dialog, {opacity: 1, duration: .5});
+            tl.to(dialog, { opacity: 1, duration: .5});
 
             $ScrollTrigger.create({
                 animation: tl,
