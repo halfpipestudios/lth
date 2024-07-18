@@ -2,18 +2,16 @@
 <template>
     <div ref="main">
         <Spidey />
-        <div class="wrapper">
-            <div class="comic-panel">
-                <Comic/>
-            </div>
-            <div class="page-panel">
-                <div class="nav">
-                    <NuxtLink to="/">Home</NuxtLink>
-                    <NuxtLink to="/about">About</NuxtLink>
-                </div>
-                <slot />
-            </div>
+
+        <div class="comic-panel">
+            <Comic/>
         </div>
+
+        <div class="nav">
+            <NuxtLink to="/">Home</NuxtLink>
+            <NuxtLink to="/about">About</NuxtLink>
+        </div>
+        <slot />
     </div>
 </template>
 
@@ -27,26 +25,26 @@
 
         ctx.value = $gsap.context((self) => {        
 
-            let wrapper = $gsap.utils.toArray(".wrapper")[0];
-            let wrapper_width = wrapper.offsetWidth;
-            let amout_to_scroll = wrapper_width - window.innerWidth;
+            let comic = $gsap.utils.toArray(".comic-panel")[0];
+            let comic_w = comic.offsetWidth;
+            let comic_h = comic.offsetHeight;
+            let amout_to_scroll = comic_w;
+            
+            localStorage.setItem('scroll', comic_h);
             
             let tween = $gsap.timeline();
-            tween.to(wrapper, {
+            tween.to(comic, {
                 x: -amout_to_scroll,
                 duration: 3,
                 ease: "none",
             });
-            tween.to(wrapper, {
-                duration: 1,
-                ease: "none",
-            });
             
             $ScrollTrigger.create({
-                trigger:wrapper,
+                trigger:comic,
                 start: "0% 0%",
-                end: "+=" + amout_to_scroll,
+                end: "+=" + comic_h,
                 pin: true,
+                pinSpacing: false,
                 animation: tween,
                 scrub: 1,
                 markers: true,
@@ -66,17 +64,6 @@
 
 <style scoped>
 
-    .wrapper {
-        margin: 0;
-        padding: 0;
-
-        display: flex;
-        flex-direction: row;
-        flex-wrap:no-wrap;
-        overflow:auto;
-        width: 200vw;
-    }
-
     .comic-panel {
         
         display: flex;
@@ -88,16 +75,14 @@
         height: 100vh;
 
         background-color: white;
-    }
-
-    .page-panel {
-        width: 100%;
-        min-height: 200vh;
+        
+        z-index: 1;
     }
 
     .nav {
         position: sticky;
         top: 0px;
+        
         width: 100%;
         height: 40px;
         background-color: red;
@@ -106,8 +91,8 @@
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
-
-
+        
+        z-index: 0;
     }
 
     .nav a {
