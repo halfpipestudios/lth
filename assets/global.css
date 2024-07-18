@@ -1,3 +1,9 @@
+html body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
 @font-face {
     font-family: comic;
     src: url(/font/AnimeAce3BB_Regular.otf);
@@ -25,4 +31,3 @@
     font-weight: bold;
     font-style: italic;
 }
-  
