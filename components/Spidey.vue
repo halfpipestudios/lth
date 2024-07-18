@@ -27,6 +27,15 @@
             const dialog = self.selector(".dialog")[0];
             const trigger = self.selector(".trigger")[0];
 
+            $gsap.set(spidey, {transformOrigin: "50% 0%"});
+
+            var swing = $gsap.timeline({repeat: -1});
+            swing.to(spidey, { duration: 0.5, rotate:"2deg", ease:"none"});
+            swing.to(spidey, { duration: 0.5, rotate:"0deg", ease:"none"});
+            swing.to(spidey, { duration: 0.5, rotate:"-2deg", ease:"none"});
+            swing.to(spidey, { duration: 0.5, rotate:"0deg", ease:"none"});
+            swing.pause();
+            
             var tl = $gsap.timeline();
             tl.to(spidey, {y: 600, duration: 1, ease: "bounce.out"});
             tl.to(dialog, { opacity: 1, duration: .5});
@@ -37,6 +46,16 @@
                 start: "bottom top",
                 toggleActions:"restart none reverse none",
                 markers: false,
+                onEnter: () => {
+                    swing.resume();
+                },
+                onLeave: () => {
+                },
+                onEnterBack: () => {
+                    swing.pause();
+                },
+                onLeaveBack: () => {
+                },
             });
 
         }, main.value);

@@ -23,10 +23,14 @@
 
     onMounted(() => {
 
+
+
         ctx.value = $gsap.context((self) => {
             
             let comic = $gsap.utils.toArray(".comic-panel")[0];
-            
+            //console.log(comic.offsetHeight);
+            localStorage.setItem('scroll', comic.offsetHeight);
+
             $gsap.to(comic, {
                 scrollTrigger: {
                     
@@ -41,7 +45,6 @@
                     },
                     onLeave: () => {
                         comic.style.pointerEvents = "auto";
-                        localStorage.setItem('scroll', window.scrollY);
                     },
                     onEnterBack: () => {
                         comic.style.pointerEvents = "none";
