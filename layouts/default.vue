@@ -21,6 +21,10 @@
     const main = ref();
     const ctx = ref();
 
+    onBeforeRouteLeave((to, from, next) => {
+        next();
+    });
+
     onMounted(() => {
 
         ctx.value = $gsap.context((self) => {
@@ -41,13 +45,15 @@
                     },
                     onLeave: () => {
                         comic.style.pointerEvents = "auto";
+                        localStorage.setItem('scroll', window.scrollY);
                     },
                     onEnterBack: () => {
                         comic.style.pointerEvents = "none";
                     },
                     onLeaveBack: () => {
                         comic.style.pointerEvents = "auto";
-                    }
+                    },
+
                 },
                 opacity: 0,
             });
