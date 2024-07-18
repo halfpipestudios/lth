@@ -21,10 +21,6 @@
     const main = ref();
     const ctx = ref();
 
-    onBeforeRouteLeave((to, from, next) => {
-        next();
-    });
-
     onMounted(() => {
 
         ctx.value = $gsap.context((self) => {
