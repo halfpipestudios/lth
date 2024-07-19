@@ -37,13 +37,15 @@
             swing.pause();
             
             var tl = $gsap.timeline();
-            tl.to(spidey, {y: 600, duration: 1, ease: "bounce.out"});
+            tl.to(spidey, {y: 600, duration: 1, ease: "power2.out"});
             tl.to(dialog, { opacity: 1, duration: .5});
 
             $ScrollTrigger.create({
                 animation: tl,
                 trigger: trigger,
                 start: "bottom top",
+                end: "+=" + localStorage.getItem("scroll"),
+                scrub: 1,
                 toggleActions:"restart none reverse none",
                 markers: false,
                 onEnter: () => {

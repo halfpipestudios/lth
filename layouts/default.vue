@@ -1,11 +1,11 @@
 
 <template>
     <div ref="main">
-        <Spidey />
         <div class="comic-panel">
             <Comic/>
         </div>
-
+        <Spidey />
+        
         <div class="page">
             <div class="nav">
                 <NuxtLink to="/">Home</NuxtLink>
@@ -22,20 +22,30 @@
     const main = ref();
     const ctx = ref();
 
+
+
+
     onMounted(() => {
 
         ctx.value = $gsap.context((self) => {        
 
             let comic = $gsap.utils.toArray(".comic-panel")[0];
-            let comic_w = comic.offsetWidth;
-            let comic_h = comic.offsetHeight;
-            let amout_to_scroll = comic_w;
             
-            localStorage.setItem('scroll', comic_h);
+            function get_comic_h() {
+                let comic_h = comic.offsetHeight;
+                localStorage.setItem('scroll', comic_h);
+                return comic_h;
+            }
+
+            function get_neg_comic_w() {
+                let comic_w = comic.offsetWidth;
+                console.log("comic width: " + comic_w);
+                return -comic_w;
+            }
             
             let tween = $gsap.timeline();
             tween.to(comic, {
-                x: -amout_to_scroll,
+                x: get_neg_comic_w,
                 duration: 0.1,
                 ease: "none",
             });
@@ -43,16 +53,17 @@
             $ScrollTrigger.create({
                 trigger:comic,
                 start: "0% 0%",
-                end: "+=" + comic_h,
+                end: `+=${get_comic_h()}`,
                 pin: true,
                 pinSpacing: false,
                 animation: tween,
                 scrub: 1,
-                markers: true,
+                markers: false,
                 snap: {
                     snapTo: 1,
                     duration: 0.5,
                 },
+                invalidateOnRefresh: true,
             });
 
 
