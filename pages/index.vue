@@ -9,7 +9,4 @@
 </script>
 
 <style scoped>
-    div {
-        min-height: 100vh;
-    }
 </style>

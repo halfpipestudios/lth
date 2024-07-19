@@ -30,9 +30,9 @@
             $gsap.set(spidey, {transformOrigin: "50% 0%"});
 
             var swing = $gsap.timeline({repeat: -1});
-            swing.to(spidey, { duration: 0.5, rotate:"2deg", ease:"none"});
+            swing.to(spidey, { duration: 0.5, rotate:"1deg", ease:"sin.out"});
             swing.to(spidey, { duration: 0.5, rotate:"0deg", ease:"none"});
-            swing.to(spidey, { duration: 0.5, rotate:"-2deg", ease:"none"});
+            swing.to(spidey, { duration: 0.5, rotate:"-1deg", ease:"sin.out"});
             swing.to(spidey, { duration: 0.5, rotate:"0deg", ease:"none"});
             swing.pause();
             

@@ -2,16 +2,17 @@
 <template>
     <div ref="main">
         <Spidey />
-
         <div class="comic-panel">
             <Comic/>
         </div>
 
-        <div class="nav">
-            <NuxtLink to="/">Home</NuxtLink>
-            <NuxtLink to="/about">About</NuxtLink>
+        <div class="page">
+            <div class="nav">
+                <NuxtLink to="/">Home</NuxtLink>
+                <NuxtLink to="/about">About</NuxtLink>
+            </div>
+            <slot />
         </div>
-        <slot />
     </div>
 </template>
 
@@ -35,7 +36,7 @@
             let tween = $gsap.timeline();
             tween.to(comic, {
                 x: -amout_to_scroll,
-                duration: 3,
+                duration: 0.1,
                 ease: "none",
             });
             
@@ -48,6 +49,10 @@
                 animation: tween,
                 scrub: 1,
                 markers: true,
+                snap: {
+                    snapTo: 1,
+                    duration: 0.5,
+                },
             });
 
 
@@ -63,7 +68,6 @@
 </script>
 
 <style scoped>
-
     .comic-panel {
         
         display: flex;
@@ -77,6 +81,12 @@
         background-color: white;
         
         z-index: 1;
+    }
+
+    .page {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
     }
 
     .nav {
