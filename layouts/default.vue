@@ -4,6 +4,7 @@
         <div class="comic-panel">
             <Comic/>
         </div>
+
         <Spidey />
         
         <div class="page">
@@ -22,10 +23,14 @@
     const main = ref();
     const ctx = ref();
 
-
-
+    // function on_resize(e) {
+    //     localStorage.setItem('scroll', window.innerHeight);
+    // }
 
     onMounted(() => {
+
+        //localStorage.setItem('scroll', window.innerHeight);
+        //window.addEventListener("resize", on_resize, true);
 
         ctx.value = $gsap.context((self) => {        
 
@@ -33,13 +38,14 @@
             
             function get_comic_h() {
                 let comic_h = comic.offsetHeight;
+                console.log("comic_h: "+comic_h);
                 localStorage.setItem('scroll', comic_h);
                 return comic_h;
             }
 
             function get_neg_comic_w() {
                 let comic_w = comic.offsetWidth;
-                console.log("comic width: " + comic_w);
+                console.log("comic_x: "+comic_w);
                 return -comic_w;
             }
             
@@ -53,7 +59,7 @@
             $ScrollTrigger.create({
                 trigger:comic,
                 start: "0% 0%",
-                end: `+=${get_comic_h()}`,
+                end: () => `+=${get_comic_h()}px`,
                 pin: true,
                 pinSpacing: false,
                 animation: tween,
@@ -63,7 +69,7 @@
                     snapTo: 1,
                     duration: 0.5,
                 },
-                invalidateOnRefresh: true,
+                invalidateOnRefresh:true,
             });
 
 

@@ -89,6 +89,7 @@
 <style scoped>
   
   .comic {
+    
     --comic-w: 70%;
     --comic-h: 97%;
     
@@ -102,6 +103,7 @@
     
     gap: 14px;
 
+    z-index: 1;
   }
 
   .panel01 {
