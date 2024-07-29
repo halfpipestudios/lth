@@ -1,6 +1,5 @@
 <template>
-    <div class="container">
-        <Comic />
+    <div class="space">
     </div>
 </template>
 
@@ -9,11 +8,7 @@
 
 <style scoped>
 
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: white;
+    .space {
         height: 100vh;
     }
 
