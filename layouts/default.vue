@@ -10,8 +10,6 @@
         <slot />
         <Footer />
     </div>
-
-
 </template>
 
 <script setup>
