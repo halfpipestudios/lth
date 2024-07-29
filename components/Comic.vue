@@ -1,174 +1,191 @@
 <template>
   <div class="comic">
+    <div class="panel"></div>
+    <div class="panel"></div>
+    <div class="panel"></div>
+    <div class="panel"></div>
+    <div class="panel"></div>
+
+    <!-- Reservation Panel -->
+    <div class="panel reservation-panel">
+      <form class="reservation-form" action="">
+
+        <div>
+          <img src="/img/calendar.png" alt="">
+          FECHA DE LLEGADA
+          <img src="/img/arrow.png" alt="">
+          <input type="date" style="display: none;">
+        </div>
+
+        <div>
+          <img src="/img/calendar.png" alt="">
+          FECHA DE SALIDA
+          <img src="/img/arrow.png" alt="">
+          <input type="date" style="display: none;">
+        </div>
+
+        <button>RESERVÁ!</button>
+
+      </form>
+    </div> 
     
-    <Frame 
-      class="panel01"
-      commentary="MIENTRAS TANTO EN MENDOZA..."
-      commentary-color="yellow"
-      background="/img/asado.png"
-    
-      dialog="/img/dialog1.svg"
-      dialog-top=28%
-      dialog-left=10%
-    
-    />
-
-    <Frame 
-      class="panel02"
-      background="/img/montain.png"
-
-      dialog="/img/dialog2.svg"
-      dialog-top=20%
-      dialog-left=40%
-    />
-
-    <Frame 
-      class="panel03"
-      background="/img/wine.png"
-
-      dialog="/img/dialog3.svg"
-      dialog-top=-18%
-      dialog-left=-4px
-    />
-
-    <LogoFrame class="panel04"/>
-
-    <Frame 
-      class="panel05"
-      background="/img/pirate.png"
-    />
-
-    <Frame 
-      class="panel06"
-      background="/img/booking.png"
-    />
-
-    <ReserveFrame class="panel07" />
-
-    <Frame 
-      class="panel08"
-      background="/img/table.png"
-
-      dialog="/img/dialog6.svg"
-      dialog-top=70%
-      dialog-left=24%
-    />
-
-    <Frame 
-      class="panel09"
-      background="/img/room.png"
-    />
-
-    <Frame 
-      class="panel10"
-      background="/img/garden.png"
-    />
-
-    <Frame 
-      class="panel11"
-      background="/img/meeting.png"
-    />
-
-    <Frame 
-      class="panel12"
-      background="/img/tatoo.png"
-
-      dialog="/img/dialog5.svg"
-      dialog-top=40%
-      dialog-left=40%
-    />
-
-    <Frame 
-      class="panel13"
-      background="/img/pool.png"
-    />
-
+    <div class="panel"></div>
+    <div class="panel"></div>
+    <div class="panel"></div>
+    <div class="panel"></div>
   </div>
 </template>
 
 <style scoped>
   
+  .reservation-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "comic";
+    font-size: larger;
+  }
+
+  .reservation-panel {
+    background-color: orange;
+    background-image: url(/img/comic_background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .comic {
-    
-    --comic-w: 70%;
-    --comic-h: 97%;
-    
-    background-color: transparent;
-    width: var(--comic-w);
-    height: var(--comic-h);
+    --cols: 4;
+    --rows: 5;
+    --ratio: 1.2;
 
     display: grid;
-    grid-template-columns: repeat(23, 1fr);
-    grid-template-rows: repeat(calc(23 * var(--comic-h) / var(--comic-w)), 1fr);
+    gap: 10px;
+    grid-template-columns: repeat(var(--cols), 1fr);
+    grid-template-rows: repeat(var(--rows), 1fr);
     
-    gap: 14px;
+    height: 100vh;
+    aspect-ratio: var(--ratio);
 
-    z-index: 1;
+    padding: 0;
+    margin: 0;
   }
 
-  .panel01 {
-    grid-column: 1 / span 6;
-    grid-row: 1 / span 8;
+  .panel:nth-child(n)  {
+    background-color: transparent;
+    border: 3px solid black;
   }
 
-  .panel02 {
-    grid-column: 7 / span 6;
-    grid-row: 1 / span 3;
+  .panel:nth-child(1)  {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 2;
   }
 
-  .panel03 {
-    grid-column: 13 / span 6;
-    grid-row: 1 / span 3;
+  .panel:nth-child(2)  {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
   }
 
-  .panel04 {
-    grid-column: 7 / span 12;
-    grid-row: 4 / span 5;
+  .panel:nth-child(3)  {
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
   }
 
-  .panel05 {
-    grid-column: 19 / span 5;
-    grid-row: 1 / span 8;
+  .panel:nth-child(4)  {
+    grid-column: 4 / span 1;
+    grid-row: 1 / span 2;
   }
 
-  .panel06 {
+  .panel:nth-child(5)  {
+    grid-column: 2 / span 2;
+    grid-row: 2 / span 1;
+  }
+
+  .panel:nth-child(6)  {
     grid-column: 1 / span 4;
-    grid-row: 9 / span 4;
+    grid-row: 3 / span 1;
   }
 
-  .panel07 {
-    grid-column: 5 / span 15;
-    grid-row: 9 / span 4;
+  .panel:nth-child(7)  {
+    grid-column: 1 / span 2;
+    grid-row: 4 / span 2;
   }
 
-  .panel08 {
-    grid-column: 20 / span 4;
-    grid-row: 9 / span 8;
+  .panel:nth-child(8)  {
+    grid-column: 3 / span 2;
+    grid-row: 4 / span 1;
   }
 
-  .panel09 {
-    grid-column: 1 / span 6;
-    grid-row: 13 / span 7;
+  .panel:nth-child(9)  {
+    grid-column: 3 / span 1;
+    grid-row: 5 / span 1;
   }
 
-  .panel10 {
-    grid-column: 7 / span 6;
-    grid-row: 13 / span 7;
+  .panel:nth-child(10)  {
+    grid-column: 4 / span 1;
+    grid-row: 5 / span 1;
   }
 
-  .panel11 {
-    grid-column: 13 / span 7;
-    grid-row: 13 / span 3;
-  }
+  
+  @media screen and (max-width: 1110px) {
 
-  .panel12 {
-    grid-column: 13 / span 7;
-    grid-row: 16 / span 4;
-  }
+    .comic {
+      --cols: 2;
+      --rows: 5;
+      --ratio: .5;
 
-  .panel13 {
-    grid-column: 20 / span 4;
-    grid-row: 17 / span 3;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(var(--cols), 1fr);
+      grid-template-rows: repeat(var(--rows), 1fr);
+      
+      /* height: 660px; */
+      width: 84vw;
+      height: 90vh;
+      aspect-ratio: var(--ratio);
+      
+    }
+
+    .panel:nth-child(n+7)  {
+      display: none;
+    }
+
+    .panel:nth-child(1)  {
+      grid-column: 1 / span 1;
+      grid-row: 1 / span 1;
+    }
+
+    .panel:nth-child(2)  {
+      grid-column: 2 / span 1;
+      grid-row: 1 / span 1;
+    }
+
+    .panel:nth-child(3)  {
+      grid-column: 2 / span 1;
+      grid-row: 5 / span 1;
+    }
+
+    .panel:nth-child(4)  {
+      grid-column: 1 / span 1;
+      grid-row: 4 / span 2;
+    }
+
+    .panel:nth-child(5)  {
+      grid-column: 2 / span 1;
+      grid-row: 4 / span 1;
+    }
+
+    .panel:nth-child(6)  {
+      grid-column: 1 / span 2;
+      grid-row: 2 / span 2;
+    }
+
   }
 
 </style>
