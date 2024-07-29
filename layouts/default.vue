@@ -1,6 +1,6 @@
 
 <template>
-    <!-- <Spidey /> -->
+    <Spidey />
     <div class="comic-container">
         <Comic />
     </div>

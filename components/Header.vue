@@ -7,7 +7,7 @@
                 <NuxtLink to="/">Home</NuxtLink>
                 <NuxtLink to="/">Habitaciones</NuxtLink>
                 <NuxtLink to="/">Tattoo</NuxtLink>
-                <NuxtLink to="/">Servicios</NuxtLink>
+                <NuxtLink to="/services">Servicios</NuxtLink>
                 <NuxtLink to="/">Habitaciones</NuxtLink>
                 <NuxtLink to="/">Contact</NuxtLink>
             </div>
