@@ -10,14 +10,14 @@
     <div class="panel reservation-panel">
       <form class="reservation-form" action="">
 
-        <div>
+        <div class="reservation-input">
           <img src="/img/calendar.png" alt="">
           FECHA DE LLEGADA
           <img src="/img/arrow.png" alt="">
           <input type="date" style="display: none;">
         </div>
 
-        <div>
+        <div class="reservation-input">
           <img src="/img/calendar.png" alt="">
           FECHA DE SALIDA
           <img src="/img/arrow.png" alt="">
@@ -38,13 +38,19 @@
 
 <style scoped>
   
+  .reservation-input {
+    background-color: white;
+    border: 2px solid black;
+    padding: 10px;
+  }
+
   .reservation-form {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 20px;
     font-family: "comic";
-    font-size: larger;
   }
 
   .reservation-panel {
@@ -132,8 +138,11 @@
     grid-row: 5 / span 1;
   }
 
-  
   @media screen and (max-width: 1110px) {
+
+    .reservation-form {
+      flex-direction: row;
+    }
 
     .comic {
       --cols: 2;
@@ -187,5 +196,12 @@
     }
 
   }
+
+  @media screen and (max-width: 666px) {
+    .reservation-form {
+      flex-direction: column;
+    }
+  }
+
 
 </style>
