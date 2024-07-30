@@ -27,11 +27,14 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
+
+        background-image: url(/img/boseto.jpg);
     }
 
     .service-grid {
 
         width: 80%;
+        max-width: 1250px;
 
         display: flex;
         flex-direction: row;

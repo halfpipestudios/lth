@@ -8,6 +8,7 @@
 
     <!-- Reservation Panel -->
     <div class="panel reservation-panel">
+      <img class="reservation-panel-background" src="/img/comic_background.jpg" alt="">
       <form class="reservation-form" action="">
 
         <div class="reservation-input">
@@ -51,19 +52,35 @@
     flex-direction: row;
     gap: 20px;
     font-family: "comic";
+    z-index: 1;
   }
 
   .reservation-panel {
-    background-color: orange;
+    /* background-color: orange;
     background-image: url(/img/comic_background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+     */
     opacity: 1;
     
     display: flex;
     align-items: center;
     justify-content: center;
+
+    overflow: hidden;
+    position: relative;
+  }
+
+  .reservation-panel-background {
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
   }
 
   .comic {
@@ -79,8 +96,13 @@
     height: 100vh;
     aspect-ratio: var(--ratio);
 
-    padding: 0;
+    padding: 20px;
     margin: 0;
+
+    box-sizing:  border-box;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+
+    background-image: url(/img/paper.avif)
   }
 
   .panel:nth-child(n)  {

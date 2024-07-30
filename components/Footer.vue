@@ -40,6 +40,10 @@
         gap: 20px;
     }
 
+    .info-child img {
+        width: 22px;
+    }
+
     .redes {
         display: flex;
         flex-direction: row;
@@ -53,7 +57,9 @@
 
     footer {
         background-color: white;
-        border: 2px solid black;
+        /* border: 2px solid black; */
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
         height: 345px;
 
         display: flex;

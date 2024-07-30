@@ -29,7 +29,9 @@
         top: 0px;
 
         background-color: white;
-        border: 2px solid black;
+        /* border: 2px solid black; */
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
     }
 
     a {
