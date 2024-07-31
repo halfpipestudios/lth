@@ -12,6 +12,6 @@ jobs:
                 username: ${{ secrets.USERNAME }}
                 password: ${{ secrets.PASSWORD }}
                 script: |
-                    cd /lth
+                    cd /var/www/lth
                     git pull
                     docker compose up -d --build
