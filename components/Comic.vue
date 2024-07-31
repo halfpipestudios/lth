@@ -93,14 +93,14 @@
     grid-template-columns: repeat(var(--cols), 1fr);
     grid-template-rows: repeat(var(--rows), 1fr);
     
-    height: 100vh;
+    height: 100%;
     aspect-ratio: var(--ratio);
 
     padding: 20px;
     margin: 0;
 
     box-sizing:  border-box;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); */
 
     background-image: url(/img/paper.avif)
   }

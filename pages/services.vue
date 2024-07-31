@@ -27,8 +27,6 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-
-        background-image: url(/img/boseto.jpg);
     }
 
     .service-grid {
