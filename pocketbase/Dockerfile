@@ -6,4 +6,4 @@ COPY . /lth/pocketbase
 
 EXPOSE 8090
 
-CMD ["/lth/pocketbase/pocketbase", "serve"] 
+CMD ["./lth/pocketbase/pocketbase", "serve"] 
