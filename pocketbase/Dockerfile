@@ -1,9 +1,10 @@
 FROM alpine:latest
 
-WORKDIR /lth/pocketbase
+WORKDIR /pocketbase
 
-COPY . /lth/pocketbase
+COPY . /pocketbase
+RUN chmod +x /pocketbase/pocketbase
 
 EXPOSE 8090
 
-CMD ["./lth/pocketbase/pocketbase", "serve"] 
+CMD ["./pocketbase/pocketbase", "serve"] 
