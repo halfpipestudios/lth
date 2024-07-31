@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h1>Lemon Tree Hostel</h1>
     </div>
 </template>
 
