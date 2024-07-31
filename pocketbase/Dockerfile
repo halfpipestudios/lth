@@ -7,4 +7,4 @@ RUN chmod +x /pocketbase/pocketbase
 
 EXPOSE 8090
 
-CMD ["./pocketbase/pocketbase", "serve"] 
+CMD ["./pocketbase", "serve"] 
