@@ -1,0 +1,16 @@
+name: Build and Deploy
+on: [push]
+jobs:
+    build-and-deploy:
+        name: Build and Deploy
+        runs-on: ubuntu-latest
+        steps:
+            - name: download changes, build and run containers
+              with:
+                  host: ${{ secrets.HOST }}
+                  username: ${{ secrets.USERNAME }}
+                  key: ${{ secrets.KEY }}
+                  script: |
+                      cd /lth
+                      git pull
+                      docker compose up -d --build
