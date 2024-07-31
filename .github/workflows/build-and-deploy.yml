@@ -6,12 +6,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: download changes, build and run containers
-              uses: appleboy/ssh-action@v0.1.7
+              uses: appleboy/ssh-action@v1.0.3
               with:
-                  host: ${{ secrets.HOST }}
-                  username: ${{ secrets.USERNAME }}
-                  key: ${{ secrets.KEY }}
-                  script: |
-                      cd /lth
-                      git pull
-                      docker compose up -d --build
+                host: ${{ secrets.HOST }}
+                username: ${{ secrets.USERNAME }}
+                password: ${{ secrets.PASSWORD }}
+                script: |
+                    cd /lth
+                    git pull
+                    docker compose up -d --build
