@@ -1,4 +1,4 @@
-FROM node
+FROM alpine:latest
 
 WORKDIR /lth/pocketbase
 

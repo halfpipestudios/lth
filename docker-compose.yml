@@ -1,8 +1,10 @@
 version: "3"
 services:
-  lth:
+  node:
     build: .
     ports:
       - "3000:3000"
-  # lth-data:
-  #   build: ./pocketbase
+  pocketbase:
+    build: ./pocketbase
+    ports:
+      - "8090:8090"
