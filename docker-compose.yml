@@ -1,9 +1,11 @@
 services:
   node:
     build: .
+    image: harbor.halfpipe.dev/lth/node:latest
     ports:
       - "3000:3000"
   pocketbase:
     build: ./pocketbase
+    image: harbor.halfpipe.dev/lth/pocketbase:latest
     ports:
       - "8090:8090"
