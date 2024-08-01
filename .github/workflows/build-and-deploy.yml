@@ -6,19 +6,17 @@ on:
       - main  # Trigger on pushes to the main branch
 
 jobs:
-    build-and-deploy:
-        name: Build and Deploy
-        runs-on: ubuntu-latest
-        steps:
-            - name: download changes, build and run containers
-              uses: appleboy/ssh-action@v1.0.3
-              with:
-                host: ${{ secrets.HOST }}
-                username: ${{ secrets.USERNAME }}
-                password: ${{ secrets.PASSWORD }}
-                script: |
-                    cd /var/www/lth
-                    git pull
-                    docker compose down
-                    docker compose up -d --build --force-recreate
-                    docker image prune -f
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: docker/login-action@v1
+      with:
+        registry: ${{ secrets.HARBOR_REGISTRY }}
+        username: ${{ secrets.HARBOR_USERNAME  }}
+        password: ${{ secrets.HARBOR_PASSWORD }}
+
+    - uses: actions/checkout@v3
+    - name: BuildAndPushImageOnHarbor
+      run: |
+        docker compose build
+        docker compose push
