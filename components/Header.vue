@@ -4,7 +4,7 @@
         <div class="full">
             <img src="/img/logo.png" alt="">
             <div class="nav-container">
-                <NuxtLink to="/">Test</NuxtLink>
+                <NuxtLink to="/">Test1</NuxtLink>
                 <NuxtLink to="/">Habitaciones</NuxtLink>
                 <NuxtLink to="/">Tattoo</NuxtLink>
                 <NuxtLink to="/services">Servicios</NuxtLink>
