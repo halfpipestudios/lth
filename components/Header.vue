@@ -2,16 +2,19 @@
 
     <header>
         <div class="full">
-            <img src="/img/logo.png" alt="">
             <div class="nav-container">
-                <NuxtLink to="/">Home</NuxtLink>
-                <NuxtLink to="/">Habitaciones</NuxtLink>
-                <NuxtLink to="/">Tattoo</NuxtLink>
-                <NuxtLink to="/services">Servicios</NuxtLink>
-                <NuxtLink to="/">Habitaciones</NuxtLink>
-                <NuxtLink to="/">Contact</NuxtLink>
+                <NuxtLink to="/">HABITACIONES</NuxtLink>
+                <NuxtLink to="/services">SERVICIOS</NuxtLink>
+                <NuxtLink to="/">TATTOO</NuxtLink>
             </div>
-            <img src="/img/reservar.svg" alt="">
+            <div class="logo-container">
+                <div class="logo-name">LEMON TREE</div>
+                <div class="logo-subname">HOSTEL</div>
+            </div>
+            <div class="nav-container">
+                <NuxtLink to="/">CONTACTO</NuxtLink>
+                <img src="/img/reservar.svg" alt="">
+            </div>
         </div>
 
         <div class="mobile">
@@ -29,9 +32,10 @@
         top: 0px;
 
         background-color: white;
-        /* border: 2px solid black; */
-        border-top: 2px solid black;
-        border-bottom: 2px solid black;
+        background-image: url(/img/paper_back.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
     a {
@@ -44,9 +48,35 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        gap: 40px;
+        gap: 50px;
 
-        font-family: "comic";
+        font-family: open-sans;
+        font-weight: bold;
+        font-style: normal;
+        font-size: 20px;
+    }
+
+    .logo-container {
+        font-family: comic-smooth;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .logo-name {
+        font-size: 48px;
+        justify-self: flex-end;
+        padding-top: 8px;
+        margin-bottom: -8px;
+    }
+
+    .logo-subname {
+        font-size: 24px;
+        letter-spacing:30px;
+        text-align: center;
+        padding-left: 30px;
     }
 
     .full {

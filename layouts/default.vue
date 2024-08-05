@@ -1,13 +1,14 @@
 
 <template>
-    <Spidey />
+    <!-- <Spidey />
     <div class="comic-container">
         <Comic />
-    </div>
+    </div> -->
     
     <div class="page-container">
         <Header />
-        <slot />
+            <slot />
+            <img class="whatsapp" src="/img/whatsapp.png" alt="whatsapp">
         <Footer />
     </div>
 </template>
@@ -26,8 +27,6 @@
             
             function get_comic_h() {
                 let comic_h = comic.offsetHeight;
-                console.log("comic_h: "+comic_h);
-                localStorage.setItem('scroll', comic_h);
                 return comic_h;
             }
 
@@ -87,6 +86,12 @@
         min-height: 100vh;
         /* max-height: 100vh;
         overflow-y: scroll; */
+    }
+
+    .whatsapp {
+        position: fixed;
+        bottom: 40px;
+        left: 87vw;
     }
 
 </style>

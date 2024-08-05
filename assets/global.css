@@ -1,8 +1,28 @@
 html body {
     margin: 0;
     padding: 0;
+}
 
-    background-image: url(/img/boseto.jpg);
+@font-face {
+    font-family: open-sans;
+    src: url(/font/OpenSans-SemiBold.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: open-sans;
+    src: url(/font/OpenSans-Bold.ttf);
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: comic-smooth;
+    src: url(/font/ComicNoteSmooth.ttf);
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
