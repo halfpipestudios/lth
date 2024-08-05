@@ -19,7 +19,10 @@
 
         <div class="mobile">
             <img src="/img/hamburger.svg" alt="">
-            <img src="/img/reservar.svg" alt="">
+            <div class="logo-container">
+                <div class="logo-name">LEMON TREE</div>
+                <div class="logo-subname">HOSTEL</div>
+            </div>
         </div>
     </header>
 
@@ -83,7 +86,7 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
-        height: 120px;
+        height: 116px;
     }
 
     .mobile {
@@ -100,7 +103,21 @@
             display: flex;
             align-items: center;
             justify-content: space-around;
-            height: 61px;
+            height: 81px;
+        }
+
+        .logo-name {
+            font-size: 34px;
+            justify-self: flex-end;
+            padding-top: 8px;
+            margin-bottom: -8px;
+        }
+
+        .logo-subname {
+            font-size: 18px;
+            letter-spacing:21px;
+            text-align: center;
+            padding-left: 21px;
         }
     }
 
