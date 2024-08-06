@@ -1,9 +1,9 @@
 <template>
     <footer>
-        <img src="/img/logo_template.svg" alt="">
+        <img src="/img/logo.svg" alt="logo footer">
         <div class="info">
             <div class="info-child">
-                <img src="/img/ubi.svg" alt="">
+                <img class="ubi-image" src="/img/ubi.svg" alt="">
                 <div class="ubi">
                     <p>RP82 Luján de Cuyo</p>
                     <p>Mendoza</p>
@@ -29,6 +29,27 @@
 
 <style scoped>
 
+
+    .redes {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .redes img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .logo-container {
+        font-family: comic-smooth;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+    }
+
     .info {
         display: flex;
         flex-direction: column;
@@ -43,12 +64,10 @@
     .info-child img {
         width: 22px;
     }
-
-    .redes {
-        display: flex;
-        flex-direction: row;
-        gap: 40px;
-        padding-top: 60px;
+    
+    .ubi-image {
+        align-self: flex-start;
+        padding-top: 5px;
     }
 
     .ubi p {
@@ -56,17 +75,21 @@
     }
 
     footer {
-        background-color: white;
-        /* border: 2px solid black; */
-        border-top: 2px solid black;
-        border-bottom: 2px solid black;
         height: 345px;
+        background-color: white;
+        background-image: url(/img/paper_back_fliped.jpg);
+        background-size: cover;
+        background-position: bottom;
+        background-repeat: no-repeat;
 
         display: flex;
         align-items: center;
         justify-content: space-around;
 
-        font-family: "comic";
+        font-family: open-sans;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 20px;
     }
 
     @media screen and (max-width: 1110px) {
