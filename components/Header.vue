@@ -3,16 +3,16 @@
     <header>
         <div class="full">
             <div class="nav-container">
-                <NuxtLink to="/">HABITACIONES</NuxtLink>
-                <NuxtLink to="/services">SERVICIOS</NuxtLink>
-                <NuxtLink to="/">TATTOO</NuxtLink>
+                <NuxtLink to="/">{{ texts["navbar-habitaciones"] }}</NuxtLink>
+                <NuxtLink to="/services">{{ texts["navbar-servicios"] }}</NuxtLink>
+                <NuxtLink to="/">{{ texts["navbar-tattoo"] }}</NuxtLink>
             </div>
             <div class="logo-container">
                 <div class="logo-name">LEMON TREE</div>
                 <div class="logo-subname">HOSTEL</div>
             </div>
             <div class="nav-container">
-                <NuxtLink to="/">CONTACTO</NuxtLink>
+                <NuxtLink to="/">{{ texts["navbar-contacto"] }}</NuxtLink>
                 <img src="/img/reservar.svg" alt="">
                 <div class="language">
                     <select>
@@ -45,10 +45,10 @@
             </div>
 
             <div class="menu">
-                <NuxtLink class="close-menu" to="/">HABITACIONES</NuxtLink>
-                <NuxtLink class="close-menu" to="/services">SERVICIOS</NuxtLink>
-                <NuxtLink class="close-menu" to="/">TATTOO</NuxtLink>
-                <NuxtLink class="close-menu" to="/">CONTACTO</NuxtLink>
+                <NuxtLink class="close-menu" to="/">{{ texts["navbar-habitaciones"] }}</NuxtLink>
+                <NuxtLink class="close-menu" to="/services">{{ texts["navbar-servicios"] }}</NuxtLink>
+                <NuxtLink class="close-menu" to="/">{{ texts["navbar-tattoo"] }}</NuxtLink>
+                <NuxtLink class="close-menu" to="/">{{ texts["navbar-contacto"] }}</NuxtLink>
                 <img src="/img/reservar.svg" alt="">
             </div>
 
@@ -58,6 +58,10 @@
 </template>
 
 <script setup>
+
+    const { data: texts } = await useFetch('/api/header_eng');
+    console.log(texts.value);
+    
 
     onMounted(() => {
 
