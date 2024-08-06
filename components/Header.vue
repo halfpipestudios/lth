@@ -18,15 +18,65 @@
         </div>
 
         <div class="mobile">
-            <img src="/img/hamburger.svg" alt="">
-            <div class="logo-container">
-                <div class="logo-name">LEMON TREE</div>
-                <div class="logo-subname">HOSTEL</div>
+            
+            <div class="nav">
+                <img class="hamburger" src="/img/hamburger.svg" alt="">
+                <div class="logo-container">
+                    <div class="logo-name">LEMON TREE</div>
+                    <div class="logo-subname">HOSTEL</div>
+                </div>
             </div>
+
+
+            <div class="menu">
+                <NuxtLink class="close-menu" to="/">HABITACIONES</NuxtLink>
+                <NuxtLink class="close-menu" to="/services">SERVICIOS</NuxtLink>
+                <NuxtLink class="close-menu" to="/">TATTOO</NuxtLink>
+                <NuxtLink class="close-menu" to="/">CONTACTO</NuxtLink>
+                <img src="/img/reservar.svg" alt="">
+            </div>
+
         </div>
     </header>
 
 </template>
+
+<script setup>
+    
+    onMounted(() => {
+
+        var hamburger_is_open = false;
+
+        const menu = document.querySelector(".menu");
+        const hamburger = document.querySelector(".hamburger");
+        
+        hamburger.onclick = () => {
+
+            hamburger_is_open = !hamburger_is_open;
+
+            if(hamburger_is_open) {
+                menu.style.display = "flex";
+            } else {
+                menu.style.display = "none";
+                
+            }
+
+        }
+
+        const menu_items = document.getElementsByClassName("close-menu");
+        for(const item of menu_items) {
+            item.onclick = () => {
+                menu.style.display = "none";
+                hamburger_is_open = false;
+            };
+        }
+
+    });
+
+
+
+
+</script>
 
 <style scoped>
 
@@ -37,7 +87,7 @@
         background-color: white;
         background-image: url(/img/paper_back.jpg);
         background-size: cover;
-        background-position: center;
+        background-position: top;
         background-repeat: no-repeat;
     }
 
@@ -101,9 +151,26 @@
 
         .mobile {
             display: flex;
+            flex-direction: column;
+        }
+
+        .nav {
+            display: flex;
+            flex-direction: row;
             align-items: center;
             justify-content: space-around;
             height: 81px;
+        }
+
+        .menu {
+            font-family: open-sans;
+            font-weight: bold;
+
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
         }
 
         .logo-name {

@@ -91,7 +91,7 @@
     .whatsapp {
         position: fixed;
         bottom: 40px;
-        left: 87vw;
+        right: 20px
     }
 
 </style>
