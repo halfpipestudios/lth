@@ -15,9 +15,10 @@
                 <NuxtLink to="/">{{ texts["navbar-contacto"] }}</NuxtLink>
                 <img src="/img/reservar.svg" alt="">
                 <div class="language">
-                    <select>
+                    <select v-model="lang_selected" @change="fetchTexts">
                         <option value="es">ESP</option>
                         <option value="en">ENG</option>
+                        <option value="pt">PTR</option>
                     </select>
                 </div>
             </div>
@@ -37,9 +38,10 @@
                 </div>
 
                 <div class="language">
-                    <select>
+                    <select v-model="lang_selected" @change="fetchTexts">
                         <option value="es">ESP</option>
                         <option value="en">ENG</option>
+                        <option value="pt">PTR</option>
                     </select>
                 </div>
             </div>
@@ -53,18 +55,32 @@
             </div>
 
         </div>
+        <p>Browser Default Language: {{ lang_ext }}</p>
     </header>
 
 </template>
 
 <script setup>
 
-    const { data: texts } = await useFetch('/api/header_eng');
-    console.log(texts.value);
+    // NOTE: Get texts base on browser language
+    const lang_ext = useState('preferredLanguage').value.toString().split('-')[0];
     
+    const lang_selected = ref(lang_ext);
+    const texts = ref({})
 
-    onMounted(() => {
+    const { data } = await useFetch("/api/header_" + lang_selected.value);
+    texts.value = data.value;
 
+    const fetchTexts = async () => {
+        const data = await $fetch("/api/header_" + lang_selected.value, {
+            method: 'GET',
+        });
+        texts.value = data;
+    };
+
+    onMounted(async () => {
+
+        // NOTE: Update hamburger menu
         var hamburger_is_close = true;
 
         const mobile = document.querySelector(".mobile");
@@ -106,6 +122,8 @@
         for(const item of menu_items) {
             item.onclick = close_hamburger_menu;
         }
+
+        // NOTE: Update language menu
 
     });
 
