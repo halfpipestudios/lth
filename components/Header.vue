@@ -61,7 +61,7 @@
 
     onMounted(() => {
 
-        var hamburger_is_open = false;
+        var hamburger_is_close = true;
 
         const mobile = document.querySelector(".mobile");
 
@@ -78,6 +78,7 @@
             close_icon.style.display = "block";
             language.style.visibility = "visible";
             logo.style.visibility = "hidden";
+            hamburger_is_close = false;
         }
 
         function close_hamburger_menu() {
@@ -86,18 +87,15 @@
             close_icon.style.display = "none";
             language.style.visibility  = "hidden";
             logo.style.visibility = "visible";
+            hamburger_is_close = true;
         }
 
         hamburger.onclick = () => {
-
-            hamburger_is_open = !hamburger_is_open;
-
-            if(hamburger_is_open) {
+            if(hamburger_is_close) {
                 open_hamburger_menu();
             } else {
                 close_hamburger_menu();
             }
-
         }
 
         const menu_items = document.getElementsByClassName("close-menu");
