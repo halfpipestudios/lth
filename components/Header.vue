@@ -2,7 +2,6 @@
 
     <header>
         <div class="full">
-
             <div class="nav-container">
                 <NuxtLink to="/">HABITACIONES</NuxtLink>
                 <NuxtLink to="/services">SERVICIOS</NuxtLink>
@@ -22,7 +21,6 @@
                     </select>
                 </div>
             </div>
-
         </div>
 
         <div class="mobile">
@@ -60,7 +58,7 @@
 </template>
 
 <script setup>
-    
+
     onMounted(() => {
 
         var hamburger_is_open = false;
@@ -108,9 +106,6 @@
         }
 
     });
-
-
-
 
 </script>
 

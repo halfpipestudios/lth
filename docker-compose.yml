@@ -1,8 +1,15 @@
 version: "3"
 services:
-  lth:
+  node:
     build: .
     ports:
       - "3000:3000"
-  # lth-data:
-  #   build: ./pocketbase
+    depends_on:
+      - pocketbase
+
+  pocketbase:
+    build: ./pocketbase
+    ports:
+      - "8090:8090"
+    volumes:
+      - /pb/pb_data:/pb/pb_data
