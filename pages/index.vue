@@ -35,13 +35,16 @@
     </section>
     <section class="contacto">
         <form action="">
-            <div class="contacto-form">
-                <input class="contacto-input" type='text' placeholder='Nombre Completo'>
-                <input class="contacto-input" type='text' placeholder='Correo electónico'>
-                <input class="contacto-input" type='text' placeholder='Telefono'>
-                <textarea class="contacto-input" placeholder="Mensaje"></textarea>
+            <div class="contacto-center">
+                <div class="contacto-form">
+                    <input class="contacto-input" type='text' placeholder='Nombre Completo'>
+                    <input class="contacto-input" type='text' placeholder='Correo electónico'>
+                    <input class="contacto-input" type='text' placeholder='Telefono'>
+                    <textarea class="contacto-input" placeholder="Mensaje"></textarea>
+                </div>
+                <input class="contacto-button" type="button" value="Enviar">
+                <img class="wolve" src="/img/wolve.png" alt="">
             </div>
-            <input class="contacto-button" type="button" value="Enviar">
         </form>
     </section>
 </template>
@@ -61,19 +64,66 @@
 
         padding-top: 87px;
         padding-bottom: 87px;
+
     }
 
+
     .contacto form {
+        resize: none;
         width: 1338px;
         height: 575px;
 
         background-color: #ffffff;
         border-radius: 15px;
-
+        
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
+
+        position: relative;
+    }
+
+    .contacto .wolve {
+        position: absolute;
+        left: -70px;
+        top: -230px;
+
+        background-color: transparent;
+        scale: 0.6;
+
+        pointer-events: none;
+    }
+
+    .contacto input {
+        padding: 20px;
+
+        font-family: open-sans;
+        font-size: 24px;
+    }
+
+    ::placeholder {
+        color: #999999;
+        opacity: 1;
+    }
+
+    .contacto textarea {
+        resize: none;
+        padding: 20px;
+
+        font-family: open-sans;
+        font-size: 24px;
+    }
+
+    .contacto .contacto-center {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: center;
+        
+        gap: 54px;
+        padding-left: 54px;
+        padding-right: 54px;
     }
 
     .contacto .contacto-form {
@@ -82,9 +132,9 @@
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 6fr;
         gap: 11px;
-        
+
         height: 464px;
-        margin: 40px;
+        width: 781px;
     }
     
     .contacto-input:nth-child(1) {
@@ -120,15 +170,17 @@
     }
 
     .contacto .contacto-button {
+        resize: none;
         width: 395px;
         height: 77px;
         background-color: #BF0000;
         border-radius: 15px;
         border: none;
-        align-self: flex-end;
-
-        margin-bottom: 55px;
-        margin-right: 40px
+        
+        color: white;
+        font-family: open-sans;
+        font-weight: bold;
+        font-size: 32px
     }
 
     .cards {
