@@ -175,7 +175,9 @@
         grid-template-columns: 1fr auto 1fr;
         grid-template-rows: 1fr;
         
-        height: 116px;
+        --navbar-height: 116px;
+
+        height: var(--navbar-height);
     }
 
     .mobile {

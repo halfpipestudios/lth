@@ -4,13 +4,14 @@
     <div class="comic-container">
         <Comic />
     </div> -->
-    
-    <div class="page-container">
-        <Header />
+
+    <Header />
+        <div class="page">
             <slot />
-            <img class="whatsapp" src="/img/whatsapp.png" alt="whatsapp">
-        <Footer />
-    </div>
+        </div>
+        <img class="whatsapp" src="/img/whatsapp.png" alt="whatsapp">
+    <Footer />
+
 </template>
 
 <script setup>
@@ -73,6 +74,18 @@
 
 <style scoped>
 
+    Header {
+        z-index: 10;
+    }
+
+    Footer {
+        z-index: 10;
+    }
+
+    .page {
+        z-index: 0;
+    }
+
     .comic-container {
         display: flex;
         justify-content: center;
@@ -82,16 +95,11 @@
         z-index: 1;
     }
 
-    .page-container {
-        min-height: 100vh;
-        /* max-height: 100vh;
-        overflow-y: scroll; */
-    }
-
     .whatsapp {
         position: fixed;
-        bottom: 40px;
-        right: 20px
+        bottom: 120px;
+        right: 80px
     }
+
 
 </style>

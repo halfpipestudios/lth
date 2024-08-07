@@ -87,7 +87,7 @@
         justify-content: space-around;
 
         font-family: open-sans;
-        font-weight: normal;
+        font-weight: 600;
         font-style: normal;
         font-size: 20px;
     }
