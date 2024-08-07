@@ -174,8 +174,6 @@
         display: grid;
         grid-template-columns: 1fr auto 1fr;
         grid-template-rows: 1fr;
-        
-        --navbar-height: 116px;
 
         height: var(--navbar-height);
     }
@@ -185,7 +183,6 @@
     }
 
     @media screen and (max-width: 1110px) {
-
         .full {
             display: none;
         }
@@ -229,7 +226,7 @@
             align-items: center;
             justify-content: space-around;
             
-            height: 81px;
+            height: var(--navbar-mobile-height);
             width: 100%;
         }
 

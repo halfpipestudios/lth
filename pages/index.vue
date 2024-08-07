@@ -8,27 +8,10 @@
             <img class="arrow-down" src="/img/arrow_down.svg" alt="arrow pointing down">
         </div>
     </section>
-    <section class="cards">
-        
-        <div class="card">
-            <div class="card-image">
-                <img src="/img/pool_card.png" alt="pool card">
-            </div>
-            <div class="card-text-container">
-                <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae maxime asperiores deserunt, velit nobis, autem dolorem accusamus quasi eaque reiciendis laboriosam exercitationem molestias placeat eius sed ipsum! Laudantium temporibus sint officia quod esse nam, cupiditate voluptatibus labore, accusantium earum nihil?</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="/img/pirate_card.png" alt="pool card">
-            </div>
-            <div class="card-text-container">
-                <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae maxime asperiores deserunt, velit nobis, autem dolorem accusamus quasi eaque reiciendis laboriosam exercitationem molestias placeat eius sed ipsum! Laudantium temporibus sint officia quod esse nam, cupiditate voluptatibus labore, accusantium earum nihil?</p>
-            </div>
-        </div>
+    <section class="cards">    
+        <Card />
+        <Card />
+        <Card />
     </section>
     <section class="padded-image">
 
@@ -67,7 +50,6 @@
 
     }
 
-
     .contacto form {
         resize: none;
         width: 1338px;
@@ -86,11 +68,11 @@
 
     .contacto .wolve {
         position: absolute;
-        left: -70px;
-        top: -230px;
+        left: -100px;
+        top: -260px;
 
         background-color: transparent;
-        scale: 0.6;
+        scale: 0.64;
 
         pointer-events: none;
     }
@@ -195,73 +177,25 @@
         gap: 87px;
         padding-top: 87px;
     }
+    
+    @media screen and (max-width: 1110px) {
+        .cards {
+            width: 100%;
+            background-color: #ededed;
 
-    .card {
-        background-color: #ffffff;
-        height: 600px;
-        width: 1338px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
-        border-radius: 15px;
-
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-
-        overflow: hidden;
+            gap: 17px;
+            padding-top: 17px;
+        }
     }
 
-    .card:nth-child(even) {
-        flex-direction: row-reverse;
-    }
 
-    .card-image {
-        width: 50%;
-        height: 100%;
-    }
-
-    .card-image img {
-        object-fit: fill;
-    }
-
-    .card-text-container {
-        width: 50%;
-        height: 100%;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-    }
-
-    .card-text-container h2 {
-        font-size: 36px;
-        font-family: comic;
-        font-weight: bold;
-        text-align: center;
-
-        margin: 0;
-        padding: 20px;
-        margin-left: 20px;
-
-    }
-
-    .card-text-container p {
-        font-size: 24px;
-        font-family: open-sans;
-        font-weight: normal;
-        text-align: left;
-
-        margin: 0;
-        padding: 20px;
-        margin-left: 20px;
-
-    }
 
     .fullscreen {
-        --navbar-height: 116px;
-
         width: 100%;
         height: calc(100vh - var(--navbar-height));
         background-color: red;

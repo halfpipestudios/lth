@@ -1,6 +1,10 @@
 html body {
     margin: 0;
     padding: 0;
+
+    --navbar-height: 116px;
+    --navbar-mobile-height: 81px;
+
 }
 
 @font-face {
