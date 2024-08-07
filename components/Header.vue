@@ -3,19 +3,19 @@
     <header>
         <div class="full">
             <div class="nav-container">
-                <NuxtLink to="/">{{ texts["navbar-habitaciones"] }}</NuxtLink>
-                <NuxtLink to="/services">{{ texts["navbar-servicios"] }}</NuxtLink>
-                <NuxtLink to="/">{{ texts["navbar-tattoo"] }}</NuxtLink>
+                <NuxtLink to="/">{{ texts["header-navbar-habitaciones"] }}</NuxtLink>
+                <NuxtLink to="/services">{{ texts["header-navbar-servicios"] }}</NuxtLink>
+                <NuxtLink to="/">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
             </div>
             <div class="logo-container">
                 <div class="logo-name">LEMON TREE</div>
                 <div class="logo-subname">HOSTEL</div>
             </div>
             <div class="nav-container">
-                <NuxtLink to="/">{{ texts["navbar-contacto"] }}</NuxtLink>
+                <NuxtLink to="/">{{ texts["header-navbar-contacto"] }}</NuxtLink>
                 <img src="/img/reservar.svg" alt="">
                 <div class="language">
-                    <select v-model="lang_selected" @change="fetchTexts">
+                    <select v-model="language">
                         <option value="es">ESP</option>
                         <option value="en">ENG</option>
                         <option value="pt">PTR</option>
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="language">
-                    <select v-model="lang_selected" @change="fetchTexts">
+                    <select v-model="language">
                         <option value="es">ESP</option>
                         <option value="en">ENG</option>
                         <option value="pt">PTR</option>
@@ -47,36 +47,23 @@
             </div>
 
             <div class="menu">
-                <NuxtLink class="close-menu" to="/">{{ texts["navbar-habitaciones"] }}</NuxtLink>
-                <NuxtLink class="close-menu" to="/services">{{ texts["navbar-servicios"] }}</NuxtLink>
-                <NuxtLink class="close-menu" to="/">{{ texts["navbar-tattoo"] }}</NuxtLink>
-                <NuxtLink class="close-menu" to="/">{{ texts["navbar-contacto"] }}</NuxtLink>
+                <NuxtLink class="close-menu" to="/">{{ texts["header-navbar-habitaciones"] }}</NuxtLink>
+                <NuxtLink class="close-menu" to="/services">{{ texts["header-navbar-servicios"] }}</NuxtLink>
+                <NuxtLink class="close-menu" to="/">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
+                <NuxtLink class="close-menu" to="/">{{ texts["header-navbar-contacto"] }}</NuxtLink>
                 <img src="/img/reservar.svg" alt="">
             </div>
 
         </div>
-        <p>Browser Default Language: {{ lang_ext }}</p>
     </header>
 
 </template>
 
 <script setup>
 
-    // NOTE: Get texts base on browser language
-    const lang_ext = useState('preferredLanguage').value.toString().split('-')[0];
-    
-    const lang_selected = ref(lang_ext);
-    const texts = ref({})
-
-    const { data } = await useFetch("/api/header_" + lang_selected.value);
-    texts.value = data.value;
-
-    const fetchTexts = async () => {
-        const data = await $fetch("/api/header_" + lang_selected.value, {
-            method: 'GET',
-        });
-        texts.value = data;
-    };
+    // NOTE: Global text test
+    const texts = useState('texts');
+    const language = useState('language');
 
     onMounted(async () => {
 
