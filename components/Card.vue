@@ -86,8 +86,6 @@
 
     @media screen and (max-width: 1110px) {
         .card {
-            
-            width: 75%;
             height: initial;
             min-width: 290px;
             max-height: initial;
