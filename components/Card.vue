@@ -91,7 +91,7 @@
             height: initial;
             min-width: 290px;
             max-height: initial;
-            max-width: 550px;
+            max-width: 400px;
             aspect-ratio: initial;
             
             overflow: initial;
@@ -139,11 +139,13 @@
 
         .card-text-container h2 {
             font-size: 20px;
+            padding: 10px 10px 0px 10px;
 
         }
 
         .card-text-container p {
             font-size: 15px;
+            padding: 10px 10px 10px 10px;
         }
 
     }

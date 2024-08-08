@@ -1,7 +1,7 @@
 
 <template>
-     <!-- <Spidey />
-    <div class="comic-container">
+     <!-- <Spidey /> -->
+    <!-- <div class="comic-container">
         <Comic />
     </div>  -->
 
@@ -16,9 +16,9 @@
 
 <script setup>
 
-    const { $gsap, $ScrollTrigger } = useNuxtApp();
-    const main = ref();
-    const ctx = ref();
+    // const { $gsap, $ScrollTrigger } = useNuxtApp();
+    // const main = ref();
+    // const ctx = ref();
 
     // onMounted(() => {
 
