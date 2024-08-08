@@ -6,6 +6,7 @@
         <textarea class="contacto-input" placeholder="Mensaje"></textarea>
         <div class="contacto-button-container contacto-input">
             <input class="contacto-button" type="button" value="Enviar">
+            <img class="wolve-full" src="/img/wolve.png" alt="">
         </div>
     </form>
 </template>
@@ -44,8 +45,6 @@
         max-width: 1338px;
 
         border-radius: 15px;
-
-        overflow: hidden;
 
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -86,6 +85,8 @@
         display: flex;
         align-items: flex-end;
         justify-content: center;
+        
+        position: relative;
     }
 
     .contacto-button {
@@ -108,7 +109,23 @@
         font-size: 2vw;
     }
 
+    .wolve-full {
+        position: absolute;
+        right: 13%;
+        bottom: -1%;
+
+        width: 270%;
+        background-color: transparent;
+
+        pointer-events: none;
+    }
+
+
     @media screen and (max-width: 1110px) {
+        .wolve-full {
+            display: none;
+        }
+
         .contacto-form {
             aspect-ratio: initial;
             height: 575px;
