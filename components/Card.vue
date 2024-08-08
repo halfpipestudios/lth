@@ -14,13 +14,10 @@
 </script>
 
 <style scoped>
-
     .card {
         --card-aspec-ratio: calc(1338 / 600);
 
         background-color: #ffffff;
-        /* height: 600px;
-        width: 1338px; */
         width: 75%;
         aspect-ratio: var(--card-aspec-ratio);
 
@@ -89,36 +86,51 @@
 
     @media screen and (max-width: 1110px) {
         .card {
-            height: 600px;
+            
             width: 75%;
+            height: initial;
             min-width: 290px;
+            max-height: initial;
+            max-width: 550px;
+            aspect-ratio: initial;
+            
+            overflow: initial;
             
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-
-            overflow: hidden;
         }
         
         .card-image {
             width: 100%;
-            height: 50%;
-            resize: none;
+            height: 290px;
+            
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+        }
+
+        .card-image img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
         }
 
         .card-text-container {
             width: 100%;
-            height: 50%;
+            height: auto;
 
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-
-            overflow-y: scroll;
-            scrollbar-width: none;
-
         }
 
         .card:nth-child(even) {
