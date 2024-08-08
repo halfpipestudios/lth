@@ -7,8 +7,10 @@
                 <input class="contacto-input" type='text' placeholder='Telefono'>
                 <textarea class="contacto-input" placeholder="Mensaje"></textarea>
             </div>
-            <input class="contacto-button" type="button" value="Enviar">
-            <img class="wolve" src="/img/wolve.png" alt="">
+            <div class="contacto-button-container" >
+                <input class="contacto-button" type="button" value="Enviar">
+                <img class="wolve" src="/img/wolve.png" alt="">
+            </div>
         </div>
     </form>
 </template>
@@ -20,34 +22,28 @@
 <style scoped>
 
     form {
-        resize: none;
-        width: 1338px;
-        height: 575px;
+        --form-aspec-ratio: calc(1338 / 600);
+        --form-percentage: 75%;
 
         background-color: #ffffff;
+        width: 75%;
+        aspect-ratio: var(--form-aspec-ratio);
+
+        max-height: 600px;
+        max-width: 1338px;
+
+        border: solid white 80px;
         border-radius: 15px;
+        box-sizing: border-box;
         
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-
-        position: relative;
-
-    }
-
-    .wolve {
-        position: absolute;
-        left: 390px;
-        top: 30px;
-
-        background-color: transparent;
-        transform: scale(.6) translate(-50%, -50%);
-        
-        pointer-events: none;
     }
 
     input {
+        width: 100%;
         padding: 20px;
 
         font-family: open-sans;
@@ -71,22 +67,23 @@
         display: flex;
         flex-direction: row;
         align-items: flex-end;
-        justify-content: center;
-        
+        justify-content: space-between;
+
         gap: 54px;
-        padding-left: 54px;
-        padding-right: 54px;
+        
+        width: 100%;
+        height: 100%;
     }
 
     .contacto-form {
-        
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 6fr;
         gap: 11px;
 
-        height: 464px;
-        width: 781px;
+        width: var(--form-percentage);
+        height: 100%;
+        max-width: 781px;
     }
     
     .contacto-input:nth-child(1) {
@@ -115,15 +112,30 @@
         box-sizing: border-box;
     }
 
-    div {
-        width: 100%;
+    .contacto-button-container {
         display: flex;
-        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        width: calc(calc(100% - var(--form-percentage)) + 100px);
+        position: relative;
+    }
+
+    .wolve {
+        position: absolute;
+        right: 3.5vw;
+        bottom: 20px;
+
+        background-color: transparent;
+
+        width: 50vw;
+        height: auto;
+        
+        pointer-events: none;
     }
 
     .contacto-button {
-        resize: none;
-        width: 395px;
+        width: 100%;
         height: 77px;
         background-color: #BF0000;
         border-radius: 15px;
