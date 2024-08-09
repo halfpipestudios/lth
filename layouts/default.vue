@@ -1,7 +1,8 @@
 
 <template>
-     <!-- <Spidey /> -->
-    <!-- <div class="comic-container">
+    
+    <!-- <Spidey />
+    <div class="comic-container">
         <Comic />
     </div>  -->
 
@@ -59,11 +60,7 @@
     //             },
     //             invalidateOnRefresh:true,
     //         });
-
-
     //     }, main.value);
-
-
     // });
 
     // onUnmounted(() => {
@@ -97,8 +94,8 @@
 
     .whatsapp {
         position: fixed;
-        bottom: 120px;
-        right: 80px
+        bottom: 20px;
+        right: 20px
     }
 
 

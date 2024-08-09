@@ -1,18 +1,30 @@
 <template>
+    
     <section>
         <FullScreen />
     </section>
-    <section class="cards">    
-        <Card />
-        <Card />
-        <Card />
-    </section>
-    <section class="padded-image">
 
+    <section class="cards">
+        <Card />
+        <Card />
+        <Card />
     </section>
-    <section class="contacto">
+
+    <section class="cards">
+        <Separator />
+    </section>
+
+    <section 
+        class="cards"
+        style="padding-top: 100px;"
+    >
         <Contacto />
     </section>
+
+    <section class="cards last">
+        <Maps />
+    </section>
+
 </template>
 
 <script setup>
@@ -20,15 +32,7 @@
 
 <style scoped>
 
-    .contacto {
-        width: 100%;
-        background-color: #ededed;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        padding-top: 87px;
+    .last {
         padding-bottom: 87px;
     }
 
