@@ -8,6 +8,7 @@
             <input class="contacto-button" type="button" value="Enviar">
             <img class="wolve-full" src="/img/wolve.png" alt="">
         </div>
+        <img class="wolve-mobile" src="/img/wolve_mobile.png" alt="">
     </form>
 </template>
 
@@ -23,7 +24,7 @@
         font-size: 1vw;
         border-radius: 15px;
         border: solid #B4B4B4 1px;
-        padding: 1vw;
+        padding: 20px;
     }
 
     .contacto-input-style {
@@ -31,7 +32,7 @@
         font-size: 1vw;
         border-radius: 15px;
         border: solid #B4B4B4 1px;
-        padding: 1vw;
+        padding: 20px;
     }
 
     .contacto-form {
@@ -110,6 +111,7 @@
     }
 
     .wolve-full {
+        display: block;
         position: absolute;
         right: 13%;
         bottom: -1%;
@@ -120,10 +122,19 @@
         pointer-events: none;
     }
 
+    .wolve-mobile {
+        position: absolute;
+        display: none;
+    }
+
 
     @media screen and (max-width: 1110px) {
-        .wolve-full {
-            display: none;
+        textarea {
+            padding: 10px;
+        }
+
+        .contacto-input-style {
+            padding: 10px;
         }
 
         .contacto-form {
@@ -134,6 +145,11 @@
 
             display: flex;
             flex-direction: column;
+            margin-top: min(14vw, 80px);
+
+            position: relative;
+
+            padding: 20px;
         }
 
         textarea {
@@ -150,6 +166,26 @@
             margin: 0;
             font-size: 18px;
         }
+
+        .wolve-mobile {
+            display: block;
+            position: absolute;
+            right: 5%;
+            top: 0;
+
+            transform: translateY(-100%);
+
+            width: 96%;
+            background-color: transparent;
+
+            pointer-events: none;
+        }
+
+        .wolve-full {
+            position: absolute;
+            display: none;
+        }
+
     }
 
 </style>
