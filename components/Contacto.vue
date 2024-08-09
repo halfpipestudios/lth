@@ -137,13 +137,12 @@
 
         .card {
             padding: 20px;
-            margin-top: 40px;
+            height: 475px;
         }
 
         .card form {
             aspect-ratio: initial;
-            height: 575px;
-
+            
             display: flex;
             flex-direction: column;
             

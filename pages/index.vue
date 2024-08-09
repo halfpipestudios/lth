@@ -16,7 +16,7 @@
 
     <section 
         class="cards"
-        style="padding-top: 100px;"
+        style="padding-top: max(80px, 8vw);"
     >
         <Contacto />
     </section>

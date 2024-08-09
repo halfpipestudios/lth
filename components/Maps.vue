@@ -2,6 +2,7 @@
     <CardBase>
         <div class="text-container">
             <h2>¿DONDE ESTAMOS?</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eos voluptate officiis sint autem atque corporis. Quae totam architecto ullam?</p>
         </div>
         <div class="map-container">
             <iframe
@@ -65,8 +66,12 @@
 
     @media screen and (max-width: 1110px) {
 
+        .card {
+            height: 500px;
+        }
+
         .card iframe {
-            height: 400px;
+            height: 100%;
             aspect-ratio: 1;
         }
 
@@ -82,7 +87,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
 
             padding: 10px;
             box-sizing: border-box;
@@ -90,11 +95,13 @@
 
         .text-container h2 {
             font-size: 20px;
-            margin-top: 20px;
+            margin: 0;
+            padding-bottom: 0;
         }
 
         .text-container p {
             font-size: 15px;
+            margin: 0;
         }
     }
 
