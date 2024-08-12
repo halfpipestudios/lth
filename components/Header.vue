@@ -5,7 +5,7 @@
             <div class="nav-container">
                 <NuxtLink to="/">{{ texts["header-navbar-habitaciones"] }}</NuxtLink>
                 <NuxtLink to="/services">{{ texts["header-navbar-servicios"] }}</NuxtLink>
-                <NuxtLink to="/">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
+                <NuxtLink to="/tattoo">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
             </div>
             <div class="logo-container">
                 <div class="logo-name">LEMON TREE</div>
@@ -49,7 +49,7 @@
             <div class="menu">
                 <NuxtLink class="close-menu" to="/">{{ texts["header-navbar-habitaciones"] }}</NuxtLink>
                 <NuxtLink class="close-menu" to="/services">{{ texts["header-navbar-servicios"] }}</NuxtLink>
-                <NuxtLink class="close-menu" to="/">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
+                <NuxtLink class="close-menu" to="/tattoo">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
                 <NuxtLink class="close-menu" to="/">{{ texts["header-navbar-contacto"] }}</NuxtLink>
                 <img src="/img/reservar.svg" alt="">
             </div>
@@ -109,8 +109,6 @@
         for(const item of menu_items) {
             item.onclick = close_hamburger_menu;
         }
-
-        // NOTE: Update language menu
 
     });
 

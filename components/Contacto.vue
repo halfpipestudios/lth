@@ -137,6 +137,7 @@
 
         .card {
             padding: 20px;
+            padding-top: 50px;
             height: 475px;
         }
 

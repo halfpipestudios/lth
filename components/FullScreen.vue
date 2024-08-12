@@ -78,7 +78,9 @@
 
         .fullscreen h1 {
             font-size: 48px;
+            -webkit-text-stroke: 1px black;
         }
+
     }
 
 </style>

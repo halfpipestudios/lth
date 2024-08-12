@@ -5,18 +5,15 @@
     <div class="comic-container">
         <Comic />
     </div>  -->
-
     <Header />
         <div class="page">
             <slot />
         </div>
         <img class="whatsapp" src="/img/whatsapp.png" alt="whatsapp">
     <Footer />
-
 </template>
 
 <script setup>
-
     // const { $gsap, $ScrollTrigger } = useNuxtApp();
     // const main = ref();
     // const ctx = ref();
@@ -66,7 +63,6 @@
     // onUnmounted(() => {
     //     ctx.value.revert(); 
     // });
-
 </script>
 
 <style scoped>
