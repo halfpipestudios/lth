@@ -125,7 +125,6 @@
         background-size: cover;
         background-position: top;
         background-repeat: no-repeat;
-        
     }
 
     a {

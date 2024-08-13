@@ -1,8 +1,10 @@
 <template>
     <CardBase>
-        <a class="back">&#10094;</a>
-        <a class="forward">&#10095;</a>
-        <slot />
+        <button class="arrow-button back">&#10094;</button>
+        <button class="arrow-button forward">&#10095;</button>
+        <div class="content">
+            <slot />
+        </div>
     </CardBase>
 </template>
 
@@ -10,29 +12,63 @@
 
     onMounted(async () => {
 
-        var slidePosition = 1;
+        var current = 0;
 
-        function plus_slides(n) {
-            slide_show(slidePosition += n);
+        function next_slide() {
+            let slides = document.getElementsByClassName("carrousel-item");
+            let previus = current;
+            current = (current + 1) % slides.length;
+            start_leave_to_left_animation(slides[previus]);
+            start_enter_from_right_animation(slides[current]);
         }
 
-        function slide_show(n) {
-            var i;
-            var slides = document.getElementsByClassName("carrousel-item");
-
-            if (n > slides.length) {slidePosition = 1}
-            if (n < 1) {slidePosition = slides.length}
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            
-            slides[slidePosition-1].style.display = "block";
+        function prev_slide() {
+            let slides = document.getElementsByClassName("carrousel-item");
+            let previus = current;
+            current = (current - 1) < 0 ? (slides.length - 1) : (current - 1);
+            start_leave_to_right_animation(slides[previus]);
+            start_enter_from_left_animation(slides[current]);
         }
 
-        slide_show(1);
+        document.getElementsByClassName("carrousel-item")[0].style.display = "block";
 
-        document.querySelector(".back").onclick = () => { plus_slides(-1) };
-        document.querySelector(".forward").onclick = () => { plus_slides(+1) };
+        let back = document.querySelector(".back");
+        let forward = document.querySelector(".forward");
+
+        back.onclick = () => { prev_slide() };
+        forward.onclick = () => { next_slide() };
+
+        function start_leave_to_left_animation(slide) {
+            start_animation(slide, "leave-to-left-carrousel", "none");
+        }
+
+        function start_enter_from_right_animation(slide) {
+            start_animation(slide, "enter-from-right-carrousel", "block");
+        }
+
+        function start_leave_to_right_animation(slide) {
+            start_animation(slide, "leave-to-right-carrousel", "none");
+        }
+
+        function start_enter_from_left_animation(slide) {
+            start_animation(slide, "enter-from-left-carrousel", "block");
+        }
+
+        function start_animation(slide, anim, display) {
+            forward.disabled = true;
+            back.disabled = true;
+
+            slide.style.display = "block";
+            slide.classList.add(anim);
+
+            slide.addEventListener("animationend", () => {
+                forward.disabled = false;
+                back.disabled = false;
+                slide.classList.remove(anim);
+                slide.style.display = display;
+            }, {once: true});
+
+        }
 
     });
 
@@ -58,11 +94,18 @@
         z-index: 1;
     }
 
+    .content {
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+    }
+
     .back {
         position: absolute;
         top: 50%;
         left: 40px;
         transform: translateY(-50%);
+        z-index: 2;
     }
 
     .forward {
@@ -70,6 +113,18 @@
         top: 50%;
         right: 40px;
         transform: translateY(-50%);
+        z-index: 2;
+    }
+
+    .arrow-button {
+        color: white;
+        background-color: transparent;
+        border: none;
+        font-size: 40px;
+    }
+
+    .arrow-button:hover {
+        color: #aaaaaa;
     }
 
 </style>

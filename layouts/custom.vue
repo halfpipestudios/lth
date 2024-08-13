@@ -4,7 +4,7 @@
             <slot />
         </div>
         <img class="whatsapp" src="/img/whatsapp.png" alt="whatsapp">
-    <Footer />
+    <FooterTattoo />
 </template>
 
 <script setup>
@@ -22,6 +22,9 @@
 
     .page {
         z-index: 0;
+        background-color: #1E1E1E;
+        padding-top: 57px;
+        padding-bottom: 57px;
     }
 
     .whatsapp {

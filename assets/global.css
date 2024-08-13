@@ -84,4 +84,75 @@ html body {
     width: 100%;
     height: 100%;
     display: none;
+
+}
+
+/* slide animations */
+
+.enter-from-right-carrousel {
+    animation: enter-from-right-carrousel;
+    animation-duration: 1s;
+}
+
+.leave-to-left-carrousel {
+    animation: leave-to-left-carrousel;
+    animation-duration: 1s;
+}
+
+
+@keyframes enter-from-right-carrousel {
+    
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes leave-to-left-carrousel {
+    
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Prev slide animations */
+
+.enter-from-left-carrousel {
+    animation: enter-from-left-carrousel;
+    animation-duration: 1s;
+}
+
+.leave-to-right-carrousel {
+    animation: leave-to-right-carrousel;
+    animation-duration: 1s;
+}
+
+
+@keyframes enter-from-left-carrousel {
+    
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes leave-to-right-carrousel {
+    
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
 }
