@@ -1,12 +1,32 @@
 <template>
     <CardBase>
-        <img src="/img/garden.png" alt="pool card">
+        <img :src=image alt="card image">
         <div>
-            <h2 class="card-title">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae maxime asperiores deserunt, velit nobis, autem dolorem accusamus quasi eaque reiciendis laboriosam exercitationem molestias placeat eius sed ipsum! Laudantium temporibus sint officia quod esse nam, cupiditate voluptatibus labore, accusantium earum nihil?</p>
+            <h2 class="card-title">{{ title }}</h2>
+            <p class="card-text">{{ text }}</p>
         </div>
     </CardBase>
 </template>
+
+<script setup>
+
+    const props = defineProps({
+        image: {
+            type: String,
+            required: true,
+        },
+        title: {
+            type: String,
+            required: true,
+        },
+        text: {
+            type: String,
+            required: true,
+        },
+    });
+
+</script>
+
 
 <style scoped>
     

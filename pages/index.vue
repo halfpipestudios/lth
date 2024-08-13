@@ -7,18 +7,18 @@
     <section class="cards">
 
         <div class="carrousel-container">
-            <div class="carrousel-element">
+            
+            <div class="carrousel-element" v-for="(card_container, i) in cards" :key="i">
                 <div class="card-container">
-                    <Card />
-                    <Card />
+                    <Card 
+                        v-for="(card, j) in card_container" :key="j"
+                        :image="card.image"
+                        :title="card.title"
+                        :text="card.text"
+                    />
                 </div>
             </div>
-            <div class="carrousel-element">
-                <div class="card-container">
-                    <Card />
-                    <Card />
-                </div>
-            </div>
+
             <button class="arrow-button back">&#10094;</button>
             <button class="arrow-button forward">&#10095;</button>
         </div>
@@ -32,9 +32,69 @@
 </template>
 
 <script setup>
+    
+    const { $pb } = useNuxtApp();
+    const language = useState("language");
+    let interval = ref( {start: 1, end: 5} );
+    let cards = ref([]);
+
+
     onMounted(async () => {
 
+
+
+        async function update_cards() {
+            const record = await $pb.collection('Cards').getList(interval.value.start, interval.value.end);
+            const items = record.items;
+            console.log(items);
+            
+            const number_of_pairs = Math.floor(items.length / 2);
+            const extra_card = items.length % 2;
+            const total_array_size = number_of_pairs + extra_card;
+            console.log("total array size: " + total_array_size);
+
+            let result = [];
+            let item_index = 0;
+
+            const push_item = (index) => {
+                return {
+                    "title": items[index]["Nombre_"+language.value],
+                    "text": items[index]["Texto_"+language.value],
+                    "image": $pb.getFileUrl(items[index], items[index]["Imagen"]),
+                };
+            };
+
+            for(let i = 0; i < total_array_size; ++i) {
+
+                if(i === (total_array_size-1) && extra_card === 1) {
+                    result.push([
+                        push_item(item_index++)
+                    ]);
+                } else {
+                    result.push([
+                        push_item(item_index++),
+                        push_item(item_index++)
+                    ]);
+                }
+
+            }
+
+            cards.value = result;
+
+        }
+        
+        await update_cards();
+        watch(interval, update_cards);
+        watch(language, update_cards);
+
         var current = 0;
+
+        let elements = document.getElementsByClassName("carrousel-element");
+        for(let element of elements) {
+            element.style.display = "none";
+        }
+        if(elements.length) elements[0].style.display = "block";
+        
 
         function next_slide() {
             let slides = document.getElementsByClassName("carrousel-element");
@@ -52,8 +112,6 @@
             start_enter_from_left_animation(slides[current]);
         }
 
-        document.getElementsByClassName("carrousel-element")[0].style.display = "block";
-
         let back = document.querySelector(".back");
         let forward = document.querySelector(".forward");
 
@@ -69,7 +127,7 @@
         }
 
         function start_leave_to_right_animation(slide) {
-            start_animation(slide, "leave-to-right-carrousel", "block");
+            start_animation(slide, "leave-to-right-carrousel", "none");
         }
 
         function start_enter_from_left_animation(slide) {
