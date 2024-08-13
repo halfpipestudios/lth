@@ -7,7 +7,8 @@
     <section class="cards">
 
         <div class="carrousel-container">
-            
+            <Card style="visibility: hidden" />
+            <Card style="visibility: hidden" />
             <div class="carrousel-element" v-for="(card_container, i) in cards" :key="i">
                 <div class="card-container">
                     <Card 
@@ -156,12 +157,8 @@
 <style scoped>
 
     .carrousel-container {
-
-        --card-aspec-ratio: calc(1338 / 1064);
-
         width: 100%;
-        aspect-ratio: var(--card-aspec-ratio);
-
+        
         position: relative;
 
         background-color: transparent;

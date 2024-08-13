@@ -7,10 +7,10 @@
 <style scoped>
 
     .card {
-        --card-aspec-ratio: calc(1338 / 600);
+        --card-aspec-ratio: calc(1338 / 496);
 
         background-color: #ffffff;
-        width: 70%;
+        width: 60%;
         aspect-ratio: var(--card-aspec-ratio);
 
         max-height: 600px;
