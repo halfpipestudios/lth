@@ -10,7 +10,7 @@
         --card-aspec-ratio: calc(1338 / 600);
 
         background-color: #ffffff;
-        width: 75%;
+        width: 70%;
         aspect-ratio: var(--card-aspec-ratio);
 
         max-height: 600px;
@@ -24,7 +24,6 @@
         justify-content: center;
 
         overflow: hidden;
-        box-sizing: border-box;
     }
 
     

@@ -77,6 +77,8 @@
 
     .page {
         z-index: 0;
+        background-color: #ededed;
+        padding-bottom: 57px;
     }
 
     .comic-container {
@@ -91,7 +93,9 @@
     .whatsapp {
         position: fixed;
         bottom: 20px;
-        right: 20px
+        right: 20px;
+        z-index: 11;
+    
     }
 
 

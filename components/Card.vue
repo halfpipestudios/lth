@@ -11,28 +11,29 @@
 <style scoped>
     
     .card-title {
-        font-size: clamp(24px, 2vw, 36px);
+        font-size: clamp(24px, 1.5vw, 36px);
         font-family: comic;
         font-weight: bold;
         text-align: center;
 
         margin: 0;
-        padding: 40px 40px 20px 40px
+        padding: 20px 20px 10px 20px
     }
 
     .card-text {
-        font-size: clamp(16px, 1.2vw, 24px);
+        font-size: clamp(16px, 1vw, 24px);
         font-family: open-sans;
         font-weight: normal;
         text-align: left;
 
         margin: 0;
-        padding: 20px 40px 40px 40px;
+        padding: 10px 20px 20px 20px;
     }
 
     img {
         width: 50%;
         height: 100%;
+        object-fit: cover;
     }
 
     .card div {

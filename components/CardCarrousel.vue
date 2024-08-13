@@ -123,7 +123,7 @@
         font-size: 40px;
     }
 
-    .arrow-button:hover {
+    .arrow-button:disabled {
         color: #aaaaaa;
     }
 
