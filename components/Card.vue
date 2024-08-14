@@ -1,11 +1,11 @@
 <template>
-    <CardBase>
+    <div class="card">
         <img :src=image alt="card image">
         <div>
             <h2 class="card-title">{{ title }}</h2>
             <p class="card-text">{{ text }}</p>
         </div>
-    </CardBase>
+    </div>
 </template>
 
 <script setup>
@@ -29,45 +29,53 @@
 
 
 <style scoped>
-    
+
+    .card {
+        width: 361px;
+        height: 720px;
+        border-radius: 15px;
+        background-color: #ffffff;
+        overflow: hidden;
+
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
     .card-title {
-        font-size: clamp(24px, 1.5vw, 36px);
+        font-size: 24px;
         font-family: comic;
         font-weight: bold;
         text-align: center;
 
         margin: 0;
-        padding: 20px 20px 10px 20px
+        padding: 0;
     }
 
     .card-text {
-        font-size: clamp(16px, 1vw, 24px);
+        font-size: 20px;
         font-family: open-sans;
         font-weight: normal;
         text-align: left;
 
         margin: 0;
-        padding: 10px 20px 20px 20px;
+        padding: 0;
     }
 
     img {
-        width: 50%;
-        height: 100%;
+        width: 100%;
+        height: 347px;
         object-fit: cover;
     }
 
     .card div {
-        width: 50%;
-        height: 100%;
+        width: 100%;
+        height: auto;
 
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-    }
-
-    .card:nth-child(even) {
-        flex-direction: row-reverse;
     }
 
     @media screen and (max-width: 1110px) {

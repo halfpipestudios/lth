@@ -10,11 +10,11 @@
         --card-aspec-ratio: calc(1338 / 496);
 
         background-color: #ffffff;
-        width: 60%;
+        width: 65%;
         aspect-ratio: var(--card-aspec-ratio);
 
-        max-height: 600px;
-        max-width: 1338px;
+        /* max-height: 600px;
+        max-width: 1338px; */
 
         border-radius: 15px;
 
@@ -24,6 +24,8 @@
         justify-content: center;
 
         overflow: hidden;
+
+        box-sizing: border-box;
     }
 
     

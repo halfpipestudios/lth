@@ -13,7 +13,7 @@
             <CardTattooSeminar 
                 class="carrousel-item"
                 image="/img/profile1.jpg"
-                artist="José"
+                artist="Jose"
                 text="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae ab sint, impedit dignissimos labore doloribus fuga ea facilis illum delectus?"
             />
             <CardTattooSeminar 
