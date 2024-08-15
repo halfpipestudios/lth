@@ -6,15 +6,22 @@
 
     <section class="cards">
 
-        <div class="card-slider-container">
-            <div class="card-slider">
+        <div class="slider">
+            <Card class="dummy-card" image="/img/fire.png" title="dummy" text="dummy" style="visibility: hidden;"/>
+
+            <div class="scroller">
                 <Card v-for="(card, i) in cards" :key="i"
-                    :image="card.image"
-                    :title="card.title"
-                    :text="card.text"
-                    class="card-slider-item"/>
+                        :image="card.image"
+                        :title="card.title"
+                        :text="card.text"
+                        class="scroller-item"/>
             </div>
+            
+            <img class="arrow-right" src="/img/arrow_right.svg" alt="arrow right">
+            <img class="arrow-left" src="/img/arrow_right.svg" alt="arrow left">
+
         </div>
+
 
 
         <Separator />
@@ -34,55 +41,61 @@
 
     onMounted(async () => {
 
-        {
-            const slider = document.querySelector(".card-slider-container");
-            let is_down = false;
-            let mouse_down_pos = 0;
+        const dummy_card = document.querySelector(".dummy-card");
+        const scroller = document.querySelector(".scroller");
+        const right = document.querySelector(".arrow-right");
+        const left = document.querySelector(".arrow-left");
 
-            // slider.classList.add("card-slider-right-gradient");
+        const offset = dummy_card.offsetWidth;
+        
+        scroller.scrollLeft = 0;
+        right.style.visibility = "visible"
+        left.style.visibility = "hidden"
 
-            // slider.addEventListener("scroll", () => {
 
-            //     slider.classList.remove("card-slider-full-gradient")
-            //     slider.classList.remove("card-slider-left-gradient")
-            //     slider.classList.remove("card-slider-right-gradient")
+        left.addEventListener("click", (e) => {
+            scroller.scrollLeft -= offset;
+        });
 
-            //     const max_scroll_left = (slider.scrollWidth - slider.clientWidth);
-            //     const padding = 300;
+        right.addEventListener("click", (e) => {
+            scroller.scrollLeft += offset;
+        });
 
-            //     if(slider.scrollLeft <= padding) {
-            //         slider.classList.add("card-slider-right-gradient")
-            //     } else if(slider.scrollLeft >= (max_scroll_left-padding)) {
-            //         slider.classList.add("card-slider-left-gradient")
-            //     } else {
-            //         slider.classList.add("card-slider-full-gradient")
-            //     }
-            // })
+        scroller.addEventListener("scroll", (e) => {
 
-            slider.addEventListener("mousedown", (e) => {
-                is_down = true;
-                mouse_down_pos = e.clientX;// - slider.offsetLeft;
-            });
+            const max_scroll = scroller.scrollWidth - scroller.clientWidth;
+            console.log("max to scroll: " + max_scroll);
+            
+            const try_remove_mask = (mask, test_mask) => {
+                if(test_mask !== mask && scroller.classList.contains(mask)) {
+                    scroller.classList.remove(mask);
+                }
+            }
 
-            slider.addEventListener("mouseup", (e) => {
-                is_down = false;
-            })
+            const add_mask = (mask) => {
+                try_remove_mask("mask-right", mask);
+                try_remove_mask("mask-left", mask);
+                try_remove_mask("mask-both", mask);
+                if(!scroller.classList.contains(mask)) {
+                    scroller.classList.add(mask);
+                }
+            }
 
-            slider.addEventListener("mousemove", (e) => {
+            if(scroller.scrollLeft <= 0) {
+                left.style.visibility = "hidden"
+            } else if(scroller.scrollLeft >= max_scroll) {
+                right.style.visibility = "hidden"
+            } else {
+                if(right.style.visibility !== "visible") {
+                    right.style.visibility = "visible"
+                }
+                if(left.style.visibility !== "visible") {
+                    left.style.visibility = "visible"
+                }
+            }
+        
+        });
 
-                // console.log("mouse down: " + mouse_down_pos);
-                // console.log("mouse pos: " + e.clientX);
-
-                if(!is_down) return;
-                e.preventDefault();
-                const max_scroll_left = (slider.scrollWidth - slider.clientWidth);
-                const scroll_amout = (e.clientX - mouse_down_pos) * 0.1;
-                let next_scroll = slider.scrollLeft - scroll_amout;
-                next_scroll = Math.min(Math.max(next_scroll, 0), max_scroll_left);
-                slider.scrollLeft = next_scroll; 
-            });
-
-        }
 
         {
             // TODO: Make a really good database plugin
@@ -117,63 +130,61 @@
 
 <style scoped>
 
-    .card-slider-container {
-        width: 75%;
-        
-        mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, transparent 100%);
-    
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        overflow-x: hidden;
+    .arrow-right {
+        position: absolute;
+        right: -150px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
-    .card-slider {
+    .arrow-left {
+        position: absolute;
+        left: -150px;
+        top: 50%;
+        transform: scaleX(-1) translateY(-50%);
+    }
+
+    .slider {
+        width: 65%;
+        position: relative;
+    }
+
+    .scroller {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+
+        /* background-color: rgba(255,0,0,0.3); */
+        
         display: flex;
         flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
         gap: 40px;
-
-        overflow-x: visible;
-        /* scroll-snap-type: x mandatory; */
+        
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         scrollbar-width: none;
-        -ms-overflow-style: none;
-
-        cursor: grab;
-        
-        flex-shrink: 0;
-
-        padding-left: 7%;
-        padding-right: 7%;
-    
-
     }
 
-    .card-slider:active {
-        cursor: grabbing;
-    }
-
-    .card-slider::-webkit-scrollbar {
-        display: none;
-    }
-
-    .card-slider-full-gradient {
-        mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, transparent 100%);
-    }
-    
-    .card-slider-left-gradient {
-        mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 20%);
-    }
-
-    .card-slider-right-gradient {
-        mask-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,1) 20%);
-    }
-
-    .card-slider-item {
+    .scroller-item {
         flex-shrink: 0;
         scroll-snap-align: center;
-        user-select: none;
-        pointer-events: none;
+    }
+
+    .mask-right {
+        mask-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,1) 5%);
+    }
+
+    .mask-left {
+        mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 5%);
+    }
+
+    .mask-both {
+        mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, transparent 100%);
     }
 
     .cards {
@@ -188,20 +199,11 @@
         padding-top: 57px;
         overflow: hidden;
     }
-/*     
+
     @media screen and (max-width: 1110px) {
-        .cards {
-            width: 100%;
-            background-color: #ededed;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            gap: 17px;
-            padding-top: 17px;
+        .slider {
+            width: 80%;
         }
-    } */
+    }
 
 </style>
