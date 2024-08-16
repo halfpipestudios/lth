@@ -120,7 +120,6 @@ onMounted(async () => {
     width: 100%;
 
     overflow-y: hidden;
-    /* background-color: rgba(255,0,0,0.3); */
 
     display: flex;
     flex-direction: row;
@@ -138,18 +137,6 @@ onMounted(async () => {
     flex-shrink: 0;
     scroll-snap-align: center;
 }
-
-/* .mask-right {
-    mask-image: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 1) 5%);
-}
-
-.mask-left {
-    mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 1) 5%);
-}
-
-.mask-both {
-    mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 1) 95%, transparent 100%);
-} */
 
 @media screen and (max-width: 1110px) {
     .slider {

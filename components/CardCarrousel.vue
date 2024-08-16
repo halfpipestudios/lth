@@ -1,14 +1,16 @@
 <template>
     <CardBase>
-        <button class="arrow-button back">&#10094;</button>
-        <button class="arrow-button forward">&#10095;</button>
         <div class="content">
             <slot />
         </div>
+        <img class="arrow arrow-right" src="/img/arrow_white.svg" alt="arrow right">
+        <img class="arrow arrow-left" src="/img/arrow_white.svg" alt="arrow left">
     </CardBase>
 </template>
 
 <script setup>
+
+let can_scroll = true;
 
 onMounted(async () => {
 
@@ -16,6 +18,7 @@ onMounted(async () => {
     var current = 0;
 
     function next_slide() {
+        if (!can_scroll) return;
         let slides = element.getElementsByClassName("carrousel-item");
         let previus = current;
         current = (current + 1) % slides.length;
@@ -24,6 +27,7 @@ onMounted(async () => {
     }
 
     function prev_slide() {
+        if (!can_scroll) return;
         let slides = element.getElementsByClassName("carrousel-item");
         let previus = current;
         current = (current - 1) < 0 ? (slides.length - 1) : (current - 1);
@@ -33,8 +37,8 @@ onMounted(async () => {
 
     element.getElementsByClassName("carrousel-item")[0].style.display = "block";
 
-    let back = element.querySelector(".back");
-    let forward = element.querySelector(".forward");
+    let back = element.querySelector(".arrow-left");
+    let forward = element.querySelector(".arrow-right");
 
     back.onclick = () => { prev_slide() };
     forward.onclick = () => { next_slide() };
@@ -56,15 +60,12 @@ onMounted(async () => {
     }
 
     function start_animation(slide, anim, display) {
-        forward.disabled = true;
-        back.disabled = true;
-
+        can_scroll = false;
         slide.style.display = "block";
         slide.classList.add(anim);
 
         slide.addEventListener("animationend", () => {
-            forward.disabled = false;
-            back.disabled = false;
+            can_scroll = true;
             slide.classList.remove(anim);
             slide.style.display = display;
         }, { once: true });
@@ -82,51 +83,30 @@ onMounted(async () => {
     height: 383px;
 }
 
-a {
-    cursor: pointer;
-    font-size: 80px;
-    color: white;
-    opacity: 50%;
-
-    -webkit-user-select: none;
-    /* Safari */
-    -ms-user-select: none;
-    /* IE 10 and IE 11 */
-    user-select: none;
-    /* Standard syntax */
-    z-index: 1;
-}
-
 .content {
-    z-index: 1;
     width: 100%;
     height: 100%;
 }
 
-.back {
-    position: absolute;
-    top: 50%;
-    left: 40px;
-    transform: translateY(-50%);
-    z-index: 2;
+.arrow {
+    opacity: 0.7;
 }
 
-.forward {
+.arrow:hover {
+    opacity: 1;
+}
+
+.arrow-right {
     position: absolute;
-    top: 50%;
     right: 40px;
+    top: 50%;
     transform: translateY(-50%);
-    z-index: 2;
 }
 
-.arrow-button {
-    color: white;
-    background-color: transparent;
-    border: none;
-    font-size: 40px;
-}
-
-.arrow-button:disabled {
-    color: #aaaaaa;
+.arrow-left {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: scaleX(-1) translateY(-50%);
 }
 </style>

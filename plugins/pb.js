@@ -15,8 +15,8 @@ export default defineNuxtPlugin((nuxtApp) => {
     return cards;
   }
 
-  pb.get_images_carrousel_servicios = async () => {
-    const record = await pb.collection('Carrusel_Servicios').getList(1, 50);
+  pb.get_images_carrousel_servicios = async (carrousel) => {
+    const record = await pb.collection(carrousel).getList(1, 50);
     let result = [];
     for (const image of record.items) {
       result.push({ image: pb.getFileUrl(image, image["Imagen"]) });

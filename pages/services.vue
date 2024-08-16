@@ -28,7 +28,7 @@
     <section class="services">
         <h1>EXCURSIONES</h1>
         <CardCarrousel class="image-carrousel">
-            <img v-for="(image, i) in servicios_images" :key="i" :src="image.image" :alt="'image carruzel ' + i"
+            <img v-for="(image, i) in excursiones_images" :key="i" :src="image.image" :alt="'image carruzel ' + i"
                 class="carrousel-item">
         </CardCarrousel>
         <CardSlider database="Carta_Servicios" />
@@ -37,7 +37,7 @@
     <section class="services">
         <h1>RESTORÁN</h1>
         <CardCarrousel class="image-carrousel">
-            <img v-for="(image, i) in servicios_images" :key="i" :src="image.image" :alt="'image carruzel ' + i"
+            <img v-for="(image, i) in restoran_images" :key="i" :src="image.image" :alt="'image carruzel ' + i"
                 class="carrousel-item">
         </CardCarrousel>
         <CardSlider database="Carta_Servicios" />
@@ -50,7 +50,9 @@
 <script setup>
 
 const { $pb } = useNuxtApp();
-const servicios_images = await $pb.get_images_carrousel_servicios();
+const servicios_images = await $pb.get_images_carrousel_servicios("Carrusel_Servicios");
+const excursiones_images = await $pb.get_images_carrousel_servicios("Carrusel_Excursiones");
+const restoran_images = await $pb.get_images_carrousel_servicios("Carrusel_Restoran");
 
 </script>
 
