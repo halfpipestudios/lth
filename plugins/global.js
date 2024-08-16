@@ -1,5 +1,5 @@
 export default defineNuxtPlugin(async (nuxtApp) => {
-    
+
     // Fetch all texts from database
     const { data, error } = await useFetch('/api/texts');
     const language = useState('language');
@@ -8,7 +8,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
     function update_texts_language() {
         let texts = {};
-        for(const text of language_repo.value) {
+        for (const text of language_repo.value) {
             texts[text.Nombre] = text[language.value];
         }
         return texts;
@@ -17,7 +17,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     const texts = useState('texts', update_texts_language);
 
     watch(language, (newValue, oldValue) => {
-        if(language !== undefined) {
+        if (language !== undefined) {
             texts.value = update_texts_language();
         }
     })
