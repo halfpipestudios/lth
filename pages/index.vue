@@ -5,7 +5,7 @@
     </section>
 
     <section class="cards">
-        <CardSlider database="Carta_Inicio" />
+        <CardSlider database="Carta_Inicio"/>
         <Separator />
         <Maps />
     </section>

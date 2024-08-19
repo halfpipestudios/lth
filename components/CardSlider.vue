@@ -1,18 +1,54 @@
 <template>
-    <div class="slider">
-        <Card class="dummy-card" image="/img/fire.png" title="dummy" text="dummy" style="visibility: hidden;" />
 
-        <div class="scroller">
+    <div class="scroller-container">
+        <div ref="instance" class="scroller">
             <Card v-for="(card, i) in cards" :key="i" :image="card.image" :title="card.title" :text="card.text"
-                class="scroller-item" />
+            class="item" />
         </div>
-
-        <img class="arrow-right" src="/img/arrow_right.svg" alt="arrow right">
-        <img class="arrow-left" src="/img/arrow_right.svg" alt="arrow left">
+        <img ref="instance_r" class="arrow-right" src="/img/arrow_right.svg" alt="arrow right">
+        <img ref="instance_l" class="arrow-left" src="/img/arrow_right.svg" alt="arrow left">
     </div>
+
+
 </template>
 
 <script setup>
+
+function scroller_add_animation(scroller, anim) {
+    if(!scroller.classList.contains(anim)) {
+        scroller.classList.add(anim);
+    }
+}
+
+function scroller_remove_animation(scroller, anim) {
+    if(scroller.classList.contains(anim)) {
+        scroller.classList.remove(anim);
+    }
+}
+
+function update_diffuse_animation(scroller, right, left) {
+    const max_scroll = scroller.scrollWidth - scroller.clientWidth;
+    
+    if(scroller.scrollLeft <= 0) {
+        scroller_remove_animation(scroller, "diffuse-left");
+        scroller_remove_animation(scroller, "diffuse-full");
+        scroller_add_animation(scroller, "diffuse-right");
+        left.style.visibility = "hidden"
+        right.style.visibility = "visible"
+    } else if(scroller.scrollLeft >= max_scroll) {
+        scroller_remove_animation(scroller, "diffuse-right");
+        scroller_remove_animation(scroller, "diffuse-full");
+        scroller_add_animation(scroller, "diffuse-left");
+        left.style.visibility = "visible"
+        right.style.visibility = "hidden"
+    } else {
+        scroller_remove_animation(scroller, "diffuse-right");
+        scroller_remove_animation(scroller, "diffuse-left");
+        scroller_add_animation(scroller, "diffuse-full");
+        left.style.visibility = "visible"
+        right.style.visibility = "visible"
+    }
+}
 
 const props = defineProps({
     database: {
@@ -21,28 +57,47 @@ const props = defineProps({
     },
 });
 
+const instance = ref(null);
+const instance_r = ref(null);
+const instance_l = ref(null);
 
 const { $pb } = useNuxtApp();
-let interval = ref({ start: 1, end: 50 });
-let cards = ref([]);
+const language = useState("language");
 
+var last_amout_of_cards = 0;
+var amout_to_ask = 4;
+let interval = ref({start:1, end:amout_to_ask});
+let cards = ref([]);
+let is_loading = ref(false);
+
+async function fetch_cards(increase) {
+    last_amout_of_cards = cards.value.length;
+    const result = await $pb.get_cards_for_slider(props.database, interval.value);
+    if(increase && last_amout_of_cards <= result.length) {
+        cards.value = result;
+        interval.value.end += amout_to_ask;
+    }
+}
+
+async function handle_scroll(scroller, left, right) {
+    const scroll_position = scroller.scrollLeft + scroller.clientWidth;
+    if(scroll_position >= scroller.scrollWidth && !is_loading.value) {
+        await fetch_cards(true);
+        console.log("new cards!");
+    }
+}
+
+fetch_cards(true);
 
 onMounted(async () => {
 
-    const element = getCurrentInstance().proxy.$el;
+    const scroller = instance.value;
+    const right = instance_r.value;
+    const left = instance_l.value;
 
-    const dummy_card = element.querySelector(".dummy-card");
-    const scroller = element.querySelector(".scroller");
-    const right = element.querySelector(".arrow-right");
-    const left = element.querySelector(".arrow-left");
+    watch(language, () => fetch_cards(false));
 
-    const offset = dummy_card.offsetWidth;
-
-    scroller.scrollLeft = 0;
-    right.style.visibility = "visible"
-    left.style.visibility = "hidden"
-
-
+    const offset = 250;
     left.addEventListener("click", (e) => {
         scroller.scrollLeft -= offset;
     });
@@ -51,96 +106,77 @@ onMounted(async () => {
         scroller.scrollLeft += offset;
     });
 
-    scroller.addEventListener("scroll", (e) => {
-        const max_scroll = scroller.scrollWidth - scroller.clientWidth;
-
-        const try_remove_mask = (mask, test_mask) => {
-            if (test_mask !== mask && scroller.classList.contains(mask)) {
-                scroller.classList.remove(mask);
-            }
-        }
-
-        const add_mask = (mask) => {
-            try_remove_mask("mask-right", mask);
-            try_remove_mask("mask-left", mask);
-            try_remove_mask("mask-both", mask);
-            if (!scroller.classList.contains(mask)) {
-                scroller.classList.add(mask);
-            }
-        }
-
-        if (scroller.scrollLeft <= 0) {
-            left.style.visibility = "hidden"
-        } else if (scroller.scrollLeft >= max_scroll) {
-            right.style.visibility = "hidden"
-        } else {
-            if (right.style.visibility !== "visible") {
-                right.style.visibility = "visible"
-            }
-            if (left.style.visibility !== "visible") {
-                left.style.visibility = "visible"
-            }
-        }
-
+    update_diffuse_animation(scroller, right, left);
+    scroller.addEventListener("scroll", async () => { 
+        await handle_scroll(scroller, left, right);
+        update_diffuse_animation(scroller, right, left);
     });
 
-    const language = useState("language");
-    cards.value = await $pb.get_cards_for_slider(props.database, interval.value);
-    watch(interval, async () => { cards.value = await $pb.get_cards_for_slider(props.database, interval.value) });
-    watch(language, async () => { cards.value = await $pb.get_cards_for_slider(props.database, interval.value) });
 });
 
 </script>
 
 <style scoped>
+
+.scroller-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.scroller {
+    width: 65%;
+    border-radius: 15px;
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+
+    --mask-percentage: 10%;
+    overflow-x: auto;
+    /* scrollbar-width: none; */
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.diffuse-left {
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) var(--mask-percentage));
+    
+}
+
+.diffuse-right {
+    mask-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,1) var(--mask-percentage));
+    
+}
+
+.diffuse-full {
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) var(--mask-percentage),
+    rgba(0,0,0,1) calc(100% - var(--mask-percentage)), transparent 100%);
+    
+}
+
+.item {
+    flex-shrink: 0;
+    scroll-snap-align: center;
+}
+
 .arrow-right {
     position: absolute;
-    right: -150px;
+    right: 10%;
     top: 50%;
     transform: translateY(-50%);
 }
 
 .arrow-left {
     position: absolute;
-    left: -150px;
+    left: 10%;
     top: 50%;
     transform: scaleX(-1) translateY(-50%);
 }
 
-.slider {
-    width: 65%;
-    position: relative;
-}
-
-.scroller {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-
-    overflow-y: hidden;
-
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 40px;
-
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-}
-
-.scroller-item {
-    flex-shrink: 0;
-    scroll-snap-align: center;
-}
-
-@media screen and (max-width: 1110px) {
-    .slider {
-        width: 80%;
-    }
-}
 </style>
