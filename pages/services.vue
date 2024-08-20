@@ -49,10 +49,11 @@
 
 <script setup>
 
-const { $pb } = useNuxtApp();
-const servicios_images = await $pb.get_images_carrousel_servicios("Carrusel_Servicios");
-const excursiones_images = await $pb.get_images_carrousel_servicios("Carrusel_Excursiones");
-const restoran_images = await $pb.get_images_carrousel_servicios("Carrusel_Restoran");
+const { $database } = useNuxtApp();
+
+const servicios_images = await $database.carrousels("Carrusel_Servicios");
+const excursiones_images = await $database.carrousels("Carrusel_Excursiones");
+const restoran_images = await $database.carrousels("Carrusel_Restoran");
 
 </script>
 
@@ -108,7 +109,6 @@ h1 {
         height: initial;
         aspect-ratio: 1;
     }
-
 
     h1 {
         font-size: 63px;

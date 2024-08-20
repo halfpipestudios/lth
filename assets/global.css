@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: stamshons;
-    src: url("/font/The Stamshons Demo.otf");
+    src: url(/font/The-Stamshons-Demo.otf);
     font-weight: normal;
     font-style: normal;
 }
@@ -101,7 +101,7 @@ html body {
 
 
 @keyframes enter-from-right-carrousel {
-    
+
     0% {
         transform: translateX(100%);
     }
@@ -112,7 +112,7 @@ html body {
 }
 
 @keyframes leave-to-left-carrousel {
-    
+
     0% {
         transform: translateX(0);
     }
@@ -136,7 +136,7 @@ html body {
 
 
 @keyframes enter-from-left-carrousel {
-    
+
     0% {
         transform: translateX(-100%);
     }
@@ -147,7 +147,7 @@ html body {
 }
 
 @keyframes leave-to-right-carrousel {
-    
+
     0% {
         transform: translateX(0);
     }

@@ -24,15 +24,15 @@ definePageMeta({
     layout: 'custom'
 });
 
-const { $pb } = useNuxtApp();
+const { $database } = useNuxtApp();
 const language = useState("language");
 const texts = useState("texts");
 
 let interval = ref({ start: 1, end: 50 });
 let seminarios = ref([]);
 
-seminarios.value = await $pb.get_cards_for_tattoo(interval.value);
-watch(language, async () => { seminarios.value = await $pb.get_cards_for_tattoo(interval.value) });
+seminarios.value = await $database.cards("Seminarios", interval.value);
+watch(language, async () => { seminarios.value = await $database.cards("Seminarios", interval.value) });
 
 
 </script>

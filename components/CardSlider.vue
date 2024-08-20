@@ -61,7 +61,6 @@ const instance = ref(null);
 const instance_r = ref(null);
 const instance_l = ref(null);
 
-const { $pb } = useNuxtApp();
 const language = useState("language");
 
 var last_amout_of_cards = 0;
@@ -70,9 +69,13 @@ let interval = ref({start:1, end:amout_to_ask});
 let cards = ref([]);
 let is_loading = ref(false);
 
+const { $database } = useNuxtApp();
+
 async function fetch_cards(increase) {
     last_amout_of_cards = cards.value.length;
-    const result = await $pb.get_cards_for_slider(props.database, interval.value);
+    
+    const result = await $database.cards(props.database, interval.value);
+
     if(increase && last_amout_of_cards <= result.length) {
         cards.value = result;
         interval.value.end += amout_to_ask;
@@ -88,15 +91,15 @@ async function handle_scroll(scroller, left, right) {
     }
 }
 
-fetch_cards(true);
-
 onMounted(async () => {
+
+    await fetch_cards(true);
 
     const scroller = instance.value;
     const right = instance_r.value;
     const left = instance_l.value;
 
-    watch(language, () => fetch_cards(false));
+    watch(language, async () => await fetch_cards(false));
 
     const offset = 250;
     left.addEventListener("click", (e) => {
