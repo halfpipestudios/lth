@@ -1,11 +1,29 @@
 <template>
-    <div>
-        <h1>Lemon Tree Hostel</h1>
-    </div>
+
+    <section>
+        <FullScreen />
+    </section>
+
+    <section class="cards">
+        <CardSlider database="Carta_Inicio"/>
+        <Separator />
+        <Maps />
+    </section>
+
 </template>
 
-<script setup>
-</script>
 
 <style scoped>
+.cards {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 57px;
+    padding-top: 57px;
+    overflow: hidden;
+}
 </style>

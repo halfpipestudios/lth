@@ -3,21 +3,22 @@
     <header>
         <div class="full">
             <div class="nav-container">
-                <NuxtLink to="/">HABITACIONES</NuxtLink>
-                <NuxtLink to="/services">SERVICIOS</NuxtLink>
-                <NuxtLink to="/">TATTOO</NuxtLink>
+                <NuxtLink to="/">{{ texts["header-navbar-habitaciones"] }}</NuxtLink>
+                <NuxtLink to="/services">{{ texts["header-navbar-servicios"] }}</NuxtLink>
+                <NuxtLink to="/tattoo">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
             </div>
             <div class="logo-container">
                 <div class="logo-name">LEMON TREE</div>
                 <div class="logo-subname">HOSTEL</div>
             </div>
             <div class="nav-container">
-                <NuxtLink to="/">CONTACTO</NuxtLink>
+                <NuxtLink to="/">{{ texts["header-navbar-contacto"] }}</NuxtLink>
                 <img src="/img/reservar.svg" alt="">
                 <div class="language">
-                    <select>
+                    <select v-model="language">
                         <option value="es">ESP</option>
                         <option value="en">ENG</option>
+                        <option value="pt">PTR</option>
                     </select>
                 </div>
             </div>
@@ -37,18 +38,19 @@
                 </div>
 
                 <div class="language">
-                    <select>
+                    <select v-model="language">
                         <option value="es">ESP</option>
                         <option value="en">ENG</option>
+                        <option value="pt">PTR</option>
                     </select>
                 </div>
             </div>
 
             <div class="menu">
-                <NuxtLink class="close-menu" to="/">HABITACIONES</NuxtLink>
-                <NuxtLink class="close-menu" to="/services">SERVICIOS</NuxtLink>
-                <NuxtLink class="close-menu" to="/">TATTOO</NuxtLink>
-                <NuxtLink class="close-menu" to="/">CONTACTO</NuxtLink>
+                <NuxtLink class="close-menu" to="/">{{ texts["header-navbar-habitaciones"] }}</NuxtLink>
+                <NuxtLink class="close-menu" to="/services">{{ texts["header-navbar-servicios"] }}</NuxtLink>
+                <NuxtLink class="close-menu" to="/tattoo">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
+                <NuxtLink class="close-menu" to="/">{{ texts["header-navbar-contacto"] }}</NuxtLink>
                 <img src="/img/reservar.svg" alt="">
             </div>
 
@@ -59,8 +61,13 @@
 
 <script setup>
 
-    onMounted(() => {
+    // NOTE: Global text test
+    const texts = useState('texts');
+    const language = useState('language');
 
+    onMounted(async () => {
+
+        // NOTE: Update hamburger menu
         var hamburger_is_close = true;
 
         const mobile = document.querySelector(".mobile");
@@ -165,8 +172,8 @@
         display: grid;
         grid-template-columns: 1fr auto 1fr;
         grid-template-rows: 1fr;
-        
-        height: 116px;
+
+        height: var(--navbar-height);
     }
 
     .mobile {
@@ -174,7 +181,6 @@
     }
 
     @media screen and (max-width: 1110px) {
-
         .full {
             display: none;
         }
@@ -218,7 +224,7 @@
             align-items: center;
             justify-content: space-around;
             
-            height: 81px;
+            height: var(--navbar-mobile-height);
             width: 100%;
         }
 

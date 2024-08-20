@@ -88,10 +88,7 @@
     --rows: 5;
     --ratio: 1.2;
 
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(var(--cols), 1fr);
-    grid-template-rows: repeat(var(--rows), 1fr);
+
     
     height: 100%;
     aspect-ratio: var(--ratio);

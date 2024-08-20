@@ -87,14 +87,21 @@
         justify-content: space-around;
 
         font-family: open-sans;
-        font-weight: normal;
+        font-weight: 600;
         font-style: normal;
         font-size: 20px;
     }
 
     @media screen and (max-width: 1110px) {
         footer {
-            display: none;
+            flex-direction: column;
+            height: initial;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .redes {
+            gap: 10px;
         }
     }
 
