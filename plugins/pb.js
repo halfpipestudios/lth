@@ -25,13 +25,17 @@ export default defineNuxtPlugin((nuxtApp) => {
   };
 
   pb.get_cards_for_tattoo = async (interval) => {
-    const record = await pb.collection('Seminarios').getList(interval.start, interval.end);
+    const record = await pb.collection('Seminarios').getList(interval.start, interval.end, {
+      sort: '-created',
+    });
     const result = translate(record.items);
     return result;
   };
 
   pb.get_cards_for_slider = async (database, interval) => {
-    const record = await pb.collection(database).getList(interval.start, interval.end);
+    const record = await pb.collection(database).getList(interval.start, interval.end, {
+      sort: '-created',
+    });
     const result = translate(record.items);
     return result;
   };

@@ -36,19 +36,49 @@ const props = defineProps({
     background-color: #ffffff;
     overflow: hidden;
 
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 0;
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 50%;
+
 }
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.card div {
+    
+    background-color: transparent;
+    box-sizing: border-box;
+    margin: 40px;
+
+    grid-column: 1;
+    grid-row: 2;
+
+    display: grid;
+    gap: 0;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 2fr;
+}
+
 
 .card-title {
     font-size: 24px;
     font-family: comic;
     font-weight: bold;
     text-align: center;
-
+    
     margin: 0;
     padding: 0;
+
+    grid-column: 1;
+    grid-row: 1;
 }
 
 .card-text {
@@ -59,22 +89,9 @@ const props = defineProps({
 
     margin: 0;
     padding: 0;
-}
 
-img {
-    width: 100%;
-    height: 347px;
-    object-fit: cover;
-}
-
-.card div {
-    width: 100%;
-    height: auto;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    grid-column: 1;
+    grid-row: 2;
 }
 
 @media screen and (max-width: 1110px) {
@@ -90,6 +107,10 @@ img {
 
     .card-text {
         font-size: 15px;
+    }
+
+    .card div {
+        margin: 20px;
     }
 
 }

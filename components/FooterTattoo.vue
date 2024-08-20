@@ -96,7 +96,14 @@
 
     @media screen and (max-width: 1110px) {
         footer {
-            display: none;
+            flex-direction: column;
+            height: initial;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .redes {
+            gap: 10px;
         }
     }
 

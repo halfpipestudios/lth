@@ -14,37 +14,37 @@
 
 <script setup>
 
-function scroller_add_animation(scroller, anim) {
+function scroller_add_class(scroller, anim) {
     if(!scroller.classList.contains(anim)) {
         scroller.classList.add(anim);
     }
 }
 
-function scroller_remove_animation(scroller, anim) {
+function scroller_remove_class(scroller, anim) {
     if(scroller.classList.contains(anim)) {
         scroller.classList.remove(anim);
     }
 }
 
-function update_diffuse_animation(scroller, right, left) {
+function update_diffuse_class(scroller, right, left) {
     const max_scroll = scroller.scrollWidth - scroller.clientWidth;
     
     if(scroller.scrollLeft <= 0) {
-        scroller_remove_animation(scroller, "diffuse-left");
-        scroller_remove_animation(scroller, "diffuse-full");
-        scroller_add_animation(scroller, "diffuse-right");
+        scroller_remove_class(scroller, "diffuse-left");
+        scroller_remove_class(scroller, "diffuse-full");
+        scroller_add_class(scroller, "diffuse-right");
         left.style.visibility = "hidden"
         right.style.visibility = "visible"
     } else if(scroller.scrollLeft >= max_scroll) {
-        scroller_remove_animation(scroller, "diffuse-right");
-        scroller_remove_animation(scroller, "diffuse-full");
-        scroller_add_animation(scroller, "diffuse-left");
+        scroller_remove_class(scroller, "diffuse-right");
+        scroller_remove_class(scroller, "diffuse-full");
+        scroller_add_class(scroller, "diffuse-left");
         left.style.visibility = "visible"
         right.style.visibility = "hidden"
     } else {
-        scroller_remove_animation(scroller, "diffuse-right");
-        scroller_remove_animation(scroller, "diffuse-left");
-        scroller_add_animation(scroller, "diffuse-full");
+        scroller_remove_class(scroller, "diffuse-right");
+        scroller_remove_class(scroller, "diffuse-left");
+        scroller_add_class(scroller, "diffuse-full");
         left.style.visibility = "visible"
         right.style.visibility = "visible"
     }
@@ -65,7 +65,7 @@ const { $pb } = useNuxtApp();
 const language = useState("language");
 
 var last_amout_of_cards = 0;
-var amout_to_ask = 4;
+var amout_to_ask = 10;
 let interval = ref({start:1, end:amout_to_ask});
 let cards = ref([]);
 let is_loading = ref(false);
@@ -76,6 +76,8 @@ async function fetch_cards(increase) {
     if(increase && last_amout_of_cards <= result.length) {
         cards.value = result;
         interval.value.end += amout_to_ask;
+    } else {
+        cards.value = result;
     }
 }
 
@@ -83,7 +85,6 @@ async function handle_scroll(scroller, left, right) {
     const scroll_position = scroller.scrollLeft + scroller.clientWidth;
     if(scroll_position >= scroller.scrollWidth && !is_loading.value) {
         await fetch_cards(true);
-        console.log("new cards!");
     }
 }
 
@@ -106,10 +107,10 @@ onMounted(async () => {
         scroller.scrollLeft += offset;
     });
 
-    update_diffuse_animation(scroller, right, left);
+    update_diffuse_class(scroller, right, left);
     scroller.addEventListener("scroll", async () => { 
         await handle_scroll(scroller, left, right);
-        update_diffuse_animation(scroller, right, left);
+        update_diffuse_class(scroller, right, left);
     });
 
 });
@@ -135,11 +136,11 @@ onMounted(async () => {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    gap: 40px;
+    gap: 20px;
 
     --mask-percentage: 10%;
     overflow-x: auto;
-    /* scrollbar-width: none; */
+    scrollbar-width: none;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
 }
@@ -177,6 +178,28 @@ onMounted(async () => {
     left: 10%;
     top: 50%;
     transform: scaleX(-1) translateY(-50%);
+}
+
+@media screen and (max-width: 1110px) { 
+    .arrow-right {
+        display: none;
+    }
+
+    .arrow-left {
+        display: none;
+    }
+
+    .scroller-container {
+        background-color: transparent;
+    }
+
+    .scroller {
+        mask: none;
+        width: 100%;
+        background-color: transparent;
+        padding: 0 20% 0 20%;
+        gap: 20px;
+    }
 }
 
 </style>

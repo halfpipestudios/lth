@@ -6,7 +6,7 @@
             <img v-for="(image, i) in servicios_images" :key="i" :src="image.image" :alt="'image carruzel ' + i"
                 class="carrousel-item">
         </CardCarrousel>
-        <div class="service-grid">
+        <!-- <div class="service-grid">
             <Service />
             <Service />
             <Service />
@@ -21,7 +21,7 @@
             <Service />
             <Service />
             <Service />
-        </div>
+        </div> -->
         <CardSlider database="Carta_Servicios" />
     </section>
 
@@ -71,6 +71,7 @@ h1 {
     color: white;
     -webkit-text-stroke: 1px black;
     margin: 0;
+    margin-top: 40px;
 }
 
 .image-carrousel {
@@ -96,4 +97,25 @@ h1 {
 
     gap: 20px;
 }
+
+
+@media screen and (max-width: 1110px) {
+    .image-carrousel {
+        width: 100%;
+        max-width: initial;
+        max-height: 600px;
+        border-radius: 0;
+        height: initial;
+        aspect-ratio: 1;
+    }
+
+
+    h1 {
+        font-size: 63px;
+        text-align: center;
+        padding: 20px;
+    }
+
+}
+
 </style>

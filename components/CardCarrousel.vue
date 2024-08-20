@@ -89,7 +89,7 @@ onMounted(async () => {
 }
 
 .arrow {
-    opacity: 0.7;
+    opacity: 0.5;
 }
 
 .arrow:hover {

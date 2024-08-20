@@ -19,6 +19,13 @@ const texts = useState("texts");
     background-size: cover;
 
     position: relative;
+
+    height: initial;
+    max-height: initial;
+    aspect-ratio: initial;
+
+    padding: 60px;
+    box-sizing: border-box;
 }
 
 .card img {
@@ -35,12 +42,18 @@ const texts = useState("texts");
     font-size: 64px;
     font-family: comic-smooth;
     text-align: center;
-    padding: 20px;
+    padding: 0;
+    margin: 0;
     -webkit-text-stroke: 1px black;
     z-index: 2;
 }
 
 @media screen and (max-width: 1110px) {
+
+    .card {
+        padding: 40px;
+    }
+
     .card h2 {
         font-size: 40px;
     }
