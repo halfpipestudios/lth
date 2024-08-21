@@ -75,17 +75,21 @@ async function fetch_cards(increase) {
     last_amout_of_cards = cards.value.length;
     
     try {
+        
         const result = await $database.cards(props.database, interval.value);
+
+        if(increase && last_amout_of_cards <= result.length) {
+            cards.value = result;
+            interval.value.end += amout_to_ask;
+        } else {
+            cards.value = result;
+        }
+
     } catch(e) {
         // NOTE: Do nothing
     }
 
-    if(increase && last_amout_of_cards <= result.length) {
-        cards.value = result;
-        interval.value.end += amout_to_ask;
-    } else {
-        cards.value = result;
-    }
+
 }
 
 async function handle_scroll(scroller, left, right) {
