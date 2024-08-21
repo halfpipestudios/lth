@@ -74,7 +74,11 @@ const { $database } = useNuxtApp();
 async function fetch_cards(increase) {
     last_amout_of_cards = cards.value.length;
     
-    const result = await $database.cards(props.database, interval.value);
+    try {
+        const result = await $database.cards(props.database, interval.value);
+    } catch(e) {
+        // NOTE: Do nothing
+    }
 
     if(increase && last_amout_of_cards <= result.length) {
         cards.value = result;
