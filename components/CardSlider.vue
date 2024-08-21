@@ -86,7 +86,8 @@ async function fetch_cards(increase) {
 
 async function handle_scroll(scroller, left, right) {
     const scroll_position = scroller.scrollLeft + scroller.clientWidth;
-    if(scroll_position >= scroller.scrollWidth && !is_loading.value) {
+    const margin = 200;
+    if((scroll_position + margin) >= scroller.scrollWidth && !is_loading.value) {
         await fetch_cards(true);
     }
 }
