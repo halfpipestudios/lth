@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
     });
 
     for (let card of record.items) {
-        card["image"] = pb.getFileUrl(card, card["Imagen"]);
+        card["image"] = `http://154.38.163.72:8090/api/files/${image["Imagen"]}`;
     }
 
     return record;

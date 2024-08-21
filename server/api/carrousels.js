@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
 
     let result = [];
     for (const image of record.items) {
-        result.push({ image: pb.getFileUrl(image, image["Imagen"]) });
+        result.push({ image: `http://154.38.163.72:8090/api/files/${image["Imagen"]}` });
     }
     return result;
 
