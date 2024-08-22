@@ -6,6 +6,8 @@ services:
       - "3000:3000"
     links:
       - pocketbase
+    environment:
+      - POCKETBASE_URL=${POCKETBASE_URL}
 
   pocketbase:
     build: ./pocketbase
@@ -13,4 +15,7 @@ services:
     ports:
       - "8090:8090"
     volumes:
-      - /pb/pb_data:/pb/pb_data
+      - pb_data:/pb/pb_data
+
+volumes:
+  pb_data:
