@@ -13,7 +13,13 @@
             </div>
             <div class="nav-container">
                 <NuxtLink to="/">{{ texts["header-navbar-contacto"] }}</NuxtLink>
-                <img src="/img/reservar.svg" alt="">
+                
+                <div class="reservar-container">
+                    <img src="/img/reservar.svg" alt="">
+                    <div class="reservar-text">{{ texts["header-navbar-reservar"] }}</div>
+                </div>
+
+                
                 <div class="language">
                     <select v-model="language">
                         <option value="es">ESP</option>
@@ -51,7 +57,12 @@
                 <NuxtLink class="close-menu" to="/services">{{ texts["header-navbar-servicios"] }}</NuxtLink>
                 <NuxtLink class="close-menu" to="/tattoo">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
                 <NuxtLink class="close-menu" to="/">{{ texts["header-navbar-contacto"] }}</NuxtLink>
-                <img src="/img/reservar.svg" alt="">
+            
+                <div class="reservar-container">
+                    <img src="/img/reservar.svg" alt="">
+                    <div class="reservar-text">{{ texts["header-navbar-reservar"] }}</div>
+                </div>
+
             </div>
 
         </div>
@@ -115,6 +126,22 @@
 </script>
 
 <style scoped>
+
+    .reservar-container {
+        position: relative;
+    }
+
+    .reservar-text {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+
+        transform: translateY(-50%) translateX(-50%);
+        
+        font-family: comic;
+        font-size: 17;
+        font-weight: bold;
+    }
 
     header {
         position: sticky;
