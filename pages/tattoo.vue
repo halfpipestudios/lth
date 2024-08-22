@@ -9,7 +9,7 @@
         <CardTattoo />
         <CardImages />
 
-        <CardCarrousel>
+        <CardCarrousel class="seminar-carrousel">
             <CardTattooSeminar v-for="(seminario, i) in seminarios" :key="i" :image="seminario.image"
                 :artist="seminario.title" :text="seminario.text" class="carrousel-item" />
         </CardCarrousel>
@@ -58,4 +58,14 @@ watch(language, async () => { seminarios.value = await $database.cards("Seminari
 
     gap: 57px;
 }
+
+@media screen and (max-width: 1110px) {
+    .seminar-carrousel {
+        aspect-ratio: calc(271 / 395);
+        width: 65%;
+        height: auto;
+    }
+}
+
+
 </style>

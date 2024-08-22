@@ -32,7 +32,6 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
     const database = {
         cards: async (db, interval) => {
-            console.log("trying to get cards!");
             try {
                 const records = await $fetch(`/api/cards?database=${db}&start=${interval.start}&end=${interval.end}`);
                 return translate(records.items);
@@ -42,7 +41,6 @@ export default defineNuxtPlugin(async (nuxtApp) => {
         },
 
         carrousels: async (db) => {
-            console.log("trying to get images!");
             try {
                 const records = await $fetch(`/api/carrousels?database=${db}`);
                 return records;

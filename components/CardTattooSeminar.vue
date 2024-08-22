@@ -1,16 +1,16 @@
 <template>
     <div>
+
         <div class="container">
-            <div class="center"> 
-                <div class="center-img">
-                    <img :src=image alt="">
-                </div>
-                <div class="text">
-                    <h2>{{ artist }}</h2>
-                    <p>{{ text }}</p>
-                </div>
+            <div class="img-container">
+                <img :src=image alt="seminar image">
+            </div>
+            <div class="text-container">
+                <h2>{{ artist }}</h2>
+                <p>{{ text }}</p>
             </div>
         </div>
+
     </div>
 </template>
 
@@ -34,32 +34,54 @@
 </script>
 
 <style scoped>
+
     .container {
         width: 100%;
         height: 100%;
 
-        display: flex;
-        align-items: center;
-        justify-content: center
+        display: grid;
+        grid-template-columns: 2fr 4fr;
+        grid-template-rows: 100%;
+        gap:50px;
+
+        overflow-y: auto;
+
     }
 
-    .center {
-        width: 80%;
 
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-    }
-
-    .center-img {
-        width: 100%;
+    .img-container {
+        grid-column: 1;
+        grid-row: 1;
 
         display: flex;
         align-items: center;
         justify-content: center;
+
+        margin-left: 100px;
+
     }
 
-    h2 {
+    .text-container {
+        grid-column: 2;
+        grid-row: 1;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        margin-right: 100px;
+
+    }
+
+    .img-container img {
+        width: 212px;
+        height: 212px;
+        border-radius: 50%;
+        border: 12px solid #0085A5;
+    }
+
+    .text-container h2 {
         font-family: stamshons;
         font-size: 64px;
         color: white;
@@ -67,18 +89,53 @@
         margin: 10px;
     }
 
-    p {
+    .text-container p {
         font-family: open-sans;
         font-size: 24px;
         color: white;
     }
 
-    img {
-        width: 212px;
-        height: 212px;
-        border-radius: 50%;
-        border: 12px solid #0085A5;
-        flex-shrink: 0;
+
+    @media screen and (max-width: 1110px) {
+        .container {
+            grid-template-columns: 100%;
+            grid-template-rows: 1fr 3fr;
+            gap: 0;
+        }
+        
+        .img-container {
+            margin-left: 0;
+            grid-column: 1;
+            grid-row: 1;
+
+            padding-top: 50px;
+        }
+
+        .img-container img {
+            width: 120px;
+            height: 120px;
+            border: 5px solid #0085A5;
+        }
+
+        .text-container {
+            margin-right: 0;
+            grid-column: 1;
+            grid-row: 2;
+
+            justify-content: flex-start;
+            padding: 50px;
+        }
+
+        .text-container h2 {
+            font-size: 40px;
+
+        }
+
+        .text-container p {
+            font-size: 15px;
+        }
     }
+
+
 
 </style>
