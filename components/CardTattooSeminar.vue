@@ -45,7 +45,6 @@
         gap:50px;
 
         overflow-y: hidden;
-
     }
 
 

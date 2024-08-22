@@ -41,6 +41,9 @@ const props = defineProps({
     grid-template-columns: 100%;
     grid-template-rows: 50% 50%;
 
+    flex-shrink: 0;
+    scroll-snap-align: center;
+
 }
 
 img {
