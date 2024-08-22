@@ -79,7 +79,7 @@
     footer {
         height: 345px;
         background-color: white;
-        background-image: url(/img/paper_back_tatto_fliped.png);
+        background-image: url(/img/paper_back_tatto_fliped.jpg);
         background-size: cover;
         background-position: bottom;
         background-repeat: no-repeat;

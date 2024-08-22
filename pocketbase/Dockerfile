@@ -1,9 +1,9 @@
 FROM alpine:latest
 
-WORKDIR /pocketbase
+WORKDIR /pb
 
-COPY . /pocketbase
-RUN chmod +x /pocketbase/pocketbase
+COPY pocketbase /pb
+RUN chmod +x pocketbase
 
 EXPOSE 8090
 

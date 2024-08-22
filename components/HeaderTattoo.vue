@@ -121,7 +121,7 @@
         top: 0px;
 
         background-color: white;
-        background-image: url(/img/paper_back_tatto.png);
+        background-image: url(/img/paper_back_tatto.jpg);
         background-size: cover;
         background-position: top;
         background-repeat: no-repeat;
