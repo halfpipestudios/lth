@@ -42,7 +42,7 @@ const language = useState("language");
 
 let last_amout_of_cards = 0;
 let try_more_cards = true;
-let amout_to_ask = 3;
+let amout_to_ask = 10;
 let interval = ref({start:1, end:amout_to_ask});
 let cards = ref([]);
 let is_loading = false;
