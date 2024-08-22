@@ -44,7 +44,7 @@
         grid-template-rows: 100%;
         gap:50px;
 
-        overflow-y: auto;
+        overflow-y: hidden;
 
     }
 

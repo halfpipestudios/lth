@@ -35,7 +35,9 @@ onMounted(async () => {
         start_enter_from_left_animation(slides[current]);
     }
 
-    element.getElementsByClassName("carrousel-item")[0].style.display = "block";
+    if(element.getElementsByClassName("carrousel-item").length > 0) {
+        element.getElementsByClassName("carrousel-item")[0].style.display = "block";
+    }
 
     let back = element.querySelector(".arrow-left");
     let forward = element.querySelector(".arrow-right");
