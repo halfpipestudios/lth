@@ -72,23 +72,20 @@ let is_loading = ref(false);
 const { $database } = useNuxtApp();
 
 async function fetch_cards(increase) {
+    is_loading.value = true;
+
     last_amout_of_cards = cards.value.length;
-    
-    try {
-        
-        const result = await $database.cards(props.database, interval.value);
+            
+    const result = await $database.cards(props.database, interval.value);
 
-        if(increase && last_amout_of_cards <= result.length) {
-            cards.value = result;
-            interval.value.end += amout_to_ask;
-        } else {
-            cards.value = result;
-        }
-
-    } catch(e) {
-        // NOTE: Do nothing
+    if(increase && last_amout_of_cards <= result.length) {
+        cards.value = result;
+        interval.value.end += amout_to_ask;
+    } else {
+        cards.value = result;
     }
 
+    is_loading.value = false;
 
 }
 
