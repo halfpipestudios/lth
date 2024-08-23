@@ -55,8 +55,8 @@
 h1 {
     font-family: comic-smooth;
     font-size: 96px;
-    color: white;
-    -webkit-text-stroke: 1px black;
+    color: black;
+    /* -webkit-text-stroke: 1px black; */
     margin: 0;
 }
 
