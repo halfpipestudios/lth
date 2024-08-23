@@ -1,0 +1,153 @@
+<template>
+
+<header>
+    <div class="container">
+    
+        <div class="nav left">
+            <NuxtLink to="/">{{ texts["header-navbar-habitaciones"] }}</NuxtLink>
+            <NuxtLink to="/services">{{ texts["header-navbar-servicios"] }}</NuxtLink>
+            <NuxtLink to="/tattoo">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
+        </div>
+
+        <div class="logo">
+            <img src="/img/logo.svg" alt="">
+        </div>
+
+        <div class="nav right">
+
+            <NuxtLink to="/">{{ texts["header-navbar-contacto"] }}</NuxtLink>
+                
+            <div class="reservar">
+                <img src="/img/reservar.svg" alt="">
+                <!-- <div class="reservar-text">{{ texts["header-navbar-reservar"] }}</div> -->
+            </div>
+
+            <div class="language">
+                <select v-model="language">
+                    <option value="es">ESP</option>
+                    <option value="en">ENG</option>
+                    <option value="pt">PTR</option>
+                </select>
+            </div>
+
+        </div>
+
+    </div>
+</header>
+
+</template>
+
+<script setup>
+    const texts = useState('texts');
+    const language = useState('language');
+</script>
+
+<style scoped lang="scss">
+
+    header {
+        position: sticky;
+        top:0;
+
+        --header-height: 116px;
+
+        width: 100%;
+        height: var(--header-height);
+        
+        background-image: url(/img/paper_back.jpg);
+        background-size: cover;
+        background-position: top;
+        background-repeat: no-repeat;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media screen and (max-width: $size-m) {
+            height: calc(var(--header-height) * 0.8);
+        }
+
+    }
+
+    header .container {
+        height: 100%;
+        
+        max-width: $size-l;
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: 2fr 1fr 2fr;
+        grid-template-rows: 100%;
+    }
+
+    .nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        
+        --font-size: 20px;
+
+        font-family: open-sans;
+        font-weight: bold;
+        font-style: normal;
+        font-size: var(--font-size);
+
+        @media screen and (max-width: $size-m) {
+            font-size: calc(var(--font-size) * 0.8);
+        }
+
+    }
+    
+    .reservar img {
+        
+        --reservar-height: 91px;
+        height: var(--reservar-height);
+        
+        @media screen and (max-width: $size-m) {
+            height: calc(var(--reservar-height) * 0.8);
+        }
+
+    }
+
+    .left {
+        grid-column: 1;
+        grid-row: 1;
+
+    }
+
+    .right {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .logo {
+        grid-column: 2;
+        grid-row: 1;
+
+        font-family: comic-smooth;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        color: black;
+
+        margin: 5px;
+    }
+
+    .logo img {
+
+        --logo-height: 40px;
+        height: var(--logo-height);
+
+        @media screen and (max-width: $size-m) {
+            height: calc(var(--logo-height) * 0.8);
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+</style>

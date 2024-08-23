@@ -3,6 +3,18 @@ export default defineNuxtConfig({
   css: [
     '@/assets/global.css',
   ],
+
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "@/assets/variables.scss";',
+        },
+      },
+    },
+  },
+
+
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
 

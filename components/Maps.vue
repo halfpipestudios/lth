@@ -14,7 +14,7 @@
 
 <script setup>
 const texts = useState("texts");
-</script>
+</script>   
 
 <style scoped>
 .map-container {

@@ -28,7 +28,8 @@ const props = defineProps({
 </script>
 
 
-<style scoped>
+<style scoped lang="scss">
+
 .card {
     width: 361px;
     height: 720px;
@@ -97,7 +98,7 @@ img {
     grid-row: 2;
 }
 
-@media screen and (max-width: 1110px) {
+@media screen and (max-width: $size-l) {
 
     .card {
         width: 271px;
