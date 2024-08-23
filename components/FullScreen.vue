@@ -1,12 +1,10 @@
 <template>
     <div class="fullscreen">
-        <img class="filter" src="/img/home_full_filter.png" alt="background filter">
-        <div>
-            <h1>DISFRUTÁ MENDOZA CON NOSOTROS</h1>
-        </div>
-        <div>
-            <img class="arrow-down" src="/img/arrow_down.svg" alt="arrow pointing down">
-        </div>
+        <video muted autoplay disablePictureInPicture >
+            <source 
+                src="https://onefamhostels.com/wp-content/uploads/2024/08/ONEFAM-V8-HD-horizontal-youtube1.mp4"
+                type="video/mp4">
+        </video>
     </div>
 </template>
 
@@ -14,6 +12,13 @@
 </script>
 
 <style scoped>
+
+    video {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
     .fullscreen {
         width: 100%;

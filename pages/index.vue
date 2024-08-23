@@ -1,7 +1,7 @@
 <template>
 
     <div class="home">
-
+        
         <section>
             <FullScreen />
         </section>
