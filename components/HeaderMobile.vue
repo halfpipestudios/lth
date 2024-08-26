@@ -17,19 +17,13 @@
 
     <div ref="expanded" class="expanded">
 
-        <div class="collapsed">
+        <div class="menu">
             
             <div ref="x_button" class="x">
                 <img :src="x" alt="hambuerger menu">
             </div>
 
-            <div class="language">
-                <select v-model="language">
-                    <option value="es">ESP</option>
-                    <option value="en">ENG</option>
-                    <option value="pt">PTR</option>
-                </select>
-            </div>
+            <Language class="language" :theme="theme"/>
 
         </div>
 
@@ -42,6 +36,7 @@
                 
             <div class="reservar">
                 <img :src="reserve" alt="">
+                <div>{{ texts["header-navbar-reservar"] }}</div>
             </div>
 
         </div>
@@ -140,6 +135,14 @@
         grid-template-rows: 100%;
     }
 
+    header .menu {
+        height: 70px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 80px 1fr 140px;
+        grid-template-rows: 100%;
+    }
+
     header .expanded {
         height: 100vh;
         width: 100%;
@@ -204,6 +207,25 @@
     a {
         text-decoration: none;
         color: black;
+    }
+
+    .reservar {
+        position: relative
+    }
+
+    .dark .reservar div {
+        color: white;
+    }
+
+    .light .reservar div {
+        color: black;
+    }
+
+    .reservar div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
     }
 
 
