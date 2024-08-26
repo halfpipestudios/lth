@@ -1,10 +1,10 @@
 <template>
-    <HeaderTattoo />
+    <Header theme="dark"/>
         <div class="page">
             <slot />
         </div>
         <img class="whatsapp" src="/img/whatsapp.png" alt="whatsapp">
-    <FooterTattoo />
+    <Footer theme="dark" />
 </template>
 
 <script setup>

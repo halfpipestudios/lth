@@ -1,7 +1,18 @@
 <template>
-    <HeaderDesktop class="desktop"/>
-    <HeaderMobile class="mobile"/>
+    <HeaderDesktop class="desktop" :theme="theme"/>
+    <HeaderMobile class="mobile" :theme="theme"/>
 </template>
+
+<script setup>
+
+    const props = defineProps({
+        theme: {
+            type: String,
+            default: "light"
+        }
+    });
+
+</script>
 
 <style scoped lang="scss">
 

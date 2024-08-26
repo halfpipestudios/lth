@@ -1,16 +1,16 @@
 <template>
 
-<header>
+<header :class="theme">
         
     <div ref="collapsed" class="collapsed">
         
         <div ref="hamburger_button" class="hamburger">
-            <img src="/img/hamburger.svg" alt="hambuerger menu">
+            <img :src="hamburger" alt="hambuerger menu">
         </div>
         
 
         <div class="logo">
-            <img src="/img/logo.svg" alt="lgo">
+            <img :src="logo" alt="lgo">
         </div>
 
     </div>
@@ -20,7 +20,7 @@
         <div class="collapsed">
             
             <div ref="x_button" class="x">
-                <img src="/img/x.svg" alt="hambuerger menu">
+                <img :src="x" alt="hambuerger menu">
             </div>
 
             <div class="language">
@@ -41,7 +41,7 @@
             <NuxtLink @click="collapse_menu" to="/">{{ texts["header-navbar-contacto"] }}</NuxtLink>
                 
             <div class="reservar">
-                <img src="/img/reservar.svg" alt="">
+                <img :src="reserve" alt="">
             </div>
 
         </div>
@@ -76,9 +76,49 @@
         x_button.value.addEventListener("click", collapse_menu);
     });
 
+    const props = defineProps({
+        theme: {
+            type: String,
+            default: "light"
+        }
+    });
+
+    const logo = computed(() => {
+        return props.theme === "dark" ? "/img/logo_tattoo.svg" : "/img/logo.svg";
+    });
+
+    const reserve = computed(() => {
+        return props.theme === "dark" ? "/img/reservar_tatto.svg" : "/img/reservar.svg";
+    });
+
+    const hamburger = computed(() => {
+        return props.theme === "dark" ? "/img/hamburger_tattoo.svg" : "/img/hamburger.svg";
+    });
+
+    const x = computed(() => {
+        return props.theme === "dark" ? "/img/x_tattoo.svg" : "/img/x.svg";
+    });
+
+
 </script>
 
 <style scoped lang="scss">
+
+    .light {
+        background-image: url(/img/paper_back.jpg);
+    }
+
+    .light a {
+        color: black;
+    }
+
+    .dark {
+        background-image: url(/img/paper_back_tatto.jpg);
+    }
+
+    .dark a {
+        color: white;
+    }
 
     header {
         position: sticky;
