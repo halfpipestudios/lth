@@ -1,6 +1,5 @@
 <template>
-
-<header>
+<header ref="header" :class="theme">
     <div class="container">
     
         <div class="nav left">
@@ -9,8 +8,8 @@
             <NuxtLink to="/tattoo">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
         </div>
 
-        <div class="logo">
-            <img src="/img/logo.svg" alt="">
+        <div ref="logo" class="logo">
+            <img :src="logo" alt="">
         </div>
 
         <div class="nav right">
@@ -18,7 +17,7 @@
             <NuxtLink to="/">{{ texts["header-navbar-contacto"] }}</NuxtLink>
                 
             <div class="reservar">
-                <img src="/img/reservar.svg" alt="">
+                <img :src="reserve" alt="">
                 <!-- <div class="reservar-text">{{ texts["header-navbar-reservar"] }}</div> -->
             </div>
 
@@ -40,9 +39,41 @@
 <script setup>
     const texts = useState('texts');
     const language = useState('language');
+
+    const props = defineProps({
+        theme: {
+            type: String,
+            default: "light"
+        }
+    });
+
+    const logo = computed(() => {
+        return props.theme === "dark" ? "/img/logo_tattoo.svg" : "/img/logo.svg";
+    });
+
+    const reserve = computed(() => {
+        return props.theme === "dark" ? "/img/reservar_tatto.svg" : "/img/reservar.svg";
+    });
+
 </script>
 
 <style scoped lang="scss">
+
+    .light {
+        background-image: url(/img/paper_back.jpg);
+    }
+
+    .light a {
+        color: black;
+    }
+
+    .dark {
+        background-image: url(/img/paper_back_tatto.jpg);
+    }
+
+    .dark a {
+        color: white;
+    }
 
     header {
         position: sticky;
@@ -52,8 +83,7 @@
 
         width: 100%;
         height: var(--header-height);
-        
-        background-image: url(/img/paper_back.jpg);
+
         background-size: cover;
         background-position: top;
         background-repeat: no-repeat;
@@ -147,7 +177,6 @@
 
     a {
         text-decoration: none;
-        color: black;
     }
 
 </style>

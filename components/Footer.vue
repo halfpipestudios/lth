@@ -1,9 +1,9 @@
 <template>
-    <footer>
+    <footer :class="theme">
         <div class="container">
             
             <div class="logo">
-                <img src="/img/logo.svg" alt="logo footer">
+                <img :src="logo" alt="logo footer">
             </div>
 
             <div class="info">
@@ -30,16 +30,67 @@
             </div>
 
             <div class="redes">
-                <img src="/img/link.svg" alt="">
-                <img src="/img/inst.svg" alt="">
-                <img src="/img/face.svg" alt="">
+                <img :src="link" alt="linkedin">
+                <img :src="inst" alt="instagram">
+                <img :src="face" alt="facebook">
             </div>
-
+        </div>
+        <div class="banner">
+            <div class="inner-banner">
+                HALFPIPE ®  -  2024
+            </div>
         </div>
     </footer>
 </template>
 
+<script setup>
+
+    const props = defineProps({
+        theme: {
+            type: String,
+            default: "light"
+        }
+    });
+
+    const logo = computed(() => {
+        return props.theme === "dark" ? "/img/logo_tattoo.svg" : "/img/logo.svg";
+    });
+
+    const link = computed(() => {
+        return props.theme === "dark" ? "/img/link_tattoo.svg" : "/img/link.svg";
+    });
+
+    const inst = computed(() => {
+        return props.theme === "dark" ? "/img/inst_tattoo.svg" : "/img/inst.svg";
+    });
+
+    const face = computed(() => {
+        return props.theme === "dark" ? "/img/face_tattoo.svg" : "/img/face.svg";
+    });
+
+</script>
+
 <style scoped lang="scss">
+
+.light {
+    background-image: url(/img/paper_back_fliped.jpg);
+}
+
+.light .info {
+    color: black;
+}
+
+.dark {
+    background-image: url(/img/paper_back_tatto_fliped.jpg);
+}
+
+.dark .info {
+    color: white;
+}
+
+.dark .info-item img {
+    filter: invert(100%);
+}
 
 
 footer {
@@ -65,6 +116,35 @@ footer {
         height: 520px;
     }
 
+    position: relative;
+}
+
+.banner {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: black;
+}
+
+.inner-banner {
+    height: 100%;
+    width: 100%;
+    max-width: $size-l;
+
+    font-family: open-sans;
+    font-size: 16px;
+    font-weight: bold;
+    color: #868686;
+
+    margin-left: 100px;
 }
 
 footer .container {
