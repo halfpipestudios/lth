@@ -144,7 +144,7 @@ footer {
     font-weight: bold;
     color: #868686;
 
-    margin-left: 100px;
+    margin-left: 10px;
 }
 
 footer .container {
