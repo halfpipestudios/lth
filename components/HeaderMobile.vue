@@ -35,10 +35,10 @@
 
         <div class="links">
 
-            <NuxtLink to="/">{{ texts["header-navbar-habitaciones"] }}</NuxtLink>
-            <NuxtLink to="/services">{{ texts["header-navbar-servicios"] }}</NuxtLink>
-            <NuxtLink to="/tattoo">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
-            <NuxtLink to="/">{{ texts["header-navbar-contacto"] }}</NuxtLink>
+            <NuxtLink @click="collapse_menu"  to="/">{{ texts["header-navbar-habitaciones"] }}</NuxtLink>
+            <NuxtLink @click="collapse_menu" to="/services">{{ texts["header-navbar-servicios"] }}</NuxtLink>
+            <NuxtLink @click="collapse_menu" to="/tattoo">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
+            <NuxtLink @click="collapse_menu" to="/">{{ texts["header-navbar-contacto"] }}</NuxtLink>
                 
             <div class="reservar">
                 <img src="/img/reservar.svg" alt="">
@@ -53,6 +53,7 @@
 </template>
 
 <script setup>
+
     const texts = useState('texts');
     const language = useState('language');
     const hamburger_button = ref(null);
@@ -60,18 +61,20 @@
     const collapsed = ref(null);
     const expanded = ref(null);
 
+    function expand_menu() {
+        collapsed.value.style.display = "none";
+        expanded.value.style.display = "flex";
+    }
+
+    function collapse_menu() {
+        collapsed.value.style.display = "grid";
+        expanded.value.style.display = "none";
+    }
+
     onMounted(() => {
-        hamburger_button.value.addEventListener("click", () => {
-            collapsed.value.style.display = "none";
-            expanded.value.style.display = "flex";
-        });
-
-        x_button.value.addEventListener("click", () => {
-            collapsed.value.style.display = "grid";
-            expanded.value.style.display = "none";
-        });
-
-    })
+        hamburger_button.value.addEventListener("click", expand_menu);
+        x_button.value.addEventListener("click", collapse_menu);
+    });
 
 </script>
 
