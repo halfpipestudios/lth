@@ -18,16 +18,10 @@
                 
             <div class="reservar">
                 <img :src="reserve" alt="">
-                <!-- <div class="reservar-text">{{ texts["header-navbar-reservar"] }}</div> -->
+                <div>{{ texts["header-navbar-reservar"] }}</div>
             </div>
 
-            <div class="language">
-                <select v-model="language">
-                    <option value="es">ESP</option>
-                    <option value="en">ENG</option>
-                    <option value="pt">PTR</option>
-                </select>
-            </div>
+            <Language class="language" :theme="theme"/>
 
         </div>
 
@@ -38,7 +32,6 @@
 
 <script setup>
     const texts = useState('texts');
-    const language = useState('language');
 
     const props = defineProps({
         theme: {
@@ -137,6 +130,25 @@
             height: calc(var(--reservar-height) * 0.8);
         }
 
+    }
+
+    .dark .reservar div {
+        color: white;
+    }
+
+    .light .reservar div {
+        color: black;
+    }
+
+    .reservar {
+        position: relative
+    }
+
+    .reservar div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
     }
 
     .left {

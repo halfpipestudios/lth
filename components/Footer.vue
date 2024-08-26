@@ -108,6 +108,8 @@ footer {
     align-items: center;
     justify-content: center;
 
+    position: relative;
+
     @media screen and (max-width: $size-m) {
         height: calc(var(--footer-height) * 0.8);
     }
@@ -116,7 +118,6 @@ footer {
         height: 520px;
     }
 
-    position: relative;
 }
 
 .banner {
