@@ -14,21 +14,22 @@
         <img :src="arrow_down" alt="arrow down">
     </div>
 
-    <div ref="language_modal" class="language_modal">
-        <div @click="(e) => set_language(e,'es')" class="language_option">
-            <img src="/img/flag_es.svg" :alt="language">
-            <p>ES</p>
-        </div>
-        <div @click="(e) => set_language(e,'en')" ref="en_button" class="language_option">
-            <img src="/img/flag_en.svg" :alt="language">
-            <p>EN</p>
-        </div>
-        <div @click="(e) => set_language(e,'pt')" ref="pt_button" class="language_option">
-            <img src="/img/flag_pt.svg" :alt="language">
-            <p>PT</p>
+    <div ref="language_modal_container" class="language_modal_container">
+        <div ref="language_modal" class="language_modal">
+            <div @click="(e) => set_language(e,'es')" class="language_option">
+                <img src="/img/flag_es.svg" :alt="language">
+                <p>ES</p>
+            </div>
+            <div @click="(e) => set_language(e,'en')" ref="en_button" class="language_option">
+                <img src="/img/flag_en.svg" :alt="language">
+                <p>EN</p>
+            </div>
+            <div @click="(e) => set_language(e,'pt')" ref="pt_button" class="language_option">
+                <img src="/img/flag_pt.svg" :alt="language">
+                <p>PT</p>
+            </div>
         </div>
     </div>
-
 
 </div>
 
@@ -41,9 +42,7 @@
 const language = useState('language');
 const language_selector = ref(null);
 const language_modal = ref(null);
-const es_button = ref(null);
-const en_button = ref(null);
-const pt_button = ref(null);
+const language_modal_container = ref(null);
 
 let language_modal_is_open = false;
 
@@ -72,11 +71,11 @@ const arrow_down = computed(() => {
 });
 
 function open_language_modal(e) {
-    if(!language_modal.value) return;
+    if(!language_modal_container.value) return;
 
     if(language_modal_is_open) return;
     language_modal_is_open = true;
-    language_modal.value.style.display = "flex";
+    language_modal_container.value.style.display = "flex";
     e.stopPropagation();
 }
 
@@ -85,7 +84,7 @@ function close_language_modal(e) {
 
     if(!language_modal_is_open) return;
     language_modal_is_open = false;
-    language_modal.value.style.display = "none";
+    language_modal_container.value.style.display = "none";
     e.stopPropagation();
 }
 
@@ -96,17 +95,29 @@ function set_language(e, lang) {
 }
 
 onMounted(() => {
-
-
-
     language_selector.value.addEventListener("click", open_language_modal);
-    document.addEventListener("click", close_language_modal);
-
+    language_modal_container.value.addEventListener("click", close_language_modal);
 });
 
 </script>
 
 <style scoped lang="scss">
+
+.language_modal_container {
+
+    display: none;
+
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
 
 .dark .language_modal {
     background-image: url(/img/paper_back_tatto.jpg);
@@ -118,11 +129,11 @@ onMounted(() => {
 
 .language_modal {
 
-    position: absolute;
-    top: 50vh;
-    left: 50vw;
+    // position: absolute;
+    // top: 50vh;
+    // left: 50vw;
 
-    transform: translateX(-50%) translateY(-50%);
+    // transform: translateX(-50%) translateY(-50%);
 
     background-color: gray;
     background-image: url(/img/paper_back.jpg);
@@ -132,7 +143,7 @@ onMounted(() => {
 
     user-select: none;
 
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
