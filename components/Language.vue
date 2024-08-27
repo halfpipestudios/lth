@@ -1,22 +1,34 @@
 <template>
 
-<div :class="[theme, 'language-selector']">
+<div ref="language_selector" :class="[theme, 'language-selector']">
 
     <div class="flag">
         <img :src="flag" :alt="language">
     </div>
 
     <div class="selector">
-        <select v-model="language">
-            <option value="es">ESP</option>
-            <option value="en">ENG</option>
-            <option value="pt">PTR</option>
-        </select>
+        <div class="text">{{ language_text }}</div>
     </div>
 
     <div class="arrow">
         <img :src="arrow_down" alt="arrow down">
     </div>
+
+    <div ref="language_modal" class="language_modal">
+        <div @click="(e) => set_language(e,'es')" class="language_option">
+            <img src="/img/flag_es.svg" :alt="language">
+            <p>ES</p>
+        </div>
+        <div @click="(e) => set_language(e,'en')" ref="en_button" class="language_option">
+            <img src="/img/flag_en.svg" :alt="language">
+            <p>EN</p>
+        </div>
+        <div @click="(e) => set_language(e,'pt')" ref="pt_button" class="language_option">
+            <img src="/img/flag_pt.svg" :alt="language">
+            <p>PT</p>
+        </div>
+    </div>
+
 
 </div>
 
@@ -27,12 +39,23 @@
 <script setup>
 
 const language = useState('language');
+const language_selector = ref(null);
+const language_modal = ref(null);
+const es_button = ref(null);
+const en_button = ref(null);
+const pt_button = ref(null);
+
+let language_modal_is_open = false;
 
 const props = defineProps({
     theme: {
         type: String,
         default: "light"
     }
+});
+
+const language_text = computed(() => {
+    return language.value.toUpperCase();
 });
 
 const flag = computed(() => {
@@ -48,10 +71,101 @@ const arrow_down = computed(() => {
     return props.theme === "dark" ? "/img/lang_arrow_down_tattoo.svg" : "/img/lang_arrow_down.svg";
 });
 
+function open_language_modal(e) {
+    if(!language_modal.value) return;
+
+    if(language_modal_is_open) return;
+    language_modal_is_open = true;
+    language_modal.value.style.display = "flex";
+    e.stopPropagation();
+}
+
+function close_language_modal(e) {
+    if(!language_modal.value) return;
+
+    if(!language_modal_is_open) return;
+    language_modal_is_open = false;
+    language_modal.value.style.display = "none";
+    e.stopPropagation();
+}
+
+function set_language(e, lang) {
+    if(!language_modal.value) return;
+    language.value = lang;
+    close_language_modal(e)
+}
+
+onMounted(() => {
+
+
+
+    language_selector.value.addEventListener("click", open_language_modal);
+    document.addEventListener("click", close_language_modal);
+
+});
 
 </script>
 
 <style scoped lang="scss">
+
+.dark .language_modal {
+    background-image: url(/img/paper_back_tatto.jpg);
+}
+
+.light .language_modal {
+    background-image: url(/img/paper_back.jpg);
+}
+
+.language_modal {
+
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+
+    transform: translateX(-50%) translateY(-50%);
+
+    background-color: gray;
+    background-image: url(/img/paper_back.jpg);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+
+    user-select: none;
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+
+    z-index: 5;
+}
+
+.language_option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.dark .language_option p {
+    color: white;
+}
+
+.light .language_option p {
+    color: black
+}
+
+.language_option p {
+    font-family: open-sans;
+    font-weight: bold;
+    font-size: 20px;
+
+    margin: 0;
+    padding: 0;
+}
 
 .dark .language-selector  {
     background-image: none;
@@ -61,37 +175,28 @@ const arrow_down = computed(() => {
     background-image: none;
 }
 
-.dark select {
-    color: white;
-}
-
-.dark select option {
-    background-color: gray;
-}
-
-.light select option {
-    background-color: white;
-}
-
 .language-selector {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 4px;
+    cursor: pointer;
+    user-select: none;
 }
 
-.selector select {
-    appearance: none;
-    background-color: transparent;
-    border: none;
-    
+.dark .selector .text {
+    color: white;
+}
+
+.light .selector .text {
+    color: black;
+}
+
+.selector .text {
     font-family: open-sans;
     font-weight: bold;
     font-size: 20px;
-
-    outline: none;
-    cursor: pointer;
 }
 
 .flag {
