@@ -65,7 +65,6 @@ const flag = computed(() => {
     }
 });
 
-
 const arrow_down = computed(() => {
     return props.theme === "dark" ? "/img/lang_arrow_down_tattoo.svg" : "/img/lang_arrow_down.svg";
 });
@@ -129,12 +128,6 @@ onMounted(() => {
 
 .language_modal {
 
-    // position: absolute;
-    // top: 50vh;
-    // left: 50vw;
-
-    // transform: translateX(-50%) translateY(-50%);
-
     background-color: gray;
     background-image: url(/img/paper_back.jpg);
     background-size: cover;
@@ -191,7 +184,7 @@ onMounted(() => {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 10px;
     cursor: pointer;
     user-select: none;
 }
