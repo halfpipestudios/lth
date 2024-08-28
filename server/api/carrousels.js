@@ -3,16 +3,21 @@ import pb from "../utils/pocketbase"
 export default defineEventHandler(async (event) => {
 
     const query = getQuery(event);
-    const database = query.database;
+    const category = query.category;
+    const interval = {
+        start: query.start,
+        end: query.end,
+    };
 
-    const record = await pb.collection(database).getList(1, 50, {
-        sort: '-created',
+    const record = await pb.collection("Carrusel").getList(interval.start, interval.end, {
+        filter: `Categoria = "${category}"`,
+        sort: '-created'
     });
 
-    let result = [];
-    for (const image of record.items) {
-        result.push({ image: pb.getFileUrl(image, image["Imagen"]) });
+    for (let image of record.items) {
+        image["image"] = pb.getFileUrl(image, image["Imagen"]);
     }
-    return result;
+
+    return record;
 
 });

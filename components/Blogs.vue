@@ -1,8 +1,5 @@
 <template>
     <div class="blogs">
-        <div class="container-max">
-            <h2>Ultimas noticias del Hostel</h2>
-        </div>
         <Blog v-for="(blog, index) in blogs" :key="index" 
             :title="blog.title"
             :image="blog.image"
@@ -22,8 +19,6 @@
         },
     });
 
-
-    const texts = useState('texts');
     const blogs = ref([]);
 
     const language = useState('language');
@@ -78,21 +73,6 @@
     background-color: #f2f2f2;
 
     width: 100%;
-}
-
-.blogs h2 {
-
-    text-align: center;
-
-    font-family: open-sans;
-    font-weight: bold;
-    
-    --blogs-title-size: 64px;
-    font-size: var(--blogs-title-size);
-
-    @media screen and (max-width: $size-m) {
-        font-size: calc(var(--blogs-title-size) * 0.8);
-    }
 }
 
 </style>

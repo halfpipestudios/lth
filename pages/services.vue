@@ -3,23 +3,28 @@
     <div class="services">
 
         <section>
-            <h1>SERVICIOS DEL HOSTEL</h1>
+            <h1>Servicios del hostel</h1>
+            <Carousel category="servicios"/>
+            <Blogs category="servicios" amount="2" />
         </section>
 
         <section>
-            <h1>EXCURSIONES</h1>
+            <h1>Excursiones</h1>
+            <Carousel category="excursiones"/>
+            <Blogs category="excursiones" amount="2" />
         </section>
 
         <section>
-            <h1>RESTORÁN</h1>
+            <h1>Restaurant</h1>
+            <Carousel category="restaurant"/>
+            <Blogs category="restaurant" amount="2" />
         </section>
-
 
     </div>
 
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 
 .services {
     background-color: #EDEDED;
@@ -29,9 +34,7 @@
     align-items: center;
     justify-content: center;
 
-    gap: 40px;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    gap: 0px;
 }
 
 .services section {
@@ -42,25 +45,19 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
 }
 
-h1 {
-    font-family: comic-smooth;
-    font-size: 96px;
+section h1 {
+    text-align: center;
+    font-family: open-sans;
+    font-size: 64px;
     color: black;
-    /* -webkit-text-stroke: 1px black; */
     margin: 0;
+    padding: 0;
 }
 
-@media screen and (max-width: 1110px) {
-
-    h1 {
-        font-size: 63px;
-        text-align: center;
-        padding: 20px;
-    }
-
-}
 
 </style>
+
+
+
