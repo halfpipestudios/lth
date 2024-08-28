@@ -22,15 +22,8 @@
             <Maps />
         </section>
 
-        <section class="blogs">
-            <div class="container-max">
-                <h2>Ultimas noticias del Hostel</h2>
-            </div>
-            
-            <Blog />
-            <Blog />
-            <Blog />
-
+        <section>
+            <Blogs category="home" amount="2" />
         </section>
 
     </div>
@@ -143,7 +136,6 @@
 
 }
 
-
 .quienes-somos p {
     padding: 0;
     margin: 0;
@@ -162,32 +154,6 @@
 
     @media screen and (max-width: $size-s) {
         font-size: 20px;
-    }
-}
-
-.blogs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    background-color: #f2f2f2;
-
-    width: 100%;
-}
-
-.blogs h2 {
-
-    text-align: center;
-
-    font-family: open-sans;
-    font-weight: bold;
-    
-    --blogs-title-size: 64px;
-    font-size: var(--blogs-title-size);
-
-    @media screen and (max-width: $size-m) {
-        font-size: calc(var(--blogs-title-size) * 0.8);
     }
 }
 

@@ -5,7 +5,6 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     const language = useState('language');
     const language_repo = useState('laguage-repo', () => data.value);
 
-
     function update_texts_language() {
         let texts = {};
         for (const text of language_repo.value) {
@@ -21,40 +20,5 @@ export default defineNuxtPlugin(async (nuxtApp) => {
             texts.value = update_texts_language();
         }
     })
-
-    function translate(cards) {
-        for (let card of cards) {
-            card["title"] = card["Nombre_" + language.value];
-            card["text"] = card["Texto_" + language.value];
-        }
-        return cards;
-    }
-
-    const database = {
-        cards: async (db, interval) => {
-            try {
-                const records = await $fetch(`/api/cards?database=${db}&start=${interval.start}&end=${interval.end}`);
-                return translate(records.items);
-            } catch (error) {
-                return [];
-            }
-        },
-
-        carrousels: async (db) => {
-            try {
-                const records = await $fetch(`/api/carrousels?database=${db}`);
-                return records;
-            } catch (error) {
-                return [];
-            }
-        },
-
-    };
-
-    return {
-        provide: {
-            database
-        },
-    };
 
 })
