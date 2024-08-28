@@ -62,7 +62,12 @@
     justify-content: center;
     gap: 20px;
 
+    box-sizing: border-box;
     padding: 40px;
+
+    @media screen and (max-width: $size-s) {
+        padding: 20px;
+    }
 }
 
 .blog  h2 {
