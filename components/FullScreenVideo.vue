@@ -11,7 +11,7 @@
 <script setup>
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
     video {
         position: absolute;
@@ -23,9 +23,8 @@
 
     .fullscreen {
         width: 100%;
-        height: calc(100vh - var(--navbar-height));
+        height: 100vh;
         background-color: transparent;
-        background-image: url(/img/home_full.png);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -36,6 +35,10 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr auto 1fr;
+
+        @media screen and (max-width: $size-s) {
+            height: 50vh;
+        }
     }
 
     .fullscreen .filter {
@@ -76,17 +79,5 @@
         -webkit-text-stroke: 2px black;
     }
 
-
-    @media screen and (max-width: 1110px) {
-        .fullscreen {
-            height: calc(100vh - var(--navbar-mobile-height));
-        }
-
-        .fullscreen h1 {
-            font-size: 48px;
-            -webkit-text-stroke: 1px black;
-        }
-
-    }
 
 </style>

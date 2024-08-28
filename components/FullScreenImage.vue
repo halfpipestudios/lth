@@ -27,11 +27,19 @@
     position: relative;
 
     width: 100%;
-    height: 600px;
+    height: initial;
+    min-height: 600px;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    overflow: hidden;
+
+    @media screen and (max-width: $size-s) {
+        min-height: 219px;
+
+    }
 
 }
 
@@ -66,10 +74,25 @@
 }
 
 .fullscreen-image h2 {
-    font-family: comic;
-    font-size: 64px;
+
+    margin: 40px;
+
     color: white;
     text-align: center;
+    font-family: comic;
+    
+    --fullscreen-image-font-size: 48px;
+    font-size: var(--fullscreen-image-font-size);
+    
+    @media screen and (max-width: $size-m) {
+        font-size: calc(var(--fullscreen-image-font-size) * 0.8);
+    }
+
+    @media screen and (max-width: $size-s) {
+        margin: 20px;
+        font-size: 20px;
+    }
+    
 }
 
 </style>

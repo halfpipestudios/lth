@@ -81,6 +81,19 @@
     align-items: center;
     justify-content: center;
     gap: 40px;
+
+    box-sizing: border-box;
+
+    padding-left: 40px;
+    padding-right: 40px;
+
+    
+    @media screen and (max-width: $size-s) {
+        gap: 16px;
+
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
 .quienes-somos .title {
@@ -89,27 +102,67 @@
     align-items: center;
     justify-content: center;
     gap: 40px;
+
+    @media screen and (max-width: $size-s) {
+        flex-direction: column;
+        gap: 0px;
+    }
 }
 
 .quienes-somos .title h1 {
     padding: 0;
     margin: 0;
 
+    text-align: center;
+
     font-family: open-sans;
     font-weight: bold;
-    font-size: 64px;
+
+    --quienes-somos-title-font-size: 64px;
+    font-size: var(--quienes-somos-title-font-size);
+
+    @media screen and (max-width: $size-m) {
+        font-size: calc(var(--quienes-somos-title-font-size) * 0.8);
+    }
+
+    @media screen and (max-width: $size-s) {
+        font-size: 34px;
+    }
+
 }
+
+.quienes-somos .title img {
+    
+    --quienes-somos-image-height: 174px;
+    height: var(--quienes-somos-image-height);
+    width: auto;
+
+    @media screen and (max-width: $size-m) {
+        height: calc(var(--quienes-somos-image-height) * 0.8);
+    }
+
+}
+
 
 .quienes-somos p {
     padding: 0;
     margin: 0;
 
-    font-family: open-sans;
-    font-weight: normal;
-    font-size: 36px;
-
     text-align: center;
 
+    font-family: open-sans;
+    font-weight: normal;
+
+    --quienes-somos-title-p-size: 36px;
+    font-size: var(--quienes-somos-title-p-size);
+
+    @media screen and (max-width: $size-m) {
+        font-size: calc(var(--quienes-somos-title-p-size) * 0.8);
+    }
+
+    @media screen and (max-width: $size-s) {
+        font-size: 20px;
+    }
 }
 
 .blogs {
@@ -124,9 +177,18 @@
 }
 
 .blogs h2 {
+
+    text-align: center;
+
     font-family: open-sans;
     font-weight: bold;
-    font-size: 64px;
+    
+    --blogs-title-size: 64px;
+    font-size: var(--blogs-title-size);
+
+    @media screen and (max-width: $size-m) {
+        font-size: calc(var(--blogs-title-size) * 0.8);
+    }
 }
 
 </style>

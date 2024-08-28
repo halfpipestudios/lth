@@ -25,8 +25,6 @@ const texts = useState("texts");
 
 .map {
     width: 100%;
-    height: 600px;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,46 +32,93 @@ const texts = useState("texts");
 
 .map .container-max{
     width: 100%;
-    height: 600px;
-
+    
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: 0;
-
+    justify-content: space-between;
+    
     width: 100%;
     max-width: $size-l;
 
+    @media screen and (max-width: $size-s) {
+        flex-direction: column;
+    }
 }
 
 .map iframe {
-    width: 50%;
-    height: 100%;
+    aspect-ratio: 1;
+    --map-iframe-height: 600px;
+    height: var(--map-iframe-height);
+    width: auto;
+    
     flex-shrink: 0;
+
+    margin-right: 40px;
+
+    @media screen and (max-width: $size-m) {
+        height: calc(var(--map-iframe-height) * 0.8);
+    }
+
+    @media screen and (max-width: $size-s) {
+        height: auto;
+        width: 100%;
+        margin-right: 0;
+    }
 }
 
 .map-info {
-    width: 50%;
     height: 100%;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    box-sizing: border-box;
+
+    margin-left: 40px;
+    margin-right: 40px;
+
+    @media screen and (max-width: $size-s) {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 }
 
 .map-info h2 {
+
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
     font-family: comic;
     font-weight: bold;
-    font-size: 48px;
-    text-align: center;
+
+    --map-title-font-size: 48px;
+    font-size: var(--map-title-font-size);
+    @media screen and (max-width: $size-m) {
+        font-size: calc(var(--map-title-font-size) * 0.8);
+    }
+
+    @media screen and (max-width: $size-s) {
+        font-size: 24px;
+    }
 }
 
 .map-info p {
     font-family: open-sans;
     font-weight: normal;
-    font-size: 36px;
+    
+    --map-p-font-size: 36px;
+    font-size: var(--map-p-font-size);
+    @media screen and (max-width: $size-m) {
+        font-size: calc(var(--map-p-font-size) * 0.8);
+    }
+
+    @media screen and (max-width: $size-s) {
+        font-size: 20px;
+    }
 }
 
 </style>
