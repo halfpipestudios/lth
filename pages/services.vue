@@ -4,20 +4,14 @@
 
         <section>
             <h1>SERVICIOS DEL HOSTEL</h1>
-            <ImageCarrousel database="Carrusel_Servicios"/>
-            <CardSlider database="Carta_Servicios" />
         </section>
 
         <section>
             <h1>EXCURSIONES</h1>
-            <ImageCarrousel database="Carrusel_Excursiones"/>
-            <CardSlider database="Carta_Servicios" />
         </section>
 
         <section>
             <h1>RESTORÁN</h1>
-            <ImageCarrousel database="Carrusel_Restoran"/>
-            <CardSlider database="Carta_Servicios" />
         </section>
 
 
@@ -26,7 +20,6 @@
 </template>
 
 <style scoped>
-
 
 .services {
     background-color: #EDEDED;
@@ -59,7 +52,6 @@ h1 {
     /* -webkit-text-stroke: 1px black; */
     margin: 0;
 }
-
 
 @media screen and (max-width: 1110px) {
 

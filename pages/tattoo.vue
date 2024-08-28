@@ -6,21 +6,6 @@
             <h1>TATT00</h1>
         </section>
 
-        <section>
-            <CardTattoo />
-        </section>
-
-        <section>
-            <CardImages />
-        </section>
-
-        <section>
-            <CardCarrousel class="seminar-carrousel">
-                <CardTattooSeminar v-for="(seminario, i) in seminarios" :key="i" :image="seminario.image"
-                    :artist="seminario.title" :text="seminario.text" class="carrousel-item" />
-            </CardCarrousel>
-        </section>
-
     </div>
 
 </template>
