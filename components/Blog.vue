@@ -41,7 +41,7 @@
     background-color: transparent;
 }
 
-.blog:nth-child(even) {
+.blog:nth-child(odd) {
     background-color: #ffffff;
 }
 
