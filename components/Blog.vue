@@ -2,15 +2,12 @@
 
 <div class="blog">
     <div class="container-max">
-        <h2>ENCONTRA A WALLY EN NUESTRO HOSTEL!</h2>
+        <h2>{{ title }}</h2>
         <div class="text-and-image-container">
             <div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
+                <p>{{ text }}</p>
             </div>
-            <img src="/img/marilyn.jpg" alt="blog image">
+            <img :src="image" alt="blog image">
         </div>
     </div>
 </div>
@@ -18,6 +15,18 @@
 </template>
 
 <script setup>
+
+    const props = defineProps({
+        title: {
+            type: String,
+        },
+        image: {
+            type: String,
+        },
+        text: {
+            type: String,
+        }
+    });
 
 </script>
 
@@ -38,7 +47,7 @@
 
 .blog:nth-child(odd) .text-and-image-container {
     flex-direction: row-reverse;
-    @media screen and (max-width: $size-m) {
+    @media screen and (max-width: $size-s) {
         flex-direction: column-reverse;
     }
 }
@@ -116,6 +125,8 @@
 
 .blog  p {
     font-family: open-sans;
+    padding: 0;
+    margin: 0;
     
     --blog-p-size: 24px;
     font-size: var(--blog-p-size);
