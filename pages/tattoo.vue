@@ -16,15 +16,6 @@ definePageMeta({
     layout: 'tattoo'
 });
 
-const { $database } = useNuxtApp();
-const language = useState("language");
-
-let seminarios = ref([]);
-
-seminarios.value = await $database.cards("Seminarios", {start: 1, end: 50});
-watch(language, async () => { seminarios.value = await $database.cards("Seminarios", {start: 1, end: 50}) });
-
-
 </script>
 
 <style scoped>
