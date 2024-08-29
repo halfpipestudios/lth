@@ -1,11 +1,11 @@
 <template>
     <div class="fullscreen">
         <img src="/img/loading.gif" alt="video loader">
-        <!-- <video muted autoplay disablePictureInPicture >
+        <video muted autoplay disablePictureInPicture >
             <source 
                 src="https://onefamhostels.com/wp-content/uploads/2024/08/ONEFAM-V8-HD-horizontal-youtube1.mp4"
                 type="video/mp4">
-        </video> -->
+        </video>
     </div>
 </template>
 
@@ -30,8 +30,10 @@
     }
 
     .fullscreen {
+
+        
         width: 100%;
-        height: 100vh;
+        height: calc(100vh - $header-height);
         background-color: transparent;
         background-position: center;
         background-repeat: no-repeat;
@@ -43,6 +45,10 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr auto 1fr;
+
+        @media screen and (max-width: $size-m) {
+            height: calc(100vh - calc($header-height * 0.8));
+        }
 
         @media screen and (max-width: $size-s) {
             height: 50vh;
