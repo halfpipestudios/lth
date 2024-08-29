@@ -109,6 +109,10 @@
         background-color: gray;
     
         position: relative;
+
+        @media screen and (max-width: $size-s) {
+            aspect-ratio: 1;
+        }
     }
 
     .carousel .item {
@@ -138,12 +142,21 @@
         top:50%;
         left: 0;
         transform: translateY(-50%) translateX(20px) scaleX(-1);
+
+        @media screen and (max-width: $size-s) {
+            transform: translateY(-50%) translateX(10px) scale(0.7) scaleX(-1);
+        }
     }
 
     .right {
         top:50%;
         right: 0;
-        transform: translateY(-50%) translateX(-20px)
+        transform: translateY(-50%) translateX(-20px);
+        
+        @media screen and (max-width: $size-s) {
+            transform: translateY(-50%) translateX(-10px) scale(0.7);
+        }
+    
     }
 
 </style>

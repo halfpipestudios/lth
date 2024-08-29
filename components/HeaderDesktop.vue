@@ -72,7 +72,7 @@
         position: sticky;
         top:0;
 
-        --header-height: $header-height;
+        --header-height: #{$default-header-height};
 
         width: 100%;
         height: var(--header-height);
