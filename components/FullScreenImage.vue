@@ -1,7 +1,7 @@
 <template>
 
     <div class="fullscreen-image">
-        <img src="/img/fire.png" alt="">
+        <img src="/img/fire.jpg" alt="">
         <div class="fullscreen-image-filter" ></div>
         <div class="container-max">
             <h2>
