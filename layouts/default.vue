@@ -1,5 +1,6 @@
 <template>
     <Header />
+    
     <slot />
     <!-- <img class="whatsapp" src="/img/whatsapp.png" alt="whatsapp"> -->
     <Footer />

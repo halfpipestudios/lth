@@ -84,7 +84,6 @@
     box-sizing: border-box;
 
     padding: 40px;
-
     
     @media screen and (max-width: $size-s) {
         gap: 16px;

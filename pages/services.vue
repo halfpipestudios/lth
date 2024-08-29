@@ -3,19 +3,25 @@
     <div class="services">
 
         <section>
-            <h1>Servicios del hostel</h1>
+            <div class="sticky-header">
+                <h2>Servicios del hostel</h2>
+            </div>
             <Carousel category="servicios"/>
             <Blogs category="servicios" amount="2" />
         </section>
 
         <section>
-            <h1>Excursiones</h1>
+            <div class="sticky-header">
+                <h2>Excursiones</h2>
+            </div>
             <Carousel category="excursiones"/>
             <Blogs category="excursiones" amount="2" />
         </section>
 
         <section>
-            <h1>Restaurant</h1>
+            <div class="sticky-header">
+                <h2>Restaurant</h2>
+            </div>
             <Carousel category="restaurant"/>
             <Blogs category="restaurant" amount="2" />
         </section>
@@ -27,7 +33,7 @@
 <style scoped lang="scss">
 
 .services {
-    background-color: #EDEDED;
+    background-color: #ffffff;
 
     display: flex;
     flex-direction: column;
@@ -45,15 +51,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
 
-section h1 {
-    text-align: center;
-    font-family: open-sans;
-    font-size: 64px;
-    color: black;
-    margin: 0;
-    padding: 0;
+    position: relative
 }
 
 

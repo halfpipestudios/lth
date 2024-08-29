@@ -45,6 +45,7 @@
       
             const amount_to_fetch_next = blogs_feched + blogs_amout + 1;
             const records = await $fetch(`/api/blogs?category=${props.category}&start=1&end=${amount_to_fetch_next}`);
+            console.log(records.items);
             
             blogs_feched = blogs_feched + blogs_amout;
             if(records.items.length > blogs_feched) {

@@ -38,7 +38,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
+    background-color: #f2f2f2;
 }
 
 .blog:nth-child(odd) {
@@ -63,7 +63,7 @@
     gap: 20px;
 
     box-sizing: border-box;
-    padding: 40px;
+    padding: 20px;
 
     @media screen and (max-width: $size-s) {
         padding: 20px;
@@ -84,6 +84,10 @@
 
     @media screen and (max-width: $size-m) {
         font-size: calc(var(--blog-title-size) * 0.8);
+    }
+
+    @media screen and (max-width: $size-s) {
+        font-size: 24px;
     }
 }
 
@@ -121,10 +125,13 @@
     object-fit: cover;
     object-position: center;
 
+    border-radius: 15px;
+
     @media screen and (max-width: $size-s) {
         width: 100%;
         aspect-ratio: 1;
         height: initial;
+        border-radius: 10px;
     }
 }
 
@@ -138,6 +145,7 @@
     @media screen and (max-width: $size-m) {
         font-size: calc(var(--blog-p-size) * 0.8);
     }
+
 }
 
 </style>

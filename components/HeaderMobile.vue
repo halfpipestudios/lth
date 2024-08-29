@@ -32,7 +32,7 @@
             <NuxtLink @click="collapse_menu"  to="/">{{ texts["header-navbar-habitaciones"] }}</NuxtLink>
             <NuxtLink @click="collapse_menu" to="/services">{{ texts["header-navbar-servicios"] }}</NuxtLink>
             <NuxtLink @click="collapse_menu" to="/tattoo">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
-            <NuxtLink @click="collapse_menu" to="/">{{ texts["header-navbar-contacto"] }}</NuxtLink>
+            <NuxtLink @click="collapse_menu" to="/onefam">{{ texts["header-navbar-contacto"] }}</NuxtLink>
                 
             <div class="reservar">
                 <img :src="reserve" alt="">
@@ -126,7 +126,8 @@
         background-position: top;
         background-repeat: no-repeat;
 
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, .35);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, .35);
+
     }
 
     header .collapsed {
