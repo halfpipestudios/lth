@@ -109,7 +109,7 @@
         background-color: gray;
     
         position: relative;
-
+        
         @media screen and (max-width: $size-s) {
             aspect-ratio: 1;
         }

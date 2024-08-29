@@ -14,7 +14,7 @@
 
         <div class="nav right">
 
-            <NuxtLink to="/">{{texts["header-navbar-contacto"]}}</NuxtLink>
+            <NuxtLink to="/onefam">{{texts["header-navbar-contacto"]}}</NuxtLink>
                 
             <NuxtLink to="/" class="reservar">
                 <img :src="reserve" alt="">
@@ -85,7 +85,7 @@
         align-items: center;
         justify-content: center;
 
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, .35);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, .35);
 
         @media screen and (max-width: $size-m) {
             height: calc(var(--header-height) * 0.8);

@@ -1,6 +1,6 @@
 <template>
 
-    <div class="form-container">
+    <div class="form-container" :class="theme">
         <div class="max-container">
             <form>
                 <label>Ponete en contacto</label>
@@ -9,7 +9,7 @@
                     <input type="text" placeholder="Correo Electronico">
                     <input type="text" placeholder="Teléfono">
                 </div>
-                <textarea name="textarea" id="" placeholder="Hola! Queria consultar para acerca de un tatuaje..."></textarea>
+                <textarea name="textarea" id="" placeholder="Mensaje..."></textarea>
                 <button>Enviar</button>
             </form>
             <img src="/img/batman.png" alt="batman">
@@ -19,10 +19,17 @@
 </template>
 
 <script setup>
-
+    const props = defineProps({
+        theme: {
+            type: String,
+            default: "light"
+        }
+    });
 </script>
 
 <style scoped lang="scss">
+
+
 
 .form-container {
 
@@ -34,11 +41,18 @@
     box-sizing: border-box;
     padding: 40px;
 
-    background-color: #f2f2f2;
-
     @media screen and (max-width: $size-s) {
         padding: 20px;
     }
+}
+
+.light  {
+    background-color: #f2f2f2;
+}
+
+
+.dark {
+    background-color: #161616;
 }
 
 .form-container .max-container {
@@ -73,8 +87,10 @@ input {
     padding: 0;
     margin: 0;
 
-    border: 2px solid #bdbdbd;
-    border-radius: 15px;
+    @media screen and (max-width: $size-s) {
+        height: 44px;
+        border-radius: 10px;
+    }
 }
 
 textarea {
@@ -86,8 +102,10 @@ textarea {
 
     resize: none;
 
-    border: 2px solid #bdbdbd;
-    border-radius: 15px;
+    @media screen and (max-width: $size-s) {
+        height: 132px;
+        border-radius: 10px;
+    }
 }
 
 input, textarea {
@@ -101,6 +119,28 @@ input, textarea {
     @media screen and (max-width: $size-m) {
         font-size: calc(var(--text-font-size) * 0.8);
     }
+    @media screen and (max-width: $size-s) {
+        font-size: 15px;
+    }
+}
+
+.light input, .light textarea {
+    background-color: #ffffff;
+
+    border: 2px solid #bdbdbd;
+    border-radius: 15px;
+}
+
+.dark input, .dark textarea {
+    background-color: #919191;
+    border: 2px solid #2f2f2f;
+    border-radius: 15px;
+
+    color: white;
+}
+
+.dark input::placeholder , .dark textarea::placeholder {
+    color: #C7C7C7;
 }
 
 button {
@@ -112,8 +152,15 @@ button {
     border-radius: 15px;
 
     font-family: open-sans;
+    font-weight: bold;
     font-size: 32px;
     color: white;
+
+    @media screen and (max-width: $size-s) {
+        height: 44px;
+        border-radius: 10px;
+        font-size: 18px;
+    }
 }
 
 .form-container .max-container form {
@@ -126,7 +173,6 @@ button {
 
     gap: 10px;
 
-    background-color: #ffffff;
     box-sizing: border-box;
     padding: 40px;
 
@@ -136,6 +182,14 @@ button {
         padding: 20px;
         width: 100%;
     }
+}
+
+.dark form {
+    background-color: #707070;
+}
+
+.light form {
+    background-color: #ffffff;
 }
 
 .form-container .max-container img {

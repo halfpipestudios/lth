@@ -66,8 +66,64 @@
 
 
 /* Global css variables */
-
 html body {
     margin: 0;
     padding: 0;
+}
+
+.sticky-header {
+    position: sticky;
+    top: $default-header-height;
+
+    width: 100%;
+    background-color: white;
+
+    z-index: 2;
+
+    --sticky-header-height: 96px;
+    height: var(--sticky-header-height);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // box-shadow: 0 3px 6px rgba(0, 0, 0, .35);
+
+    box-sizing: border-box;
+    border-top: 2px solid #e5e5e5;
+    border-bottom: 2px solid #e5e5e5;
+
+    margin-bottom: 20px;
+
+    @media screen and (max-width: $size-m) {
+        top: calc($default-header-height * 0.8);
+        height: calc(var(--sticky-header-height) * 0.8);
+    }
+
+    @media screen and (max-width: $size-s) {
+        top: 70px;
+        height: 60px;
+    }
+}
+
+.sticky-header h2 {
+
+    color: black;
+    margin: 0;
+    padding: 0;
+
+    --sticky-header-font-size: 40px;
+
+    text-align: center;
+    font-family: open-sans;
+    font-weight: bold;
+    font-size: var(--sticky-header-font-size);
+
+    @media screen and (max-width: $size-m) {
+        font-size: calc(var(--sticky-header-font-size) * 0.8);
+    }
+
+    @media screen and (max-width: $size-s) {
+        font-size: 24px;
+    }
 }
