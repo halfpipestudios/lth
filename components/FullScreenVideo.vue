@@ -33,7 +33,7 @@
 
         
         width: 100%;
-        height: calc(100vh - $header-height);
+        height: calc(100vh - $default-header-height);
         background-color: transparent;
         background-position: center;
         background-repeat: no-repeat;
@@ -47,7 +47,7 @@
         grid-template-rows: 1fr auto 1fr;
 
         @media screen and (max-width: $size-m) {
-            height: calc(100vh - calc($header-height * 0.8));
+            height: calc(100vh - calc($default-header-height * 0.8));
         }
 
         @media screen and (max-width: $size-s) {
