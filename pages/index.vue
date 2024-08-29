@@ -19,7 +19,11 @@
         </section>
 
         <section>
-            <!-- <Maps /> -->
+            <Form />
+        </section>
+
+        <section>
+            <Maps />
         </section>
 
         <section>
@@ -47,7 +51,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 40px;
 }
 
 .container-max {
@@ -56,8 +59,6 @@
     align-items: center;
     justify-content: center;
 
-    gap: 40px;
-    
     width: 100%;
     max-width: $size-l;
 }
@@ -70,6 +71,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
 }
 
 .quienes-somos {
@@ -81,15 +83,13 @@
 
     box-sizing: border-box;
 
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 40px;
 
     
     @media screen and (max-width: $size-s) {
         gap: 16px;
 
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 20px;
     }
 }
 

@@ -8,18 +8,18 @@
             <NuxtLink to="/tattoo">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
         </div>
 
-        <div ref="logo" class="logo">
+        <NuxtLink to="/" ref="logo" class="logo">
             <img :src="logo" alt="">
-        </div>
+        </NuxtLink>
 
         <div class="nav right">
 
-            <NuxtLink to="/">ONEFAM</NuxtLink>
+            <NuxtLink to="/">{{texts["header-navbar-contacto"]}}</NuxtLink>
                 
-            <div class="reservar">
+            <NuxtLink to="/" class="reservar">
                 <img :src="reserve" alt="">
                 <div>{{ texts["header-navbar-reservar"] }}</div>
-            </div>
+            </NuxtLink>
 
             <Language class="language" :theme="theme"/>
 
@@ -123,6 +123,11 @@
 
     }
     
+    .reservar {
+        user-select: none;
+        cursor: pointer;
+    }
+
     .reservar img {
         
         --reservar-height: 91px;
