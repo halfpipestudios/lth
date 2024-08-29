@@ -54,7 +54,8 @@ const props = defineProps({
 });
 
 const language_text = computed(() => {
-    return language.value.toUpperCase();
+    if(!language.value) return;
+    return String(language.value).toUpperCase();
 });
 
 const flag = computed(() => {
