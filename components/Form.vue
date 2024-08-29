@@ -35,6 +35,10 @@
     padding: 40px;
 
     background-color: #f2f2f2;
+
+    @media screen and (max-width: $size-s) {
+        padding: 20px;
+    }
 }
 
 .form-container .max-container {
@@ -44,13 +48,23 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: $size-s) {
+        flex-direction: column-reverse;
+    }
 }
 
 label {
 
     text-align: center;
     font-family: comic;
-    font-size: 48px;
+
+    --label-font-size: 48px;
+    font-size: var(--label-font-size);
+
+    @media screen and (max-width: $size-m) {
+        font-size: calc(var(--label-font-size) * 0.8);
+    }
 }
 
 input {
@@ -81,7 +95,12 @@ input, textarea {
     padding: 10px;
 
     font-family: open-sans;
-    font-size: 24px;
+    
+    --text-font-size: 24px;
+    font-size: var(--text-font-size);
+    @media screen and (max-width: $size-m) {
+        font-size: calc(var(--text-font-size) * 0.8);
+    }
 }
 
 button {
@@ -112,11 +131,20 @@ button {
     padding: 40px;
 
     border-radius: 15px;
+
+    @media screen and (max-width: $size-s) {
+        padding: 20px;
+        width: 100%;
+    }
 }
 
 .form-container .max-container img {
     width: 40%;
     align-self: flex-end;
+
+    @media screen and (max-width: $size-s) {
+        width: 80%;
+    }
 }
 
 .form-container .max-container form div {
@@ -127,6 +155,10 @@ button {
     justify-content: center;
 
     gap: 10px;
+
+    @media screen and (max-width: $size-s) {
+        flex-direction: column;
+    }
 }
 
 </style>
