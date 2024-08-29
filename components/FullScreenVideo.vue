@@ -1,10 +1,11 @@
 <template>
     <div class="fullscreen">
-        <video muted autoplay disablePictureInPicture >
+        <img src="/img/loading.gif" alt="video loader">
+        <!-- <video muted autoplay disablePictureInPicture >
             <source 
                 src="https://onefamhostels.com/wp-content/uploads/2024/08/ONEFAM-V8-HD-horizontal-youtube1.mp4"
                 type="video/mp4">
-        </video>
+        </video> -->
     </div>
 </template>
 
@@ -13,7 +14,14 @@
 
 <style scoped lang="scss">
 
-    video {
+    .fullscreen img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    .fullscreen video {
         position: absolute;
         width: 100%;
         height: 100%;

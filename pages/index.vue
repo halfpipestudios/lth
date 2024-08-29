@@ -175,7 +175,7 @@ section .blogs-title h2 {
     font-family: open-sans;
     
     font-size: 64px;
-    padding: 40px;
+    padding: 40px;  
     margin: 0;
 }
 
