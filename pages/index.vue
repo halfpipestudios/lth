@@ -19,7 +19,7 @@
         </section>
 
         <section>
-            <Maps />
+            <!-- <Maps /> -->
         </section>
 
         <section>
