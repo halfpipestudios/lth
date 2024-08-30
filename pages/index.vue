@@ -27,8 +27,8 @@
         </section>
 
         <section>
-            <div class="blogs-title">
-                <h2>Nuestro Blog!</h2>
+            <div class="sticky-header">
+                <h2>{{texts["home-blogs-title"]}}</h2>
             </div>
             <Blogs category="home" amount="2" />
         </section>
@@ -159,23 +159,6 @@
         font-size: 20px;
     }
 
-}
-
-section .blogs-title {
-    width: 100%;
-    background-color: #F2F2F2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-section .blogs-title h2 {
-    text-align: center;
-    font-family: open-sans;
-    
-    font-size: 64px;
-    padding: 40px;  
-    margin: 0;
 }
 
 </style>
