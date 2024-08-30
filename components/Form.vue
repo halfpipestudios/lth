@@ -3,14 +3,14 @@
     <div class="form-container" :class="theme">
         <div class="max-container">
             <form target="_blank" action="https://formsubmit.co/jlagos@halfpipe.dev" method="POST">
-                <label>Ponete en contacto</label>
-                <input  type="text" name="Nombre" required placeholder="Nombre Completo">
+                <label>{{ texts["formulatio-titulo"] }}</label>
+                <input  type="text" name="Nombre" required :placeholder="texts['formulario-placeholder-nombre']">
                 <div>
-                    <input  type="email" name="Email" required placeholder="Correo Electronico">
-                    <input type="tel" name="Telefono" required placeholder="Teléfono">
+                    <input  type="email" name="Email" required :placeholder="texts['formulario-placeholder-email']">
+                    <input type="tel" name="Telefono" required :placeholder="texts['formulario-placeholder-tel']">
                 </div>
-                <textarea name="Mensaje" required placeholder="Mensaje..."></textarea>
-                <button type="submit">Enviar</button>
+                <textarea name="Mensaje" required :placeholder="texts['formulario-placeholder-mensaje']"></textarea>
+                <button type="submit">{{ texts["formulario-boton"] }}</button>
             </form>
             <img src="/img/batman.png" alt="batman">
         </div>
@@ -25,6 +25,7 @@
             default: "light"
         }
     });
+    const texts = useState('texts');
 </script>
 
 <style scoped lang="scss">

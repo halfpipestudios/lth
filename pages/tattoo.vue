@@ -16,7 +16,7 @@
 
         <section v-if="seminarios_availables == true">
             <div class="sticky-header dark-sticky">
-                <h2>Seminarios</h2>
+                <h2>{{ texts["tattoo-seminarios-titulo"] }}</h2>
             </div>
             <Blogs category="tatuajes" amount="2" theme="dark" />
         </section>
@@ -122,7 +122,6 @@ if(records.items.length) {
     
     @media screen and (max-width: $size-m) {
         font-size: calc(var(--tattoo-desc-font-size) * 0.8);
-        padding: 20px;
     }
 
     @media screen and (max-width: $size-s) {
