@@ -2,7 +2,7 @@
 
     <div class="form-container" :class="theme">
         <div class="max-container">
-            <form target="_blank" action="https://formsubmit.co/jlagos@halfpipe.dev" method="POST">
+            <form form-item target="_blank" action="https://formsubmit.co/jlagos@halfpipe.dev" method="POST">
                 <label>{{ texts["formulatio-titulo"] }}</label>
                 <input  type="text" name="Nombre" required :placeholder="texts['formulario-placeholder-nombre']">
                 <div>
@@ -12,7 +12,9 @@
                 <textarea name="Mensaje" required :placeholder="texts['formulario-placeholder-mensaje']"></textarea>
                 <button type="submit">{{ texts["formulario-boton"] }}</button>
             </form>
-            <img src="/img/batman.png" alt="batman">
+            <div class="animation">
+                <Sprite :frames="frames"/>
+            </div>
         </div>
     </div>
 
@@ -23,14 +25,16 @@
         theme: {
             type: String,
             default: "light"
+        },
+        frames: {
+            type: Array,
+            default: []
         }
     });
     const texts = useState('texts');
 </script>
 
 <style scoped lang="scss">
-
-
 
 .form-container {
 
@@ -57,6 +61,7 @@
 }
 
 .form-container .max-container {
+    width: 100%;
     max-width: $size-l;
 
     display: flex;
@@ -187,6 +192,17 @@ button {
     }
 }
 
+.form-container .max-container .animation {
+    width: 40%;
+    aspect-ratio: 0.7;
+    align-self: flex-end;
+
+    @media screen and (max-width: $size-s) {
+        width: 70%;
+    }
+}
+
+
 .form-container .max-container form {
     width: 60%;
 
@@ -215,15 +231,6 @@ button {
 
 .light form {
     background-color: #ffffff;
-}
-
-.form-container .max-container img {
-    width: 40%;
-    align-self: flex-end;
-
-    @media screen and (max-width: $size-s) {
-        width: 80%;
-    }
 }
 
 .form-container .max-container form div {

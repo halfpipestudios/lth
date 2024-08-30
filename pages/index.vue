@@ -19,7 +19,7 @@
         </section>
 
         <section>
-            <Form />
+            <Form :frames="['/img/wolve/wolve1.png', '/img/wolve/wolve2.png']" />
         </section>
 
         <section>
