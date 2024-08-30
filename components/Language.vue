@@ -50,6 +50,10 @@ const props = defineProps({
     theme: {
         type: String,
         default: "light"
+    },
+    callback: {
+        type: Function,
+        default: null
     }
 });
 
@@ -92,6 +96,10 @@ function set_language(e, lang) {
     if(!language_modal.value) return;
     language.value = lang;
     close_language_modal(e)
+
+    if(props.callback !== null) {
+        props.callback();
+    }
 }
 
 onMounted(() => {
@@ -117,6 +125,8 @@ onMounted(() => {
     display: none;
     align-items: center;
     justify-content: center;
+
+    z-index: 6;
 }
 
 .dark .language_modal {
@@ -143,8 +153,6 @@ onMounted(() => {
     justify-content: center;
     gap: 10px;
     padding: 20px;
-
-    z-index: 6;
 }
 
 .language_option {

@@ -4,7 +4,7 @@
 
         <section>
             <div class="sticky-header">
-                <h2>Servicios del hostel</h2>
+                <h2>{{ texts["servicios-servicios-titulo"] }}</h2>
             </div>
             <Carousel category="servicios"/>
             <p>{{ texts["servicios-servicios-desc"] }}</p>
@@ -14,7 +14,7 @@
 
         <section>
             <div class="sticky-header">
-                <h2>Excursiones</h2>
+                <h2>{{ texts["servicios-excursiones-titulo"] }}</h2>
             </div>
             <Carousel category="excursiones"/>
             <p>{{ texts["servicios-excursiones-desc"] }}</p>
@@ -23,7 +23,7 @@
 
         <section>
             <div class="sticky-header">
-                <h2>Restaurant</h2>
+                <h2>{{ texts["servicios-restaurant-titulo"] }}</h2>
             </div>
             <Carousel category="restaurant"/>
             <p>{{ texts["servicios-restaurant-desc"] }}</p>

@@ -23,7 +23,7 @@
                 <img :src="x" alt="hambuerger menu">
             </div>
 
-            <Language class="language" :theme="theme"/>
+            <Language class="language" :theme="theme" :callback="collapse_menu"/>
 
         </div>
 

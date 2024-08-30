@@ -5,8 +5,8 @@
     <img src="/img/inkplay.png" alt="inkplay">
     
     <div class="card-info">
-        <h2>ACA USAMOS INKPLAY</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <h2>{{  texts["tattoo-inkplay"]  }}</h2>
+        <p>{{ texts["tattoo-inkplay-desc"]  }}</p>
         <p class="instagram">@inkplayworld</p>
     </div>
 
@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-
+const texts = useState('texts');
 </script>
 
 <style scoped lang="scss">
