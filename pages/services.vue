@@ -7,6 +7,7 @@
                 <h2>Servicios del hostel</h2>
             </div>
             <Carousel category="servicios"/>
+            <Services />
             <Blogs category="servicios" amount="2" />
         </section>
 
