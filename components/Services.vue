@@ -82,6 +82,17 @@
 
     box-sizing: border-box;
     padding: 20px;
+
+    @media screen and (max-width: $size-s) {
+        overflow: scroll;;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+
+    }
 }
 
 .service {
@@ -98,6 +109,13 @@
 
     box-sizing: border-box;
     padding: 40px;
+
+    scroll-snap-align: center;
+    
+    @media screen and (max-width: $size-s) {
+        flex-shrink: 0;
+    }
+    
 }
 
 .service p {
