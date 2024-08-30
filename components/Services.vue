@@ -95,15 +95,17 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    box-sizing: border-box;
+    padding: 40px;
 }
 
 .service p {
+    text-align: center;
     font-family: open-sans;
     font-size: 20px;
     color: rgba(28,28,28,0.8);
 }
 
-.service svg {
-}
 
 </style>
