@@ -1,6 +1,6 @@
 <template>
 
-<div class="blog">
+<div class="blog" :class="theme">
     <div class="container-max">
         <h2>{{ title }}</h2>
         <div class="text-and-image-container">
@@ -25,6 +25,10 @@
         },
         text: {
             type: String,
+        },
+        theme: {
+            type: String,
+            default: "light"
         }
     });
 
@@ -32,17 +36,30 @@
 
 <style scoped lang="scss">
 
+.dark {
+    background-color: #323232;
+}
+
+.dark:nth-child(odd) {
+    background-color: transparent;
+}
+
+
+.light {
+    background-color: #f2f2f2; 
+}
+
+.light:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+
 .blog {
     width: 100%;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f2f2f2;
-}
-
-.blog:nth-child(odd) {
-    background-color: #ffffff;
 }
 
 .blog:nth-child(odd) .text-and-image-container {
@@ -70,24 +87,66 @@
     }
 }
 
-.blog  h2 {
+.dark h2 {
+    color: white;
+
+    font-family: stamshons;
+    font-weight: normal;
+
+    --blog-title-size: 64px;
+
+    @media screen and (max-width: $size-s) {
+        font-size: 24px;
+    }
+
+    
+    @media screen and (max-width: $size-s) {
+        font-size: 28px;
+    }
+}
+
+.light h2 {
+    color: black;
+    
     font-family: comic;
     font-weight: bold;
+
+    --blog-title-size: 48px;
+
+    @media screen and (max-width: $size-s) {
+        font-size: 24px;
+    }
+}
+
+.blog  h2 {
 
     text-align: center;
 
     padding: 0;
     margin: 0;
 
-    --blog-title-size: 48px;
     font-size: var(--blog-title-size);
 
     @media screen and (max-width: $size-m) {
         font-size: calc(var(--blog-title-size) * 0.8);
     }
 
-    @media screen and (max-width: $size-s) {
-        font-size: 24px;
+}
+
+.dark .text-and-image-container {
+    gap: 80px;
+    height: initial;
+}
+
+.light .text-and-image-container {
+    gap: 40px;
+
+        
+    --blog-height: 554px;
+    height: var(--blog-height);
+
+    @media screen and (max-width: $size-m) {
+        height: calc(var(--blog-height) * 0.8);
     }
 }
 
@@ -97,15 +156,6 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    gap: 40px;
-    
-    --blog-height: 554px;
-
-    height: var(--blog-height);
-
-    @media screen and (max-width: $size-m) {
-        height: calc(var(--blog-height) * 0.8);
-    }
 
     @media screen and (max-width: $size-s) {
         flex-direction: column-reverse;
@@ -119,20 +169,46 @@
     overflow-y: auto;
 }
 
-.blog  img {
+.dark img {
+    border-radius: 50%;
+    height: 280px;
+    width: 280px;
+
+    box-sizing: border-box;
+    margin-bottom: 20px;
+
+}
+
+.light img {
+    border-radius: 15px;
     height: 100%;
+
+    @media screen and (max-width: $size-s) {
+        border-radius: 10px;
+    }
+}
+
+.blog img {
+    
     aspect-ratio: 1;
     object-fit: cover;
     object-position: center;
 
-    border-radius: 15px;
+    align-self: center;
 
     @media screen and (max-width: $size-s) {
         width: 100%;
         aspect-ratio: 1;
         height: initial;
-        border-radius: 10px;
     }
+}
+
+.dark p {
+    color: white;
+}
+
+.light p {
+    color: black;
 }
 
 .blog  p {

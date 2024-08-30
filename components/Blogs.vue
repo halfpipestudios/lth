@@ -4,6 +4,7 @@
             :title="blog.title"
             :image="blog.image"
             :text="blog.text"
+            :theme="theme"
         />
         <button v-if="more_blogs_to_fetch" @click="fetch_blogs">Ver mas ...</button>
     </div>
@@ -17,6 +18,10 @@
         amount: {
             type: String,
         },
+        theme: {
+            type: String,
+            default: "light"
+        }
     });
 
     const blogs = ref([]);
@@ -69,9 +74,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    background-color: #f2f2f2;
-
     width: 100%;
 }
 

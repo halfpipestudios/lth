@@ -2,15 +2,15 @@
 
     <div class="form-container" :class="theme">
         <div class="max-container">
-            <form>
+            <form target="_blank" action="https://formsubmit.co/jlagos@halfpipe.dev" method="POST">
                 <label>Ponete en contacto</label>
-                <input type="text" placeholder="Nombre Completo">
+                <input  type="text" name="Nombre" required placeholder="Nombre Completo">
                 <div>
-                    <input type="text" placeholder="Correo Electronico">
-                    <input type="text" placeholder="Teléfono">
+                    <input  type="email" name="Email" required placeholder="Correo Electronico">
+                    <input type="tel" name="Telefono" required placeholder="Teléfono">
                 </div>
-                <textarea name="textarea" id="" placeholder="Mensaje..."></textarea>
-                <button>Enviar</button>
+                <textarea name="Mensaje" required placeholder="Mensaje..."></textarea>
+                <button type="submit">Enviar</button>
             </form>
             <img src="/img/batman.png" alt="batman">
         </div>
@@ -52,7 +52,7 @@
 
 
 .dark {
-    background-color: #161616;
+    background-color: transparent;
 }
 
 .form-container .max-container {
@@ -68,16 +68,41 @@
     }
 }
 
+.dark label {
+    font-family: stamshons;
+    color: white;
+
+    --label-font-size: 64px;
+
+    @media screen and (max-width: $size-s) {
+        font-size: 36px;
+    }
+}
+
+.light label {
+    font-family: comic;
+    color: black;
+
+    --label-font-size: 48px;
+
+    @media screen and (max-width: $size-s) {
+        font-size: 24px;
+    }
+}
+
 label {
 
     text-align: center;
-    font-family: comic;
-
-    --label-font-size: 48px;
     font-size: var(--label-font-size);
+
+    padding-bottom: 30px;
 
     @media screen and (max-width: $size-m) {
         font-size: calc(var(--label-font-size) * 0.8);
+    }
+
+    @media screen and (max-width: $size-s) {
+        padding-bottom: 10px;
     }
 }
 
@@ -89,7 +114,6 @@ input {
 
     @media screen and (max-width: $size-s) {
         height: 44px;
-        border-radius: 10px;
     }
 }
 
@@ -104,7 +128,6 @@ textarea {
 
     @media screen and (max-width: $size-s) {
         height: 132px;
-        border-radius: 10px;
     }
 }
 
@@ -114,6 +137,8 @@ input, textarea {
 
     font-family: open-sans;
     
+    border-radius: 15px;
+
     --text-font-size: 24px;
     font-size: var(--text-font-size);
     @media screen and (max-width: $size-m) {
@@ -121,21 +146,19 @@ input, textarea {
     }
     @media screen and (max-width: $size-s) {
         font-size: 15px;
+        border-radius: 10px;
     }
 }
 
 .light input, .light textarea {
     background-color: #ffffff;
-
     border: 2px solid #bdbdbd;
-    border-radius: 15px;
 }
 
 .dark input, .dark textarea {
-    background-color: #919191;
-    border: 2px solid #2f2f2f;
-    border-radius: 15px;
-
+    background-color: #575757;
+    border: none;
+    
     color: white;
 }
 
@@ -181,11 +204,12 @@ button {
     @media screen and (max-width: $size-s) {
         padding: 20px;
         width: 100%;
+        border-radius: 10px;
     }
 }
 
 .dark form {
-    background-color: #707070;
+    background-color: #323232;
 }
 
 .light form {
