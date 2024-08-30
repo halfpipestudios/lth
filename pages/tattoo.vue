@@ -83,6 +83,10 @@ const texts = useState('texts');
         padding: 20px;
     }
 
+    @media screen and (max-width: $size-s) {
+        font-size: 24px;
+    }
+
 }
 
 </style>

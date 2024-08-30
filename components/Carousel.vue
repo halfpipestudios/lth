@@ -110,6 +110,9 @@
     
         position: relative;
 
+        margin-top: 20px;
+        margin-bottom: 20px;
+
         @media screen and (max-width: $size-s) {
             aspect-ratio: 1;
         }
