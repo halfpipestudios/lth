@@ -39,7 +39,7 @@
     justify-content: center;
 
     box-sizing: border-box;
-    padding: 40px;
+    padding: 20px;
 
     @media screen and (max-width: $size-s) {
         padding: 20px;

@@ -144,7 +144,7 @@ onMounted(() => {
     gap: 10px;
     padding: 20px;
 
-    z-index: 5;
+    z-index: 6;
 }
 
 .language_option {

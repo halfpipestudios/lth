@@ -18,6 +18,10 @@
             <Form theme="dark" />
         </section>
 
+        <section>
+            <Card />
+        </section>
+
     </div>
 
 </template>
@@ -76,7 +80,7 @@ const texts = useState('texts');
     font-size: var(--tattoo-desc-font-size);
 
     box-sizing: border-box;
-    padding: 40px;
+    padding: 20px;
 
     @media screen and (max-width: $size-m) {
         font-size: calc(var(--tattoo-desc-font-size) * 0.8);
