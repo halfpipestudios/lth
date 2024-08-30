@@ -16,7 +16,7 @@
 
             <NuxtLink to="/onefam">{{texts["header-navbar-contacto"]}}</NuxtLink>
                 
-            <NuxtLink to="/" class="reservar">
+            <NuxtLink to="https://lemontree.reservadirecto.com/lp.html" target="_blank" class="reservar">
                 <img :src="reserve" alt="">
                 <div>{{ texts["header-navbar-reservar"] }}</div>
             </NuxtLink>
@@ -130,6 +130,8 @@
 
     .reservar img {
         
+        z-index: 1;
+
         --reservar-height: 91px;
         height: var(--reservar-height);
         
