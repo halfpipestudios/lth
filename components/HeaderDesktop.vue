@@ -3,7 +3,7 @@
     <div class="container">
     
         <div class="nav left">
-            <NuxtLink to="/">{{ texts["header-navbar-habitaciones"] }}</NuxtLink>
+            <NuxtLink to="/rooms">{{ texts["header-navbar-habitaciones"] }}</NuxtLink>
             <NuxtLink to="/services">{{ texts["header-navbar-servicios"] }}</NuxtLink>
             <NuxtLink to="/tattoo">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
         </div>
@@ -130,8 +130,6 @@
 
     .reservar img {
         
-        z-index: 1;
-
         --reservar-height: 91px;
         height: var(--reservar-height);
         
