@@ -54,10 +54,8 @@
             blogs_feched = blogs_feched + blogs_amout;
             if(records.items.length > blogs_feched) {
                 records.items.pop();
-                console.log("there are more blogs to fetch!");  
             } else {
                 more_blogs_to_fetch.value = false;
-                console.log("no more blogs to fetch!");
             }
 
             blogs.value = translate_blogs(records.items);

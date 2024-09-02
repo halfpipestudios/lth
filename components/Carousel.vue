@@ -35,10 +35,8 @@
             image_fetched = image_fetched + image_amout;
             if(records.items.length > image_fetched) {
                 records.items.pop();
-                console.log("there are more images to fetch!");  
             } else {
                 more_to_fetch.value = false;
-                console.log("no more images to fetch!");
             }
             images.value = records.items;
         }

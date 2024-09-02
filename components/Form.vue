@@ -26,16 +26,28 @@
             type: String,
             default: "light"
         },
-        frames: {
-            type: Array,
-            default: []
-        },
-        frame_time: {
-            type: Number,
-            default: 1
+        animation: {
+            type: String,
         }
     });
     const texts = useState('texts');
+
+    const frames =  ref([]);
+    const frame_time = ref(0);
+
+    const language = useState('language');
+
+    async function fetch_animation() {
+        const records = await $fetch(`/api/animations?animation=${props.animation + "-" + language.value}`);
+        frames.value = records.frames;
+        frame_time.value = records.frame_time;
+    }
+
+    fetch_animation();
+
+    watch(language, fetch_animation);
+
+
 </script>
 
 <style scoped lang="scss">
@@ -73,8 +85,11 @@
     align-items: center;
     justify-content: center;
 
+    gap: 10px;
+
     @media screen and (max-width: 1050px) {
         flex-direction: column-reverse;
+        gap: 0px;
     }
 }
 
