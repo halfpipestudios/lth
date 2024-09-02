@@ -19,18 +19,7 @@
         </section>
 
         <section>
-            <Form :frames="[
-                    '/img/wolve/Wolv1.png', 
-                    '/img/wolve/Wolv2.png',
-                    '/img/wolve/Wolv3.png',
-                    '/img/wolve/Wolv4.png',
-                    '/img/wolve/Wolv5.png',
-                    '/img/wolve/Wolv6.png',
-                    '/img/wolve/Wolv7.png',
-                    '/img/wolve/Wolv8.png',
-                    '/img/wolve/Wolv9.png'
-                    ]"
-                    :frame_time=0.3 />
+            <Form animation="anim-home"/>
         </section>
 
         <section>
@@ -49,6 +38,7 @@
 </template>
 
 <script setup>
+    const language = useState('language');
     const texts = useState('texts');
 </script>
 

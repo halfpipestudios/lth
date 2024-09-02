@@ -22,13 +22,7 @@
         </section>
         
         <section>
-            <Form theme="dark" 
-                :frames="['/img/batman/batman1.png',
-                          '/img/batman/batman2.png', 
-                          '/img/batman/batman3.png', 
-                          '/img/batman/batman4.png', 
-                          '/img/batman/batman5.png', 
-                          '/img/batman/batman6.png']" />
+            <Form theme="dark" animation="anim-tattoo" />
         </section>
 
         <section>
