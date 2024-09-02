@@ -13,7 +13,7 @@
                 <button type="submit">{{ texts["formulario-boton"] }}</button>
             </form>
             <div class="animation">
-                <Sprite :frames="frames"/>
+                <Sprite :frames="frames" :frame_time="frame_time" />
             </div>
         </div>
     </div>
@@ -29,6 +29,10 @@
         frames: {
             type: Array,
             default: []
+        },
+        frame_time: {
+            type: Number,
+            default: 1
         }
     });
     const texts = useState('texts');
@@ -69,7 +73,7 @@
     align-items: center;
     justify-content: center;
 
-    @media screen and (max-width: $size-s) {
+    @media screen and (max-width: 1050px) {
         flex-direction: column-reverse;
     }
 }
@@ -125,7 +129,7 @@ input {
 
 textarea {
     width: 100%;
-    height: 316px;
+    height: 280px;
     
     padding: 0;
     margin: 0;
@@ -145,7 +149,7 @@ input, textarea {
     
     border-radius: 15px;
 
-    --text-font-size: 24px;
+    --text-font-size: 23px;
     font-size: var(--text-font-size);
     @media screen and (max-width: $size-m) {
         font-size: calc(var(--text-font-size) * 0.8);
@@ -193,18 +197,18 @@ button {
 }
 
 .form-container .max-container .animation {
-    width: 40%;
-    aspect-ratio: 0.7;
-    align-self: flex-end;
+    width: 50%;
+    aspect-ratio: 1;
+    align-self: center;
 
-    @media screen and (max-width: $size-s) {
-        width: 70%;
+    @media screen and (max-width: 1050px) {
+        width: 100%;
     }
 }
 
 
 .form-container .max-container form {
-    width: 60%;
+    width: 50%;
 
     display: flex;
     flex-direction: column;
@@ -218,7 +222,7 @@ button {
 
     border-radius: 15px;
 
-    @media screen and (max-width: $size-s) {
+    @media screen and (max-width: 1050px) {
         padding: 20px;
         width: 100%;
         border-radius: 10px;

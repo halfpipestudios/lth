@@ -8,10 +8,9 @@
             <img :src="hamburger" alt="hambuerger menu">
         </div>
         
-
-        <div class="logo">
-            <img :src="logo" alt="lgo">
-        </div>
+        <NuxtLink to="/" ref="logo" class="logo">
+            <img :src="logo" alt="">
+        </NuxtLink>
 
     </div>
 
@@ -29,7 +28,7 @@
 
         <div class="links">
 
-            <NuxtLink @click="collapse_menu"  to="/">{{ texts["header-navbar-habitaciones"] }}</NuxtLink>
+            <NuxtLink @click="collapse_menu"  to="/rooms">{{ texts["header-navbar-habitaciones"] }}</NuxtLink>
             <NuxtLink @click="collapse_menu" to="/services">{{ texts["header-navbar-servicios"] }}</NuxtLink>
             <NuxtLink @click="collapse_menu" to="/tattoo">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
             <NuxtLink @click="collapse_menu" to="/onefam">{{ texts["header-navbar-contacto"] }}</NuxtLink>

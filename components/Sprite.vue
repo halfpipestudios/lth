@@ -12,6 +12,10 @@
             type: Array,
             default: []
         },
+        frame_time: {
+            type: Number,
+            default: 1
+        }
     });
 
     const frames_element = ref(null);
@@ -19,6 +23,7 @@
     let last_frame = -1;
 
     function swap_frame() {
+        
         if(!frames_element.value) return;
         if(frames_element.value.length === 0) return;
 
@@ -29,12 +34,11 @@
         
         last_frame = current_frame;
         current_frame = (current_frame + 1) % frames_element.value.length;
-
     }
 
     onMounted(() => {
         swap_frame();
-        setInterval(swap_frame, 1000);
+        setInterval(swap_frame, props.frame_time * 1000);
     });
 
 </script>
@@ -53,7 +57,7 @@
     top: 0;
     left: 0;
 
-    object-fit: cover;
+    object-fit: contain;
 
     width: 100%;
     height: 100%;
