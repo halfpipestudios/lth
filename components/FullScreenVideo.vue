@@ -1,7 +1,7 @@
 <template>
     <div class="fullscreen">
         <img src="/img/loading.gif" alt="video loader">
-        <video muted autoplay disablePictureInPicture >
+        <video muted autoplay disablePictureInPicture playsinline>
             <source 
                 src="https://onefamhostels.com/wp-content/uploads/2024/08/ONEFAM-V8-HD-horizontal-youtube1.mp4"
                 type="video/mp4">
