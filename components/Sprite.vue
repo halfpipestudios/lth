@@ -81,7 +81,7 @@
         const observer = new IntersectionObserver(handle_intersection, {
             root: null,
             rootMargin: '0px',
-            threshold: 1.0
+            threshold: 0.7
         });
 
         observer.observe(sprite.value);
