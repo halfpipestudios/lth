@@ -204,11 +204,18 @@ button {
     font-size: 32px;
     color: white;
 
+    transition-duration: 0.4s;
+
     @media screen and (max-width: $size-s) {
         height: 44px;
         border-radius: 10px;
         font-size: 18px;
     }
+}
+
+button:hover {
+    background-color: darkred;
+    cursor: pointer;
 }
 
 .form-container .max-container .animation {

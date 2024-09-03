@@ -1,12 +1,12 @@
 
 <template>
     <div ref="main">
-        <div class="spidey">
+        <div class="spidey" ref="spidy_element">
             <img src="/img/spider.png" alt="">
 
             <div class="dialog">
                 <p class="text">RESERVANDO HOY TENES UN 15% DE DTO EN TU ALOJAMIENTO</p>
-                <img class="triangle" src="/img/tail.svg" alt="">
+                <button class="close" @click="close">X</button>
             </div>
         </div>
         <div class="trigger"></div>
@@ -19,6 +19,12 @@
 
     const main = ref();
     const ctx = ref();
+    const spidy_element = ref(null);
+
+    function close(){
+        if(!spidy_element.value) return;
+        spidy_element.value.style.display = "none";
+    }
 
     onMounted(() => {
         ctx.value = $gsap.context((self) => {
@@ -37,14 +43,14 @@
             swing.pause();
             
             var tl = $gsap.timeline();
-            tl.to(spidey, {y: 600, duration: 1, ease: "power2.out"});
+            tl.to(spidey, {y: "65vh", duration: 1, ease: "power2.out"});
             tl.to(dialog, { opacity: 1, duration: .5});
 
             $ScrollTrigger.create({
                 animation: tl,
                 trigger: trigger,
                 start: "bottom top",
-                end: "+=" + localStorage.getItem("scroll"),
+                end: "+=" + 200,
                 scrub: 1,
                 toggleActions:"restart none reverse none",
                 markers: false,
@@ -74,24 +80,28 @@
 <style scoped>
     .spidey {
         position: fixed;
-        top: -920px;
+        top: -940px;
         left: 15px;
         z-index: 3;
 
-        pointer-events: none;
+        user-select: none;
+    }
+
+    .spidey img {
+        width: 600px;
     }
 
     .text{
         font-family: "comic";
-        padding: 20px;
-        height: 34px;
+        font-size: 24px;
+
+        margin: 0;
+        padding: 30px;
         text-align: center;
     
         background-color: white;
         border: 3px solid black;
-        border-top-right-radius: 24px;
-        border-bottom-right-radius: 24px;
-        padding-right: 40px;
+        border-radius: 50px;
     }
 
     .triangle {
@@ -102,12 +112,40 @@
 
     .dialog {
         position: relative;
-        top: -50px;
-        left: 220px;
+        max-width: 400px;
+        top: -75px;
+        right: -350px;
         opacity: 0;
 
+        padding: 0;
+        margin: 0;
+    }
 
+    .close {
+        font-family: "comic";
+        font-size: 24px;
+        color: white;
 
+        position: absolute;   
+        top: -10px;
+        right: -10px;
+
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        border-radius: 50%;
+
+        padding: 0;
+        margin: 0;
+
+        transition-duration: 0.4s;
+
+    }
+
+    
+    .close:hover {
+        background-color: darkred;
+        cursor: pointer;
     }
 
     .trigger {
