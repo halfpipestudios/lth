@@ -6,7 +6,7 @@
             :text="blog.text"
             :theme="theme"
         />
-        <button v-if="more_blogs_to_fetch" @click="fetch_blogs">Ver mas ...</button>
+        <button v-if="more_blogs_to_fetch" @click="fetch_blogs">{{ texts["blogs-cargar-mas"] }}</button>
     </div>
 </template>
 
@@ -27,6 +27,8 @@
     const blogs = ref([]);
 
     const language = useState('language');
+    const texts = useState('texts');
+
     function translate_blogs(blogs) {
         for (let blog of blogs) {
             blog["title"] = blog["Titulo_" + language.value];
@@ -73,6 +75,26 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+}
+
+.blogs button {
+    font-family: open-sans;
+    font-weight: bold;
+    font-size: 32px;
+    background-color: white;
+    border: 3px solid #8A8A8A;
+    border-radius: 40px;
+    color: black;
+
+    box-sizing: border-box;
+    margin: 40px;
+    padding: 10px 30px 10px 30px;
+
+    cursor: pointer;
+}
+
+.blogs button:hover {
+    background-color: #eeeeee;
 }
 
 </style>
