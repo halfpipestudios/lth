@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
     };
 
     const record = await pb.collection("Blogs").getList(interval.start, interval.end, {
-        filter: `Categoria = "${category}"`,
+        filter: `Categoria ~ "${category}"`,
         sort: '-created'
     });
 
