@@ -134,6 +134,7 @@
         height: 50px;
         background-color: red;
         border-radius: 50%;
+        border: solid 3px black;
 
         padding: 0;
         margin: 0;
