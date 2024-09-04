@@ -26,6 +26,7 @@
 
     let image_amout = 4;
     let image_fetched = 0;
+    let can_scroll = true;
     
     async function fetch_images() {
         if(more_to_fetch.value) {
@@ -44,12 +45,17 @@
 
     async function image_index_next() {
 
+        if(!can_scroll) return;
+
         if(current_image_index.value >= (images.value.length - 1)) {
+            
+            last_image_index = current_image_index.value;
+            
             if(more_to_fetch.value) {
                 await fetch_images();
-                last_image_index = current_image_index.value;
                 current_image_index.value += 1;
             }
+            
         } else {
             last_image_index = current_image_index.value;
             current_image_index.value += 1;
@@ -58,31 +64,64 @@
     }
 
     function image_index_prev() {
+
+        if(!can_scroll) return;
+
         if(current_image_index.value > 0) {
             last_image_index = current_image_index.value;
             current_image_index.value -= 1;
         }
     }
 
+    function play_anim(anim, element) {
+        if(element === undefined) return;
+    
+        element.classList.remove("from-right");
+        element.classList.remove("from-left");
+        element.classList.remove("to-right");
+        element.classList.remove("to-left");
+
+        element.classList.add(anim);
+
+        can_scroll = false;
+
+        element.addEventListener("animationend", () => {
+            can_scroll = true;
+        }, { once: true });
+
+    }
+
     function update_image_element_array() {
         if(!image_element_array.value) return;
-
-        image_element_array.value[current_image_index.value].style.display = "block";
-        if(last_image_index >= 0) {
-            image_element_array.value[last_image_index].style.display = "none";    
-        }
-
-        arrow_right.value.style.display = "block";
-        arrow_left.value.style.display = "block";
-
-        if(current_image_index.value >= (images.value.length - 1)) {
-            if(!more_to_fetch.value) {
-                arrow_right.value.style.display = "none"; 
+        
+        {
+            // console.log("last: " + last_image_index);
+            // console.log("curr: " + current_image_index.value);
+            if(last_image_index === -1) {
+                image_element_array.value[current_image_index.value].style.visibility = "visible";
+            } else if(last_image_index < current_image_index.value) {
+                play_anim("to-left", image_element_array.value[last_image_index]);
+                play_anim("from-right", image_element_array.value[current_image_index.value]);
+            } else {
+                play_anim("to-right", image_element_array.value[last_image_index]);
+                play_anim("from-left", image_element_array.value[current_image_index.value]);
             }
+
         }
 
-        if(current_image_index.value <= 0) {
-            arrow_left.value.style.display = "none"; 
+        {
+            arrow_right.value.style.display = "block";
+            arrow_left.value.style.display = "block";
+
+            if(current_image_index.value >= (images.value.length - 1)) {
+                if(!more_to_fetch.value) {
+                    arrow_right.value.style.display = "none"; 
+                }
+            }
+
+            if(current_image_index.value <= 0) {
+                arrow_left.value.style.display = "none"; 
+            }
         }
     }
 
@@ -112,6 +151,8 @@
         margin-top: 20px;
         margin-bottom: 20px;
 
+        overflow: hidden;
+
         @media screen and (max-width: $size-s) {
             aspect-ratio: 1;
         }
@@ -123,7 +164,8 @@
         left: 0;
         top: 0;
 
-        display: none;
+        display: block;
+        visibility: hidden;
         
         width: 100%;
         height: 100%;
@@ -168,5 +210,89 @@
         }
     
     }
+
+
+/* slide animations */
+
+.from-right {
+    animation: anim-from-right;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+}
+
+.to-left {
+    animation: anim-to-left;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+}
+
+.from-left {
+    animation: anim-from-left;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+}
+
+.to-right {
+    animation: anim-to-right;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+}
+
+
+@keyframes anim-from-right {
+
+    from {
+        transform: translateX(100%);
+        visibility: hidden;
+    }
+
+    to {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+}
+
+@keyframes anim-to-left {
+
+    from {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    to {
+        transform: translateX(-100%);
+        visibility: hidden;
+    }
+
+}
+
+@keyframes anim-from-left {
+
+    from {
+        transform: translateX(-100%);
+        visibility: hidden;
+    }
+
+    to {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+}
+
+@keyframes anim-to-right {
+
+    from {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    to {
+        transform: translateX(100%);
+        visibility: hidden;
+    }
+
+}
 
 </style>
