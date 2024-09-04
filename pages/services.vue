@@ -6,7 +6,7 @@
             <div class="sticky-header">
                 <h2>{{ texts["servicios-servicios-titulo"] }}</h2>
             </div>
-            <Carousel category="servicios"/>
+            <Carrousel category="servicios"/>
             <p>{{ texts["servicios-servicios-desc"] }}</p>
             <Services />
             <Blogs category="servicios" amount="2" />
@@ -16,7 +16,7 @@
             <div class="sticky-header">
                 <h2>{{ texts["servicios-excursiones-titulo"] }}</h2>
             </div>
-            <Carousel category="excursiones"/>
+            <Carrousel category="excursiones"/>
             <p>{{ texts["servicios-excursiones-desc"] }}</p>
             <Blogs category="excursiones" amount="2" />
         </section>
@@ -25,7 +25,7 @@
             <div class="sticky-header">
                 <h2>{{ texts["servicios-restaurant-titulo"] }}</h2>
             </div>
-            <Carousel category="restaurant"/>
+            <Carrousel category="restaurant"/>
             <p>{{ texts["servicios-restaurant-desc"] }}</p>
             <Blogs category="restaurant" amount="2" />
         </section>

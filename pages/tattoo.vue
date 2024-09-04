@@ -7,7 +7,7 @@
         </section>
 
         <section>
-            <Carousel category="tatuajes"/>
+            <Carrousel category="tatuajes"/>
         </section>
 
         <section>
