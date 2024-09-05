@@ -3,6 +3,12 @@
     <div class="tattoo">
 
         <section>
+            <FullScreenVideo 
+                :video="video?.data?.value"
+            />
+        </section>
+
+        <section>
             <h1>TATT00 STUDI0</h1>
         </section>
 
@@ -40,11 +46,14 @@ definePageMeta({
 });
 
 const texts = useState('texts');
-const seminarios_availables = ref(false);
+const video = await useFetch("/api/videos?name=video-tattoo");
 
-const records = await $fetch("/api/blogs?category=tatuajes&start=1&end=1");
-if(records.items.length) {
-    seminarios_availables.value = true;
+const seminarios_availables = ref(false);
+{
+    const records = await $fetch("/api/blogs?category=tatuajes&start=1&end=1");
+    if(records.items.length) {
+        seminarios_availables.value = true;
+    }
 }
 
 </script>

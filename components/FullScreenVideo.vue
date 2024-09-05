@@ -3,13 +3,20 @@
         <img src="/img/loading.gif" alt="video loader">
         <video muted autoplay disablePictureInPicture playsinline>
             <source 
-                src="https://onefamhostels.com/wp-content/uploads/2024/08/ONEFAM-V8-HD-horizontal-youtube1.mp4"
+                :src="video"
                 type="video/mp4">
         </video>
     </div>
 </template>
 
 <script setup>
+
+const props = defineProps({
+        video: {
+            type: String,
+        }
+    });
+
 </script>
 
 <style scoped lang="scss">
