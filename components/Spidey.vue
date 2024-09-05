@@ -109,6 +109,9 @@
 
         @media screen and (max-width: $size-s) {
             --spider-w: 150px;
+            width: var(--spider-w);
+            height: var(--spider-h);
+            top: calc(var(--spider-h) * -0.85);
         }
 
     }
