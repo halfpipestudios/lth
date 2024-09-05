@@ -156,6 +156,9 @@
         top: 50%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
+
+        font-family: comic;
+        font-size: 18px;
     }
 
     .left {

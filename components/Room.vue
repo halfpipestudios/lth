@@ -133,7 +133,7 @@ const texts = useState('texts');
     }
 
     @media screen and (max-width: $size-s) {
-        font-size: 20px;
+        font-size: 18px;
     }
     
 }
