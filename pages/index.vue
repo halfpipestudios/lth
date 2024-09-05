@@ -47,7 +47,11 @@
     useHead({
         title: 'Lemon Tree Hostel',
         meta: [
-            { name: 'description', content: 'Estamos en un parque muy bonito, rodeados de árboles y flores. El sol está brillando, y hay niños jugando en el césped' },
+            { property: 'og:title', content: 'Lemon Tree Hostel' },
+            { property: 'og:description', content: 'Webside de Lemon Tree' },
+            { property: 'og:image', content: 'https://lth.halfpipe.dev/admin/api/files/s1ycqmq3yit5gfm/vr49oclvoujboec/logo_lemon_11Lykl8jRz.png' },
+            { property: 'og:url', content: 'lth.halfpipe.dev' },
+            { name: 'description', content: 'Webside de Lemon Tree' },
             { name: 'keywords', content: 'lemon, hostel, tree' }
         ],
         link: [
