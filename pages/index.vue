@@ -3,7 +3,9 @@
     <div class="home">
         
         <section>
-            <FullScreenVideo />
+            <FullScreenVideo
+                video="https://onefamhostels.com/wp-content/uploads/2024/08/ONEFAM-V8-HD-horizontal-youtube1.mp4"
+            />
         </section>
 
         <section class="container-max quienes-somos">
