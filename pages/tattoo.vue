@@ -4,7 +4,7 @@
 
         <section>
             <FullScreenVideo 
-                :video="video?.data?.value"
+                :video="video.data.value"
             />
         </section>
 
@@ -47,6 +47,7 @@ definePageMeta({
 
 const texts = useState('texts');
 const video = await useFetch("/api/videos?name=video-tattoo");
+console.log(video.data.value);
 
 const seminarios_availables = ref(false);
 {
