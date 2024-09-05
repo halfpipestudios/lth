@@ -47,7 +47,7 @@ definePageMeta({
 
 const texts = useState('texts');
 const video = await useFetch("/api/videos?name=video-tattoo");
-console.log(video.data.value);
+console.log(video);
 
 const seminarios_availables = ref(false);
 {
