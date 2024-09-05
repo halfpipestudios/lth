@@ -94,7 +94,7 @@
         --spider-h: calc(var(--spider-w) * var(--spider-aspect));
 
         width: var(--spider-w);
-        aspect-ratio: 0.29;
+        aspect-ratio: 0.229;
         
         
         position: fixed;
