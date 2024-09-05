@@ -1,19 +1,27 @@
 
 <template>
     <div ref="main">
+
         <div class="spidey" ref="spidy_element">
+
             <img src="/img/spider.png" alt="">
 
             <div class="dialog">
-                <p class="text">RESERVANDO HOY TENES UN 15% DE DTO EN TU ALOJAMIENTO</p>
+                <p class="text">{{ texts["spiderman-text"] }}</p>
                 <button class="close" @click="close">X</button>
             </div>
+
+
         </div>
+
         <div class="trigger"></div>
+
     </div>
 </template>
 
 <script setup>
+
+    const texts = useState('texts');
 
     const { $gsap, $ScrollTrigger } = useNuxtApp();
 
@@ -43,14 +51,14 @@
             swing.pause();
             
             var tl = $gsap.timeline();
-            tl.to(spidey, {y: "65vh", duration: 1, ease: "power2.out"});
+            tl.to(spidey, {y: "60vh", duration: 1, ease: "power2.out"});
             tl.to(dialog, { opacity: 1, duration: .5});
 
             $ScrollTrigger.create({
                 animation: tl,
                 trigger: trigger,
                 start: "bottom top",
-                end: "+=" + 200,
+                end: "+=" + 100,
                 scrub: 1,
                 toggleActions:"restart none reverse none",
                 markers: false,
@@ -77,18 +85,37 @@
 </script>
 
 
-<style scoped>
+<style scoped lang="scss">
+    
     .spidey {
+        
+        --spider-aspect: 3.44;
+        --spider-w: 300px;
+        --spider-h: calc(var(--spider-w) * var(--spider-aspect));
+
+        width: var(--spider-w);
+        height: var(--spider-h);
+
         position: fixed;
-        top: -940px;
-        left: 15px;
+        top: calc(var(--spider-h) * -0.85);
+        left: 0;
+
         z-index: 3;
 
+        pointer-events: none;
         user-select: none;
+
+        background-color: transparent;
+
+        @media screen and (max-width: $size-s) {
+            --spider-w: 150px;
+        }
+
     }
 
     .spidey img {
-        width: 600px;
+        width: 100%;
+        height: 100%;
     }
 
     .text{
@@ -102,23 +129,36 @@
         background-color: white;
         border: 3px solid black;
         border-radius: 50px;
-    }
 
-    .triangle {
-        position: absolute;
-        top: -.5px;
-        left: -106px;
+        @media screen and (max-width: $size-s) {
+            padding: 15px;
+            font-size: 12px;
+            border-radius: 25px;
+            border: 1px solid black;
+        }
+
     }
 
     .dialog {
-        position: relative;
-        max-width: 400px;
-        top: -75px;
-        right: -350px;
+        
+        position: absolute;
+        bottom: 0;
+        right: 0;
+
+        transform: translateX(70%) translateY(50%);
+
         opacity: 0;
 
         padding: 0;
         margin: 0;
+        max-width: 400px;
+
+        pointer-events: all;
+
+        @media screen and (max-width: $size-s) {
+            max-width: 200px;
+        }
+
     }
 
     .close {
@@ -141,6 +181,20 @@
 
         transition-duration: 0.4s;
 
+        pointer-events: all;
+        
+        text-align: center;
+
+        @media screen and (max-width: $size-s) {
+            top: -5px;
+            right: -5px;
+            width: 25px;
+            height: 25px;
+            font-size: 12px;
+            border: 1px solid black;
+        }
+
+
     }
 
     
@@ -160,6 +214,8 @@
         background-color: magenta;
 
         visibility: hidden;
+
+        z-index: 20;
     }
 
 </style>
