@@ -4,7 +4,7 @@
 
         <div class="spidey" ref="spidy_element">
 
-            <img src="/img/spider.png" alt="">
+            <img src="/img/spidy.png" alt="">
 
             <div class="dialog">
                 <p class="text">{{ texts["spiderman-text"] }}</p>
