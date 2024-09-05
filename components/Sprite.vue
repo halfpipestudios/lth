@@ -62,7 +62,7 @@
         const observer = new IntersectionObserver(handle_intersection, {
             root: null,
             rootMargin: '0px',
-            threshold: 0.7
+            threshold: 0.3
         });
 
         observer.observe(sprite.value);
@@ -86,6 +86,7 @@
     left: 0;
 
     object-fit: contain;
+    object-position: bottom;
 
     width: 100%;
     height: 100%;

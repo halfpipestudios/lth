@@ -89,7 +89,7 @@
     
     .spidey {
         
-        --spider-aspect: 3.44;
+        --spider-aspect: 4.357;
         --spider-w: 300px;
         --spider-h: calc(var(--spider-w) * var(--spider-aspect));
 

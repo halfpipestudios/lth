@@ -94,15 +94,6 @@
     font-weight: normal;
 
     --blog-title-size: 64px;
-
-    @media screen and (max-width: $size-s) {
-        font-size: 24px;
-    }
-
-    
-    @media screen and (max-width: $size-s) {
-        font-size: 28px;
-    }
 }
 
 .light h2 {
@@ -112,10 +103,6 @@
     font-weight: bold;
 
     --blog-title-size: 48px;
-
-    @media screen and (max-width: $size-s) {
-        font-size: 24px;
-    }
 }
 
 .blog  h2 {
@@ -129,6 +116,10 @@
 
     @media screen and (max-width: $size-m) {
         font-size: calc(var(--blog-title-size) * 0.8);
+    }
+
+    @media screen and (max-width: $size-s) {
+        font-size: 24px;
     }
 
 }
@@ -218,8 +209,13 @@
     
     --blog-p-size: 24px;
     font-size: var(--blog-p-size);
+    
     @media screen and (max-width: $size-m) {
         font-size: calc(var(--blog-p-size) * 0.8);
+    }
+
+    @media screen and (max-width: $size-s) {
+        font-size: 18px;
     }
 
 }

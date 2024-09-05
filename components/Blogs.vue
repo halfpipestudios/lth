@@ -80,7 +80,7 @@
 .blogs button {
     font-family: open-sans;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 20px;
     background-color: white;
     border: 3px solid #8A8A8A;
     border-radius: 40px;

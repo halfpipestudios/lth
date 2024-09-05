@@ -221,13 +221,14 @@ button:hover {
 .form-container .max-container .animation {
     width: 50%;
     aspect-ratio: 1;
+    max-width: 500px;
     align-self: center;
 
     @media screen and (max-width: 1050px) {
+        align-self: flex-end;
         width: 100%;
     }
 }
-
 
 .form-container .max-container form {
     width: 50%;
