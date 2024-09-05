@@ -209,7 +209,6 @@
     
     --blog-p-size: 24px;
     font-size: var(--blog-p-size);
-    
     @media screen and (max-width: $size-m) {
         font-size: calc(var(--blog-p-size) * 0.8);
     }

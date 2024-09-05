@@ -216,7 +216,8 @@
     }
 
     .reservar div {
-        font-size: 20px;
+        font-family: comic;
+        font-size: inherit;
     }
 
     .dark .reservar div {

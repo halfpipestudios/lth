@@ -13,10 +13,6 @@
         </section>
 
         <section>
-            <Carrousel category="tatuajes"/>
-        </section>
-
-        <section>
             <p>{{ texts["tattoo-descripcion"] }}</p>
         </section>
 
@@ -31,6 +27,10 @@
             <Form theme="dark" animation="anim-tattoo" />
         </section>
 
+        <section>
+            <Carrousel category="tatuajes"/>
+        </section>
+        
         <section>
             <Card />
         </section>

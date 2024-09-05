@@ -2,7 +2,7 @@
     <Header />
     <Spidey />
     <slot />
-    <img class="whatsapp" src="/img/whatsapp.png" alt="whatsapp">
+    <Whatsapp />
     <Footer />
 </template>
 
