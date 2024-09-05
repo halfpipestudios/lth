@@ -94,8 +94,9 @@
         --spider-h: calc(var(--spider-w) * var(--spider-aspect));
 
         width: var(--spider-w);
-        height: var(--spider-h);
-
+        aspect-ratio: 0.29;
+        
+        
         position: fixed;
         top: calc(var(--spider-h) * -0.85);
         left: 0;
@@ -110,8 +111,7 @@
         @media screen and (max-width: $size-s) {
             --spider-w: 150px;
             width: var(--spider-w);
-            height: var(--spider-h);
-            top: calc(var(--spider-h) * -0.85);
+            top: calc(var(--spider-h) * -0.83);
         }
 
     }
