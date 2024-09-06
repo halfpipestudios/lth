@@ -13,13 +13,13 @@
         meta: [
             { property: 'og:title', content: 'Lemon Tree Hostel' },
             { property: 'og:description', content: 'Reservá en el mejor hostel de Mendoza' },
-            { property: 'og:image', content: 'http://lemontreehostel.com.ar/admin/api/files/s1ycqmq3yit5gfm/vr49oclvoujboec/logo_lemon_11Lykl8jRz.png' },
-            { property: 'og:url', content: 'http://lemontreehostel.com.ar/' },
+            { property: 'og:image', content: 'https://lemontreehostel.com.ar/admin/api/files/s1ycqmq3yit5gfm/vr49oclvoujboec/logo_lemon_11Lykl8jRz.png' },
+            { property: 'og:url', content: 'https://lemontreehostel.com.ar/' },
             { name: 'description', content: 'Reservá en el mejor hostel de Mendoza' },
             { name: 'keywords', content: 'lemon, hostel, tree, reservar, mendoza' }
         ],
         link: [
-            { rel: 'icon', type: 'image/png', href: 'http://lemontreehostel.com.ar/admin/api/files/s1ycqmq3yit5gfm/vr49oclvoujboec/logo_lemon_11Lykl8jRz.png' }
+            { rel: 'icon', type: 'image/png', href: 'https://lemontreehostel.com.ar/admin/api/files/s1ycqmq3yit5gfm/vr49oclvoujboec/logo_lemon_11Lykl8jRz.png' }
         ],
     })
 
