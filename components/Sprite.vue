@@ -19,18 +19,18 @@
         }
     });
 
-    const preloadLinks = computed(() =>
-        props.frames.map((frame) => ({
-            rel: "preload",
-            fetchpriority: "high",
-            as: "image",
-            href: frame,
-        }))
-    );
+    // const preloadLinks = computed(() =>
+    //     props.frames.map((frame) => ({
+    //         rel: "preload",
+    //         fetchpriority: "high",
+    //         as: "image",
+    //         href: frame,
+    //     }))
+    // );
 
-    useHead({
-        link: preloadLinks.value,
-    });
+    // useHead({
+    //     link: preloadLinks.value,
+    // });
 
     const sprite = ref(null);
     const frames_element = ref(null);
