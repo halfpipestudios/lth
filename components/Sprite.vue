@@ -1,14 +1,13 @@
 <template>
 
     <div class="sprite" ref=sprite>
-        <img class="frame" :src="frames[0]" alt="sprite frame" ref="frame">
-
-        <!-- <img v-for="(frame, index) in frames" class="frame" :src="frame" alt="sprite frame" ref="frames_element"> -->
+        <img v-for="(frame, index) in frames" :key="index" class="frame" :src="frame" alt="sprite frame" :ref="el => frames_element_refs[index] = el">
     </div>
 
 </template>
 
 <script setup>
+    
     const props = defineProps({
         frames: {
             type: Array,
@@ -21,30 +20,31 @@
     });
 
     const sprite = ref(null);
-    const frame = ref(null);
-    const current_frame = ref(-1);
+    const frames_element_refs = ref([]);
+    
+    let current_frame = -1;
+    let last_frame = -1;
     let animation_is_pause = true;
     let animation_was_started = false;
     let interval_id = 0;
+    let frames_element = null;
+    let component_is_initialize = false;
 
-    watch(current_frame, () => {
-        if(current_frame.value >= 0) {
-            frame.value.setAttribute("src", props.frames[current_frame.value]);
-        } else {
-            frame.value.setAttribute("src", props.frames[0]);
+    function clear_frames() {
+        for(let i = 0; i < frames_element.length; ++i) {
+            frames_element[i].style.visibility = "hidden";
         }
-    });
+    }
 
     function start() {
-        console.log("animtion start!");
-        current_frame.value = -1;
+        last_frame = -1;
+        current_frame = -1;
         animation_is_pause = false;
+        clear_frames();
     }
 
     function update() {
-        
-        if(frame.value === null) return;
-        
+    
         if(!animation_was_started) {
             start();
             animation_was_started = true;
@@ -52,15 +52,28 @@
         
         if(animation_is_pause) return;
 
-        if(current_frame.value === (props.frames.length - 1)) {
-            animation_is_pause = true;
-        } else {
-            current_frame.value = (current_frame.value + 1);
-        }
+        draw_next_frame();
     
     }
 
+    function draw_next_frame() {
+        if(current_frame === (props.frames.length - 1)) {
+            animation_is_pause = true;
+        } else {
+            last_frame = current_frame;
+            current_frame += 1;
+        }
+
+        frames_element[current_frame].style.visibility = "visible";
+        if(last_frame >= 0) {
+            frames_element[last_frame].style.visibility = "hidden";
+        }
+
+    }
+
     function handle_intersection(entries, observer) {
+
+        if(frames_element === null) return;
 
         entries.forEach(function (entry) {
             if(entry.isIntersecting === true) {
@@ -73,8 +86,18 @@
 
     }
 
+    watchEffect(() => {
+
+        if(!component_is_initialize && frames_element_refs.value?.length > 0) {
+            frames_element = Array.from(frames_element_refs.value);
+            frames_element[0].style.visibility = "visible";
+            component_is_initialize = true;
+        }
+
+    });
+
     onMounted(() => {
-        
+
         const observer = new IntersectionObserver(handle_intersection, {
             root: null,
             rootMargin: '0px',
@@ -82,8 +105,9 @@
         });
 
         observer.observe(sprite.value);
-    
-    });
+
+    })
+
 
 </script>
 
@@ -106,6 +130,9 @@
 
     width: 100%;
     height: 100%;
+
+    display: block;
+    visibility: hidden;
 }
 
 </style>

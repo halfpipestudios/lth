@@ -43,10 +43,10 @@
         frame_time.value = records.frame_time;
     }
 
-    fetch_animation();
-
-    watch(language, fetch_animation);
-
+    onMounted(() => {
+        fetch_animation();
+        watch(language, fetch_animation);
+    });
 
 </script>
 
