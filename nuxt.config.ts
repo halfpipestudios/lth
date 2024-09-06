@@ -20,10 +20,12 @@ export default defineNuxtConfig({
     compressPublicAssets: true,
   },
 
-  devtools: { enabled: false },
-
   // devServer: {
   //   host: "192.168.100.144",
   //   port: 3000,
   // },
+  devtools: { enabled: false },
+
+  compatibilityDate: '2024-09-06',
+  modules: ["@nuxt/image"]
 })
