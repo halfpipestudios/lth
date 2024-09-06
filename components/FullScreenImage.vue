@@ -14,6 +14,17 @@
 
 <script setup>
     const texts = useState('texts');
+
+    useHead({
+        link: [
+            {
+                rel: 'preload',
+                href: '/img/fire.jpg',
+                as: 'image'
+            }
+        ]
+    });
+
 </script>
 
 <style scoped lang="scss">
