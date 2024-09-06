@@ -1,9 +1,11 @@
 <template>
     <div class="carousel">
-        <img class="loading" src="/img/loading.gif" alt="carrousel loader">
-        <img v-for="(image, index) in images" :key="index" class="item" :src="image.image" ref="image_element_array" >
-        <img @click="image_index_next" class="arrow right" src="/img/arrow_right.svg" alt="arrow right" ref="arrow_right">
-        <img @click="image_index_prev" class="arrow left" src="/img/arrow_right.svg" alt="arrow left" ref="arrow_left">
+        <img class="loading" src="/img/loading.gif" alt="carrousel loader" />
+        <div v-for="(image, index) in images" :key="index" class="item"  ref="image_element_array" >
+            <NuxtImg class="item-img" :src="image.image" loading="lazy" />
+        </div>
+        <img @click="image_index_next" class="arrow right" src="/img/arrow_right.svg" alt="arrow right" ref="arrow_right" />
+        <img @click="image_index_prev" class="arrow left" src="/img/arrow_right.svg" alt="arrow left" ref="arrow_left" />
     </div>
 </template>
 
@@ -170,10 +172,16 @@
         width: 100%;
         height: 100%;
 
+        z-index: 1;
+    }
+
+    .carousel .item .item-img {
+        
+        width: 100%;
+        height: 100%;
+
         object-fit: cover;
         object-position: center;
-
-        z-index: 1;
     }
 
     .arrow {
