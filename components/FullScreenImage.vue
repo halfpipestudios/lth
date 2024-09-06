@@ -18,9 +18,10 @@
     useHead({
         link: [
             {
-                rel: 'preload',
-                href: '/img/fire.jpg',
-                as: 'image'
+                rel: "preload",
+                fetchpriority:"high",
+                as: "image",
+                href: "/img/fire.jpg",
             }
         ]
     });

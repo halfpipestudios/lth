@@ -1,7 +1,7 @@
 <template>
 
     <div class="sprite" ref=sprite>
-        <img v-for="(frame, index) in frames" :key="index" class="frame" :src="frame" alt="sprite frame" :ref="el => frames_element_refs[index] = el">
+        <img v-for="(frame, index) in frames" :key="index" class="frame" :src="frame" alt="sprite frame" ref="frames_element">
     </div>
 
 </template>
@@ -19,21 +19,31 @@
         }
     });
 
+    const preloadLinks = computed(() =>
+        props.frames.map((frame) => ({
+            rel: "preload",
+            fetchpriority: "high",
+            as: "image",
+            href: frame,
+        }))
+    );
+
+    useHead({
+        link: preloadLinks.value,
+    });
+
     const sprite = ref(null);
-    const frames_element_refs = ref([]);
+    const frames_element = ref(null);
     
     let current_frame = -1;
     let last_frame = -1;
     let animation_is_pause = true;
     let animation_was_started = false;
     let interval_id = 0;
-    let frames_element = null;
-    let component_is_initialize = false;
-    let observer = null;
 
     function clear_frames() {
-        for(let i = 0; i < frames_element.length; ++i) {
-            frames_element[i].style.visibility = "hidden";
+        for(let i = 0; i < frames_element.value.length; ++i) {
+            frames_element.value[i].style.visibility = "hidden";
         }
     }
 
@@ -65,16 +75,16 @@
             current_frame += 1;
         }
 
-        frames_element[current_frame].style.visibility = "visible";
+        frames_element.value[current_frame].style.visibility = "visible";
         if(last_frame >= 0) {
-            frames_element[last_frame].style.visibility = "hidden";
+            frames_element.value[last_frame].style.visibility = "hidden";
         }
 
     }
 
     function handle_intersection(entries, observer) {
 
-        if(frames_element === null) return;
+        if(frames_element.value === null) return;
 
         entries.forEach(function (entry) {
             if(entry.isIntersecting === true) {
@@ -87,24 +97,17 @@
 
     }
 
-    watchEffect(() => {
-
-        if(!component_is_initialize && frames_element_refs.value?.length > 0) {
-            frames_element = Array.from(frames_element_refs.value);
-            frames_element[0].style.visibility = "visible";
-            observer.observe(sprite.value);
-            component_is_initialize = true;
-        }
-
-    });
-
-    onMounted(() => {
-
-        observer = new IntersectionObserver(handle_intersection, {
+    onMounted(()=> {
+        
+        const observer = new IntersectionObserver(handle_intersection, {
             root: null,
             rootMargin: '0px',
             threshold: 0.3
         });
+
+        observer.observe(sprite.value);
+
+        frames_element.value[0].style.visibility = "visible";
 
     })
 

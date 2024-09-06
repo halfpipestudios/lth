@@ -13,7 +13,7 @@
                 <button type="submit">{{ texts["formulario-boton"] }}</button>
             </form>
             <div class="animation">
-                <Sprite :frames="frames" :frame_time="frame_time" />
+                <Sprite :frames="anim.frames" :frame_time="anim.frame_time" />
             </div>
         </div>
     </div>
@@ -30,23 +30,17 @@
             type: String,
         }
     });
+
     const texts = useState('texts');
-
-    const frames =  ref([]);
-    const frame_time = ref(0);
-
     const language = useState('language');
 
-    async function fetch_animation() {
-        const records = await $fetch(`/api/animations?animation=${props.animation + "-" + language.value}`);
-        frames.value = records.frames;
-        frame_time.value = records.frame_time;
-    }
-
-    onMounted(() => {
-        fetch_animation();
-        watch(language, fetch_animation);
-    });
+    const { data: anim, status, error, refresh, clear } = await useAsyncData(
+        'sprite-animations',
+        () => $fetch(`/api/animations?animation=${props.animation + "-" + language.value}`),
+        {
+            watch: [language]
+        }
+    )
 
 </script>
 
