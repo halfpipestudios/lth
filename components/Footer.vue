@@ -3,13 +3,13 @@
         <div class="container">
             
             <div class="logo">
-                <img :src="logo" alt="logo footer">
+                <NuxtImg :src="logo" alt="logo footer" loading="lazy" />
             </div>
 
             <div class="info">
 
                 <div class="info-item">
-                    <img class="ubi-image" src="/img/ubi.svg" alt="">
+                    <NuxtImg class="ubi-image" src="/img/ubi.svg" alt="" loading="lazy" />
                     <div>
                         <p>RP82 Luján de Cuyo</p>
                         <p>Mendoza</p>
@@ -23,16 +23,16 @@
                 </div>
 
                 <div class="info-item">
-                    <img src="/img/mail.svg" alt="">
+                    <NuxtImg src="/img/mail.svg" alt="" loading="lazy" />
                     <p>info@lemontreehostel.com.ar</p>
                 </div>
 
             </div>
 
             <div class="redes">
-                <img :src="link" alt="linkedin">
-                <img :src="inst" alt="instagram">
-                <img :src="face" alt="facebook">
+                <NuxtImg :src="link" alt="linkedin" loading="lazy" />
+                <NuxtImg :src="inst" alt="instagram" loading="lazy" />
+                <NuxtImg :src="face" alt="facebook" loading="lazy" />
             </div>
         </div>
         <div class="banner">

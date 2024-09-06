@@ -2,7 +2,7 @@
     <div class="carousel">
         <img class="loading" src="/img/loading.gif" alt="carrousel loader" />
         <div v-for="(image, index) in images" :key="index" class="item"  ref="image_element_array" >
-            <NuxtImg class="item-img" :src="image.image" loading="lazy" />
+            <NuxtImg class="item-img" :src="image.image"/>
         </div>
         <img @click="image_index_next" class="arrow right" src="/img/arrow_right.svg" alt="arrow right" ref="arrow_right" />
         <img @click="image_index_prev" class="arrow left" src="/img/arrow_right.svg" alt="arrow left" ref="arrow_left" />
