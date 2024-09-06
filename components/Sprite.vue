@@ -1,7 +1,7 @@
 <template>
 
     <div class="sprite" ref=sprite>
-        <img class="frame" :src="frames[current_frame]" alt="sprite frame" ref="frame">
+        <img class="frame" :src="frames[0]" alt="sprite frame" ref="frame">
 
         <!-- <img v-for="(frame, index) in frames" class="frame" :src="frame" alt="sprite frame" ref="frames_element"> -->
     </div>
@@ -22,18 +22,34 @@
 
     const sprite = ref(null);
     const frame = ref(null);
-    const current_frame = ref(0);
+    const current_frame = ref(-1);
     let animation_is_pause = true;
+    let animation_was_started = false;
     let interval_id = 0;
 
+    watch(current_frame, () => {
+        if(current_frame.value >= 0) {
+            frame.value.setAttribute("src", props.frames[current_frame.value]);
+        } else {
+            frame.value.setAttribute("src", props.frames[0]);
+        }
+    });
+
     function start() {
-        current_frame.value = 0;
+        console.log("animtion start!");
+        current_frame.value = -1;
         animation_is_pause = false;
     }
 
     function update() {
         
-        if(!frame.value) return;
+        if(frame.value === null) return;
+        
+        if(!animation_was_started) {
+            start();
+            animation_was_started = true;
+        }
+        
         if(animation_is_pause) return;
 
         if(current_frame.value === (props.frames.length - 1)) {
@@ -48,9 +64,9 @@
 
         entries.forEach(function (entry) {
             if(entry.isIntersecting === true) {
-                start();
                 interval_id = setInterval(update, props.frame_time * 1000)
             } else {
+                animation_was_started = false;
                 clearInterval(interval_id);
             }
         }); 
