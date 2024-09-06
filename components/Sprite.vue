@@ -29,6 +29,7 @@
     let interval_id = 0;
     let frames_element = null;
     let component_is_initialize = false;
+    let observer = null;
 
     function clear_frames() {
         for(let i = 0; i < frames_element.length; ++i) {
@@ -91,6 +92,7 @@
         if(!component_is_initialize && frames_element_refs.value?.length > 0) {
             frames_element = Array.from(frames_element_refs.value);
             frames_element[0].style.visibility = "visible";
+            observer.observe(sprite.value);
             component_is_initialize = true;
         }
 
@@ -98,13 +100,11 @@
 
     onMounted(() => {
 
-        const observer = new IntersectionObserver(handle_intersection, {
+        observer = new IntersectionObserver(handle_intersection, {
             root: null,
             rootMargin: '0px',
             threshold: 0.3
         });
-
-        observer.observe(sprite.value);
 
     })
 
@@ -132,7 +132,7 @@
     height: 100%;
 
     display: block;
-    visibility: hidden;
+    visibility: hidden
 }
 
 </style>
