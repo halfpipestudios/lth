@@ -13,7 +13,7 @@
                 <button type="submit">{{ texts["formulario-boton"] }}</button>
             </form>
             <div class="animation">
-                <Sprite :frames="anim.frames" :frame_time="anim.frame_time" />
+                <Sprite v-if="anim && anim.frames" :frames="anim.frames" :frame_time="anim.frame_time" />
             </div>
         </div>
     </div>
@@ -41,7 +41,7 @@
             watch: [language]
         }
     )
-
+    
 </script>
 
 <style scoped lang="scss">
