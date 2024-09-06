@@ -4,16 +4,14 @@ export default defineNuxtRouteMiddleware((to, from) => {
         const event = nuxtApp.ssrContext?.event
         if (event) {
             const acceptLanguage = event.node.req.headers['accept-language']
+            let lang_ext = "en";
             if (acceptLanguage) {
                 const preferredLanguage = acceptLanguage.split(',')[0];
-                let lang_ext = preferredLanguage.toString().split('-')[0];
-
-                // TODO: fetch abailables languages on database
-                if(lang_ext !== "en" && lang_ext !== "es" && lang_ext !== "pt") {
-                    lang_ext = "en";
-                }
-                useState('language', () => lang_ext)
+                lang_ext = preferredLanguage.toString().split('-')[0];
             }
+            useState('language', () => lang_ext)
+        } else {
+            useState('language', () => "en")
         }
     }
 });

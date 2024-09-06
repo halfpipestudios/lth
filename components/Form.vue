@@ -33,7 +33,6 @@
 
     const texts = useState('texts');
     const language = useState('language');
-
     const { data: anim, status, error, refresh, clear } = await useAsyncData(
         'sprite-animations',
         () => $fetch(`/api/animations?animation=${props.animation + "-" + language.value}`),
