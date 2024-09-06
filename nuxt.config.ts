@@ -14,8 +14,13 @@ export default defineNuxtConfig({
     },
   },
 
-  compatibilityDate: '2024-04-03',
-  devtools: { enabled: true },
+  ssr: true,
+
+  nitro: {
+    compressPublicAssets: true,
+  },
+
+  devtools: { enabled: false },
 
   // devServer: {
   //   host: "192.168.100.144",
