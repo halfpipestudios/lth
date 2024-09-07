@@ -1,7 +1,7 @@
 <template>
     <div class="fullscreen">
         <img src="/img/loading.gif" alt="video loader">
-        <video muted autoplay disablePictureInPicture playsinline>
+        <video muted autoplay disablePictureInPicture playsinline ref="video_element">
             <source 
                 :src="video"
                 type="video/mp4">
@@ -12,10 +12,20 @@
 <script setup>
 
 const props = defineProps({
-        video: {
-            type: String,
-        }
-    });
+    video: {
+        type: String,
+    }
+});
+
+const video_element = ref(null);
+
+onMounted(() => {
+    if(video_element.value) {
+        video_element.value.controls = false;
+        video_element.value.play();
+    }
+});
+
 
 </script>
 
@@ -34,6 +44,10 @@ const props = defineProps({
         height: 100%;
         object-fit: cover;
         object-position: center;
+    }
+
+    .fullscreen video::-webkit-media-controls {
+        display: none !important;
     }
 
     .fullscreen {
