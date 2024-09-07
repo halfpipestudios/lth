@@ -17,6 +17,7 @@
 
     onBeforeMount(() => {
         is_loading.value = true;
+        document.body.style.overflow = 'hidden';
     });
 
     onMounted(() => {
@@ -24,6 +25,7 @@
         if(loader_container.value) {
             loader_container.value.addEventListener("animationend", () => {
                 loader_container.value.style.display = "none";
+                document.body.style.overflow = '';
             });
         }
 
