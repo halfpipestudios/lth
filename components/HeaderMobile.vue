@@ -28,6 +28,7 @@
 
         <div class="links">
 
+            <NuxtLink @click="collapse_menu"  to="/">{{ texts["header-navbar-inicio"] }}</NuxtLink>
             <NuxtLink @click="collapse_menu"  to="/rooms">{{ texts["header-navbar-habitaciones"] }}</NuxtLink>
             <NuxtLink @click="collapse_menu" to="/services">{{ texts["header-navbar-servicios"] }}</NuxtLink>
             <NuxtLink @click="collapse_menu" to="/tattoo">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
