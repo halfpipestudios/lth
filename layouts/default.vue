@@ -4,9 +4,22 @@
     <slot />
     <Whatsapp />
     <Footer />
+    <Loader v-if="is_loading" />
 </template>
 
 <script setup>
+
+    const is_loading = ref(true);
+
+    onBeforeMount(() => {
+        console.log("start loading page")
+        is_loading.value = true;
+    });
+
+    onMounted(() => {
+        console.log("finish loading page")
+        is_loading.value = false;
+    });
 
     useHead({
         title: 'Lemon Tree Hostel',
@@ -24,8 +37,6 @@
     })
 
 </script>
-
-
 
 <style scoped lang="scss">
 
