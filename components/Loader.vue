@@ -1,6 +1,6 @@
 <template>
     <div class="loader">
-        <img :src="image" alt="loading image">
+        <img v-if="image" :src="image" alt="loading image">
     </div>
 </template>
 
