@@ -46,7 +46,7 @@ definePageMeta({
 });
 
 const texts = useState('texts');
-const video = await useFetch("/api/videos?name=video-tattoo");
+const video = await useFetch("/api/videos?name=video-tattoo", { server:true });
 
 const seminarios_availables = ref(false);
 {
