@@ -5,7 +5,9 @@
 </template>
 
 <script setup>
+
 const {data: image} = await useFetch("/api/images?name=logo-lemon", { server:true });
+
 </script>
 
 <style scoped lang="scss">
