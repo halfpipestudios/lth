@@ -4,19 +4,29 @@
     <slot />
     <Whatsapp />
     <Footer />
-    <Loader :class="{ 'fade-out': !is_loading }"/>
+    <div class="loader-container" ref="loader_container">
+        <Loader ref="loader" :class="{ 'fade-out': !is_loading }"/>
+    </div>
 </template>
 
 <script setup>
 
     const minimun_duration = 1;
     const is_loading = ref(true);
+    const loader_container = ref(null);
 
     onBeforeMount(() => {
         is_loading.value = true;
     });
 
     onMounted(() => {
+        
+        if(loader_container.value) {
+            loader_container.value.addEventListener("animationend", () => {
+                loader_container.value.style.display = "none";
+            });
+        }
+
         setTimeout(
             ()=>{ is_loading.value = false; }, 
             minimun_duration*1000
@@ -42,6 +52,10 @@
 
 <style scoped lang="scss">
 
+.loader-container {
+    background-color: transparent;
+}
+
 .fade-out {
     animation: .2s fade-out-anim forwards;
 }
@@ -52,17 +66,7 @@
     }
     to {
         opacity: 0%;
-        display: none;
     }
-}
-
-.whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 8;
-    user-select: none;
-    cursor: pointer;
 }
 
 </style>
