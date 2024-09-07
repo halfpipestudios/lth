@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-const {data: image} = await useFetch("/api/images?name=logo-lemon", { server:true });
+const {data: image} = await useFetch("/api/images?name=logo-lemon-tattoo", { server:true });
 </script>
 
 <style scoped lang="scss">
@@ -17,7 +17,7 @@ const {data: image} = await useFetch("/api/images?name=logo-lemon", { server:tru
     width: 100%;
     height: 100%;
     z-index: 20;
-    background-color: white;
+    background-color: black;
 
     display: flex;
     align-items: center;

@@ -58,7 +58,7 @@
                 animation: tl,
                 trigger: trigger,
                 start: "bottom top",
-                end: "+=" + 100,
+                end: "+=" + 700,
                 scrub: 1,
                 toggleActions:"restart none reverse none",
                 markers: false,
@@ -98,7 +98,7 @@
         
         
         position: fixed;
-        top: calc(var(--spider-h) * -0.85);
+        top: calc(var(--spider-h) * -0.89);
         left: 0;
 
         z-index: 3;
@@ -108,10 +108,14 @@
 
         background-color: transparent;
 
+        @media screen and (max-width: $size-m) {
+            top: calc(var(--spider-h) * -0.91);
+        }
+
         @media screen and (max-width: $size-s) {
             --spider-w: 150px;
             width: var(--spider-w);
-            top: calc(var(--spider-h) * -0.83);
+            top: calc(var(--spider-h) * -0.87);
         }
 
     }
