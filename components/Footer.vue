@@ -11,31 +11,34 @@
 
             <div class="info">
 
-                <div class="info-item">
+                <NuxtLink class="info-item" target="_blank" href="https://maps.app.goo.gl/w5aTY55QCgw3NNh56">
                     <NuxtImg class="ubi-image" src="/img/ubi.svg" alt="" loading="lazy" />
                     <div>
                         <p>RP82 Luján de Cuyo</p>
                         <p>Mendoza</p>
                         <p>Argentina</p>
                     </div>
-                </div>
+                </NuxtLink>
 
-                <div class="info-item">
+                <NuxtLink target="_blank" href="tel:+5492616616248" class="info-item">
                     <NuxtImg src="/img/tel.svg" alt="" loading="lazy" />
                     <p>+54 9 261 555 5555</p>
-                </div>
+                </NuxtLink>
 
-                <div class="info-item">
+                <NuxtLink target="_blank" href="mailto:reservaslemontree@gmail.com" class="info-item">
                     <NuxtImg src="/img/mail.svg" alt="" loading="lazy" />
                     <p>info@lemontreehostel.com.ar</p>
-                </div>
+                </NuxtLink>
 
             </div>
 
             <div class="redes">
-                <NuxtImg :src="link" alt="linkedin" loading="lazy" />
-                <NuxtImg :src="inst" alt="instagram" loading="lazy" />
-                <NuxtImg :src="face" alt="facebook" loading="lazy" />
+                <NuxtLink target="_blank" href="https://www.instagram.com/lemontree_hostel/">
+                    <NuxtImg :src="inst" alt="instagram" loading="lazy" />
+                </NuxtLink>
+                <NuxtLink target="_blank" href="https://www.facebook.com/lemontreemza/">
+                    <NuxtImg :src="face" alt="facebook" loading="lazy" />
+                </NuxtLink>
             </div>
         </div>
         <div class="banner">
@@ -162,6 +165,16 @@ footer {
     margin-left: 10px;
 }
 
+.dark .container a {
+    text-decoration: none;
+    color: white;
+}
+
+.light .container a {
+    text-decoration: none;
+    color: black;
+}
+
 footer .container {
     height: 100%;
     
@@ -248,7 +261,7 @@ footer .container {
 .redes {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 
     background-color: transparent;
 }

@@ -45,5 +45,4 @@ const {data: image} = await useFetch("/api/images?name=logo-lemon", { server:tru
     }
 }
 
-
 </style>
