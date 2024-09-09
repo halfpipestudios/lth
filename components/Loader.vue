@@ -1,6 +1,6 @@
 <template>
     <div class="loader">
-        <img v-if="image" :src="image" alt="loading image">
+        <NuxtImg format="webp" v-if="image" :src="image" alt="loading image" />
     </div>
 </template>
 

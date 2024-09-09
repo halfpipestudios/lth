@@ -1,5 +1,8 @@
 <template>
     <footer :class="theme">
+
+        <NuxtImg class="background" :src="background" format="webp" loading="lazy" />
+
         <div class="container">
             
             <div class="logo">
@@ -18,7 +21,7 @@
                 </div>
 
                 <div class="info-item">
-                    <img src="/img/tel.svg" alt="">
+                    <NuxtImg src="/img/tel.svg" alt="" loading="lazy" />
                     <p>+54 9 261 555 5555</p>
                 </div>
 
@@ -68,20 +71,30 @@
         return props.theme === "dark" ? "/img/face_tattoo.svg" : "/img/face.svg";
     });
 
+    const background = computed(() => {
+        return props.theme === "dark" ? "/img/paper_back_tatto_fliped.jpg" : "/img/paper_back_fliped.jpg";
+    });
+
 </script>
 
 <style scoped lang="scss">
 
-.light {
-    background-image: url(/img/paper_back_fliped.jpg);
+footer .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: top;
+    background-repeat: no-repeat;
+
+    z-index: -1;
 }
 
 .light .info {
     color: black;
-}
-
-.dark {
-    background-image: url(/img/paper_back_tatto_fliped.jpg);
 }
 
 .dark .info {
@@ -99,10 +112,11 @@ footer {
     width: 100%;
     height: var(--footer-height);
     
-    background-image: url(/img/paper_back_fliped.jpg);
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
+    overflow: hidden;
+    // background-image: url(/img/paper_back_fliped.jpg);
+    // background-size: cover;
+    // background-position: top;
+    // background-repeat: no-repeat;
 
     display: flex;
     align-items: center;

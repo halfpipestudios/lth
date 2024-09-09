@@ -4,7 +4,7 @@
 
         <div class="spidey" ref="spidy_element">
 
-            <img src="/img/spidy.png" alt="">
+            <NuxtImg format="webp" src="/img/spidy.png" alt="spiderman" />
 
             <div class="dialog">
                 <p class="text">{{ texts["spiderman-text"] }}</p>

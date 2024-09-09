@@ -1,6 +1,7 @@
 <template>
     <div class="carousel">
-        <img class="loading" src="/img/loading.gif" alt="carrousel loader" />
+        <!-- <img class="loading" src="/img/loading.gif" alt="carrousel loader" /> -->
+        <NuxtImg class="loading" format="webp" src="/img/lemon_tree_logo.png" alt="carrousel loader" />
         <div v-for="(image, index) in images" :key="index" class="item"  ref="image_element_array" >
             <NuxtImg class="item-img" :src="image.image"/>
         </div>
@@ -190,12 +191,21 @@
         z-index: 2;
     }
 
+    @keyframes spin { 
+        from { 
+            transform: translateX(-50%) translateY(-50%) rotate(0deg); 
+        } to { 
+            transform: translateX(-50%) translateY(-50%) rotate(360deg); 
+        }
+    }
+
     .loading {
         position: absolute;
-        top: 50%;
         left: 50%;
+        top: 50%;
 
-        transform: translateX(-50%) translateY(-50%);
+        width: 80px;
+        animation: spin 2s linear infinite;
     }
 
     .left {

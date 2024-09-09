@@ -1,6 +1,6 @@
 <template>
     <div class="fullscreen">
-        <img src="/img/loading.gif" alt="video loader">
+        <NuxtImg class="loader" format="webp" src="/img/lemon_tree_logo.png" alt="video loader" />
         <video muted autoplay disablePictureInPicture playsinline ref="video_element">
             <source 
                 :src="video"
@@ -31,11 +31,21 @@ onMounted(() => {
 
 <style scoped lang="scss">
 
-    .fullscreen img {
+    @keyframes spin { 
+        from { 
+            transform: translateX(-50%) translateY(-50%) rotate(0deg); 
+        } to { 
+            transform: translateX(-50%) translateY(-50%) rotate(360deg); 
+        }
+    }
+
+    .fullscreen .loader {
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translateX(-50%) translateY(-50%);
+
+        width: 80px;
+        animation: spin 2s linear infinite;
     }
 
     .fullscreen video {

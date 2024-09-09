@@ -1,7 +1,7 @@
 <template>
 
     <div class="fullscreen-image">
-        <img src="/img/fire.jpg" alt="">
+        <NuxtImg format="webp" src="/img/fire.jpg" alt="fullscreen image" />
         <div class="fullscreen-image-filter" ></div>
         <div class="container-max">
             <h2>
@@ -14,18 +14,6 @@
 
 <script setup>
     const texts = useState('texts');
-
-    useHead({
-        link: [
-            {
-                rel: "preload",
-                fetchpriority:"high",
-                as: "image",
-                href: "/img/fire.jpg",
-            }
-        ]
-    });
-
 </script>
 
 <style scoped lang="scss">
