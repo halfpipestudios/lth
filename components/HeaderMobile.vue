@@ -1,7 +1,7 @@
 <template>
 
 <header :class="theme">
-    
+
     <NuxtImg class="background" :src="background" format="webp" />
 
     <div ref="collapsed" class="collapsed">
@@ -132,7 +132,7 @@
         top:0;
 
         width: 100%;
-        overflow: hidden;
+        // overflow: hidden;
 
         // background-image: url(/img/paper_back.jpg);
         // background-size: cover;
