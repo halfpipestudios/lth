@@ -4,7 +4,7 @@
         
         <section class="full-video-container">
             <FullScreenVideo
-                video="https://onefamhostels.com/wp-content/uploads/2024/08/ONEFAM-V8-HD-horizontal-youtube1.mp4"
+                :video="video"
             />
             <NuxtLink target="_blank" href="https://lemontree.reservadirecto.com/lp.html" class="dialog-container">
                 <div class="dialog">
@@ -49,6 +49,7 @@
     
     const language = useState('language');
     const texts = useState('texts');
+    const {data: video} = await useFetch("/api/videos?name=video-home", { server:true });
 
 </script>
 
