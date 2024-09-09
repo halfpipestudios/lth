@@ -16,6 +16,9 @@
 
     <div ref="language_modal_container" class="language_modal_container">
         <div ref="language_modal" class="language_modal">
+
+            <NuxtImg class="background" :src="background" format="webp" />
+
             <div @click="(e) => set_language(e,'es')" class="language_option">
                 <img src="/img/flag_es.svg" :alt="language">
                 <p>ES</p>
@@ -107,6 +110,10 @@ onMounted(() => {
     language_modal_container.value.addEventListener("click", close_language_modal);
 });
 
+const background = computed(() => {
+    return props.theme === "dark" ? "/img/paper_back_tatto.jpg" : "/img/paper_back.jpg";
+});
+
 </script>
 
 <style scoped lang="scss">
@@ -129,21 +136,35 @@ onMounted(() => {
     z-index: 6;
 }
 
-.dark .language_modal {
-    background-image: url(/img/paper_back_tatto.jpg);
+.language_modal .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: top;
+    background-repeat: no-repeat;
+
+    z-index: 0;
 }
 
-.light .language_modal {
-    background-image: url(/img/paper_back.jpg);
-}
+// .dark .language_modal {
+//     background-image: url(/img/paper_back_tatto.jpg);
+// }
+
+// .light .language_modal {
+//     background-image: url(/img/paper_back.jpg);
+// }
 
 .language_modal {
 
     background-color: gray;
-    background-image: url(/img/paper_back.jpg);
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
+    // background-image: url(/img/paper_back.jpg);
+    // background-size: cover;
+    // background-position: top;
+    // background-repeat: no-repeat;
 
     user-select: none;
 
@@ -153,6 +174,8 @@ onMounted(() => {
     justify-content: center;
     gap: 10px;
     padding: 20px;
+
+    position: relative;
 }
 
 .language_option {
@@ -161,6 +184,8 @@ onMounted(() => {
     align-items: center;
     justify-content: flex-start;
     gap: 10px;
+
+    z-index: 1;
 }
 
 .dark .language_option p {

@@ -84,7 +84,7 @@
     header {
         position: sticky;
         top:0;
-        overflow: hidden;
+        // overflow: hidden;
 
         --header-height: #{$default-header-height};
 
