@@ -6,10 +6,10 @@
 
             <NuxtImg format="webp" src="/img/spidy.png" alt="spiderman" />
 
-            <div class="dialog">
+            <NuxtLink target="_blank" href="https://lemontree.reservadirecto.com/promos/mejor-tarifa-garantizada.html" class="dialog">
                 <p class="text">{{ texts["spiderman-text"] }}</p>
-                <button class="close" @click="close">X</button>
-            </div>
+                <button class="close" ref="button">X</button>
+            </NuxtLink>
 
 
         </div>
@@ -28,6 +28,7 @@
     const main = ref();
     const ctx = ref();
     const spidy_element = ref(null);
+    const button = ref(null);
 
     function close(){
         if(!spidy_element.value) return;
@@ -76,6 +77,11 @@
 
         }, main.value);
 
+        button.value.addEventListener("click", (event) => {
+            event.preventDefault();
+            close();
+        });
+
     });
 
     onUnmounted(() => {
@@ -87,6 +93,11 @@
 
 <style scoped lang="scss">
     
+    .spidey a {
+        text-decoration: none;
+        color: black;
+    }
+
     .spidey {
         
         --spider-aspect: 4.357;

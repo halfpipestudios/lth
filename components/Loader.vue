@@ -1,19 +1,11 @@
 <template>
     <div class="loader">
-        <img v-if="image" :src="image" alt="loading image" />
+        <NuxtImg preload format="webp" v-if="image" :src="image" alt="loading image" />
     </div>
 </template>
 
 <script setup>
-
 const {data: image} = await useFetch("/api/images?name=logo-lemon", { server:true });
-
-useHead({
-    link: [
-        { rel: 'preload', as: 'image', href: image.value }
-    ]
-});
-
 </script>
 
 <style scoped lang="scss">
@@ -52,6 +44,5 @@ useHead({
         transform: scale(0.8);
     }
 }
-
 
 </style>

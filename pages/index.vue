@@ -2,10 +2,16 @@
 
     <div class="home">
         
-        <section>
+        <section class="full-video-container">
             <FullScreenVideo
                 video="https://onefamhostels.com/wp-content/uploads/2024/08/ONEFAM-V8-HD-horizontal-youtube1.mp4"
             />
+            <NuxtLink target="_blank" href="https://lemontree.reservadirecto.com/lp.html" class="dialog-container">
+                <div class="dialog">
+                    <NuxtImg format="webp" src="/img/home_dialog.png" alt="lemon tree logo" />
+                    <p>{{ texts["home-fullscreen-dialog"] }}</p>
+                </div>
+            </NuxtLink>
         </section>
 
         <section class="container-max quienes-somos">
@@ -47,6 +53,56 @@
 </script>
 
 <style scoped lang="scss">
+
+.full-video-container {
+    position: relative;
+}
+
+.dialog-container {
+
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.dialog a {
+    text-decoration: none;
+}
+
+.dialog {
+    position: relative;
+}
+
+.dialog img {
+    width: 500px;
+    @media screen and (max-width: $size-s) {
+        width: 300px;
+    }
+}
+
+.dialog p {
+    text-align: center;
+    white-space: nowrap;
+
+    padding: 0;
+    margin: 0;
+
+    font-family: comic;
+    font-size: 34px;
+
+    position: absolute;
+    left: 50%;
+    top: 23%;
+    transform: translateX(-50%);
+
+    color: black;
+
+    @media screen and (max-width: $size-s) {
+        font-size: 24px;
+    }
+}
 
 .home {
     width: 100%;
