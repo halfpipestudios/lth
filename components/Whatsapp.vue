@@ -20,4 +20,9 @@
     margin: 0;
 }
 
+.whatsapp img {
+    width: 70px;
+    height: 70px;
+}
+
 </style>
