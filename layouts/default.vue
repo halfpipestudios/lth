@@ -32,11 +32,10 @@
 
         is_loading.value = false;
 
-        // setTimeout(
-        //     ()=>{ is_loading.value = false; }, 
-        //     minimun_duration*1000
-        // );
-        
+        setTimeout(
+            ()=>{ is_loading.value = false; }, 
+            minimun_duration*1000
+        );
     });
 
     useHead({
