@@ -94,6 +94,10 @@
     font-weight: normal;
 
     --blog-title-size: 64px;
+
+    @media screen and (max-width: $size-s) {
+        font-size: 30px;
+    }
 }
 
 .light h2 {
@@ -103,6 +107,10 @@
     font-weight: bold;
 
     --blog-title-size: 48px;
+
+    @media screen and (max-width: $size-s) {
+        font-size: 24px;
+    }
 }
 
 .blog  h2 {
@@ -116,10 +124,6 @@
 
     @media screen and (max-width: $size-m) {
         font-size: calc(var(--blog-title-size) * 0.8);
-    }
-
-    @media screen and (max-width: $size-s) {
-        font-size: 24px;
     }
 
 }
@@ -168,6 +172,12 @@
     box-sizing: border-box;
     margin-bottom: 20px;
 
+    @media screen and (max-width: $size-s) {
+        width: 80%;
+        aspect-ratio: 1;
+        height: initial;
+    }
+
 }
 
 .light img {
@@ -176,6 +186,12 @@
 
     @media screen and (max-width: $size-s) {
         border-radius: 10px;
+    }
+
+    @media screen and (max-width: $size-s) {
+        width: 100%;
+        aspect-ratio: 1;
+        height: initial;
     }
 }
 
@@ -186,12 +202,6 @@
     object-position: center;
 
     align-self: center;
-
-    @media screen and (max-width: $size-s) {
-        width: 100%;
-        aspect-ratio: 1;
-        height: initial;
-    }
 }
 
 .dark p {

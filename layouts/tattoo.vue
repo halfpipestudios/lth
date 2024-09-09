@@ -14,6 +14,7 @@
     const minimun_duration = 1;
     const is_loading = ref(true);
     const loader_container = ref(null);
+    const language = useState('language');
 
     onBeforeMount(() => {
         is_loading.value = true;
@@ -32,6 +33,26 @@
             minimun_duration*1000
         );
     });
+
+    const { data: seo } = await useFetch("/api/seo?layout=tattoo", { server:true });
+
+    useHead({
+        title: seo.value.Titulo,
+        htmlAttrs: {
+            lang: language.value,
+        },
+        meta: [
+            { property: 'og:title', content: seo.value.Titulo },
+            { property: 'og:description', content: seo.value.Descripcion },
+            { property: 'og:image', content: seo.value.image },
+            { property: 'og:url', content: seo.value.Url },
+            { name: 'description', content: seo.value.Descripcion },
+            { name: 'keywords', content: seo.value.Keywords }
+        ],
+        link: [
+            { rel: 'icon', type: 'image/png', href: seo.value.image }
+        ],
+    })
 
 </script>
 

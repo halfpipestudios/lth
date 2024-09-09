@@ -30,29 +30,29 @@
             });
         }
 
-        is_loading.value = false;
-
         setTimeout(
             ()=>{ is_loading.value = false; }, 
             minimun_duration*1000
         );
     });
 
+    const { data: seo } = await useFetch("/api/seo?layout=default", { server:true });
+
     useHead({
-        title: 'Lemon Tree Hostel',
+        title: seo.value.Titulo,
         htmlAttrs: {
             lang: language.value,
         },
         meta: [
-            { property: 'og:title', content: 'Lemon Tree Hostel' },
-            { property: 'og:description', content: 'Reservá en el mejor hostel de Mendoza' },
-            { property: 'og:image', content: 'https://lemontreehostel.com.ar/admin/api/files/s1ycqmq3yit5gfm/vr49oclvoujboec/logo_lemon_11Lykl8jRz.png' },
-            { property: 'og:url', content: 'https://lemontreehostel.com.ar/' },
-            { name: 'description', content: 'Reservá en el mejor hostel de Mendoza' },
-            { name: 'keywords', content: 'lemon, hostel, tree, reservar, mendoza' }
+            { property: 'og:title', content: seo.value.Titulo },
+            { property: 'og:description', content: seo.value.Descripcion },
+            { property: 'og:image', content: seo.value.image },
+            { property: 'og:url', content: seo.value.Url },
+            { name: 'description', content: seo.value.Descripcion },
+            { name: 'keywords', content: seo.value.Keywords }
         ],
         link: [
-            { rel: 'icon', type: 'image/png', href: 'https://lemontreehostel.com.ar/admin/api/files/s1ycqmq3yit5gfm/vr49oclvoujboec/logo_lemon_11Lykl8jRz.png' }
+            { rel: 'icon', type: 'image/png', href: seo.value.image }
         ],
     })
 
