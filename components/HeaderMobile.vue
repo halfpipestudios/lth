@@ -2,7 +2,7 @@
 
 <header :class="theme">
 
-    <NuxtImg class="background" :src="background" format="webp" />
+    <NuxtImg class="background" :src="background" format="webp" alt="header background" />
 
     <div ref="collapsed" class="collapsed">
         
@@ -11,7 +11,7 @@
         </div>
         
         <NuxtLink to="/" ref="logo" class="logo">
-            <img :src="logo" alt="">
+            <img :src="logo" alt="logo">
         </NuxtLink>
 
     </div>

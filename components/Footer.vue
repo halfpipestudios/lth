@@ -1,7 +1,7 @@
 <template>
     <footer :class="theme">
 
-        <NuxtImg class="background" :src="background" format="webp" loading="lazy" />
+        <NuxtImg class="background" :src="background" format="webp" loading="lazy" alt="footer background"/>
 
         <div class="container">
             
