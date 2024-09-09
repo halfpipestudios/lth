@@ -97,9 +97,7 @@ function close_language_modal(e) {
 
 function set_language(e, lang) {
     if(!language_modal.value) return;
-    console.log("current lang: " + language.value);
     language.value = lang;
-    localStorage.setItem("language_ext", lang);
     close_language_modal(e)
 
     if(props.callback !== null) {
