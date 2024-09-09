@@ -27,7 +27,10 @@
         </section>
 
         <section>
-            <Form animation="anim-home"/>
+            <Form 
+                animation="anim-home"
+                :mail="mail.Mail"
+            />
         </section>
 
         <section>
@@ -50,7 +53,8 @@
     const language = useState('language');
     const texts = useState('texts');
     const {data: video} = await useFetch("/api/videos?name=video-home", { server:true });
-
+    const {data: mail} = await useFetch("/api/mail?category=inicio", { server:true });
+    
 </script>
 
 <style scoped lang="scss">
