@@ -7,7 +7,7 @@
             <div>
                 <p>{{ text }}</p>
             </div>
-            <img :src="image" alt="blog image">
+            <NuxtImg format="webp" :src="image" alt="blog image" />
         </div>
     </div>
 </div>

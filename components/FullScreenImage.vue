@@ -1,7 +1,7 @@
 <template>
 
     <div class="fullscreen-image">
-        <img src="/img/fire.jpg" alt="">
+        <NuxtImg format="webp" src="/img/fire.jpg" alt="fullscreen image" />
         <div class="fullscreen-image-filter" ></div>
         <div class="container-max">
             <h2>

@@ -1,7 +1,7 @@
 <template>
 
     <a href="https://wa.me/5492616616248?text=Hola!%20Me%20gustaria%20tener%20mas%20información%20para%20reservar..." target="_blank" class="whatsapp">
-        <img src="/img/whatsapp.png" alt="whatsapp">
+        <NuxtImg format="webp" src="/img/whatsapp.png" alt="whatsapp" />
     </a>
     
 </template>

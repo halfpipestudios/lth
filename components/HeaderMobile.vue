@@ -1,7 +1,9 @@
 <template>
 
 <header :class="theme">
-        
+    
+    <NuxtImg class="background" :src="background" format="webp" />
+
     <div ref="collapsed" class="collapsed">
         
         <div ref="hamburger_button" class="hamburger">
@@ -95,20 +97,30 @@
     });
 
 
+    const background = computed(() => {
+        return props.theme === "dark" ? "/img/paper_back_tatto.jpg" : "/img/paper_back.jpg";
+    });
+
 </script>
 
 <style scoped lang="scss">
 
-    .light {
-        background-image: url(/img/paper_back.jpg);
+    header .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: top;
+        background-repeat: no-repeat;
+
+        z-index: -1;
     }
 
     .light a {
         color: black;
-    }
-
-    .dark {
-        background-image: url(/img/paper_back_tatto.jpg);
     }
 
     .dark a {
@@ -120,14 +132,14 @@
         top:0;
 
         width: 100%;
+        overflow: hidden;
 
-        background-image: url(/img/paper_back.jpg);
-        background-size: cover;
-        background-position: top;
-        background-repeat: no-repeat;
+        // background-image: url(/img/paper_back.jpg);
+        // background-size: cover;
+        // background-position: top;
+        // background-repeat: no-repeat;
 
         box-shadow: 0 3px 6px rgba(0, 0, 0, .35);
-
     }
 
     header .collapsed {

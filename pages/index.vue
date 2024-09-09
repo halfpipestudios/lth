@@ -10,7 +10,7 @@
 
         <section class="container-max quienes-somos">
             <div class="title">
-                <img src="/img/lemon_tree_logo.png" alt="lemon tree logo">
+                <NuxtImg format="webp" src="/img/lemon_tree_logo.png" alt="lemon tree logo" />
                 <h1>{{ texts["home-quienes-somos"] }}</h1>
             </div>
             <p>{{ texts["home-quienes-somos-text"] }}</p>

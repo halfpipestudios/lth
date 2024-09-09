@@ -1,5 +1,8 @@
 <template>
 <header ref="header" :class="theme">
+
+    <NuxtImg class="background" :src="background" format="webp" />
+
     <div class="container">
     
         <div class="nav left">
@@ -48,20 +51,30 @@
         return props.theme === "dark" ? "/img/reservar_tatto.svg" : "/img/reservar.svg";
     });
 
+    const background = computed(() => {
+        return props.theme === "dark" ? "/img/paper_back_tatto.jpg" : "/img/paper_back.jpg";
+    });
+
 </script>
 
 <style scoped lang="scss">
 
-    .light {
-        background-image: url(/img/paper_back.jpg);
+    header .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: top;
+        background-repeat: no-repeat;
+
+        z-index: -1;
     }
 
     .light a {
         color: black;
-    }
-
-    .dark {
-        background-image: url(/img/paper_back_tatto.jpg);
     }
 
     .dark a {
@@ -71,15 +84,16 @@
     header {
         position: sticky;
         top:0;
+        overflow: hidden;
 
         --header-height: #{$default-header-height};
 
         width: 100%;
         height: var(--header-height);
 
-        background-size: cover;
-        background-position: top;
-        background-repeat: no-repeat;
+        // background-size: cover;
+        // background-position: top;
+        // background-repeat: no-repeat;
 
         display: flex;
         align-items: center;

@@ -2,7 +2,7 @@
 
 <NuxtLink to="https://www.instagram.com/inkplayworld/" target="_blank" class="card">
     
-    <img src="/img/inkplay.png" alt="inkplay">
+    <NuxtImg format="webp" src="/img/inkplay.png" alt="inkplay" />
     
     <div class="card-info">
         <h2>{{  texts["tattoo-inkplay"]  }}</h2>
