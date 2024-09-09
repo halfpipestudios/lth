@@ -66,7 +66,7 @@
 .dialog-container {
 
     position: absolute;
-    bottom: 10%;
+    bottom: 2%;
     left: 50%;
 
     transform: translateX(-50%);

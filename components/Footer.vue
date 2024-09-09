@@ -33,7 +33,7 @@
             </div>
 
             <div class="redes">
-                <NuxtLink target="_blank" href="https://www.instagram.com/lemontree_hostel/">
+                <NuxtLink target="_blank" :href="instagram_link">
                     <NuxtImg :src="inst" alt="instagram" loading="lazy" />
                 </NuxtLink>
                 <NuxtLink target="_blank" href="https://www.facebook.com/lemontreemza/">
@@ -77,6 +77,10 @@
     const background = computed(() => {
         return props.theme === "dark" ? "/img/paper_back_tatto_fliped.jpg" : "/img/paper_back_fliped.jpg";
     });
+
+    const instagram_link = computed(() => {
+        return props.theme === "dark" ? "https://www.instagram.com/lemontree_tattoo" : "https://www.instagram.com/lemontree_hostel/";    
+    })
 
 </script>
 
