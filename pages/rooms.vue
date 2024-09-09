@@ -9,7 +9,8 @@
         <Room v-for="(room, index) in rooms" :key="index" 
               :title="room.title" 
               :text="room.text"
-              :image="room.image"/>
+              :image="room.image"
+              :link="room.Link"/>
         
     </div>
 </template>

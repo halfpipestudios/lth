@@ -1,5 +1,5 @@
 <template>
-    <div class="room">
+    <NuxtLink target="_blank" :href="link" class="room">
 
         <img :src="image" alt="room image">
     
@@ -8,7 +8,7 @@
             <p>{{ props.text }}</p>
         </div>
 
-    </div>
+    </NuxtLink>
 </template>
 
 <script setup>
@@ -21,6 +21,9 @@ const props = defineProps({
         type: String,
     },
     text: {
+        type: String,
+    },
+    link: {
         type: String,
     },
 });
