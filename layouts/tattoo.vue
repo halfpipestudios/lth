@@ -1,12 +1,12 @@
 <template>
+    <div class="loader-container" ref="loader_container">
+        <LoaderTattoo ref="loader" :class="{ 'fade-out': !is_loading }"/>
+    </div>
     <Header theme="dark"/>
     <Spidey />
     <slot />
     <Whatsapp />
     <Footer theme="dark" />
-    <div class="loader-container" ref="loader_container">
-        <LoaderTattoo ref="loader" :class="{ 'fade-out': !is_loading }"/>
-    </div>
 </template>
 
 <script setup>
