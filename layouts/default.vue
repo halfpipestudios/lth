@@ -14,6 +14,7 @@
     const minimun_duration = 1;
     const is_loading = ref(true);
     const loader_container = ref(null);
+    const language = useState('language');
 
     onBeforeMount(() => {
         is_loading.value = true;
@@ -37,6 +38,9 @@
 
     useHead({
         title: 'Lemon Tree Hostel',
+        htmlAttrs: {
+            lang: language.value,
+        },
         meta: [
             { property: 'og:title', content: 'Lemon Tree Hostel' },
             { property: 'og:description', content: 'Reservá en el mejor hostel de Mendoza' },

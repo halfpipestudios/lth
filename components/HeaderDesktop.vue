@@ -1,7 +1,7 @@
 <template>
 <header ref="header" :class="theme">
 
-    <NuxtImg class="background" :src="background" format="webp" />
+    <NuxtImg class="background" :src="background" format="webp" alt="header background"/>
 
     <div class="container">
     
@@ -12,7 +12,7 @@
         </div>
 
         <NuxtLink to="/" ref="logo" class="logo">
-            <img :src="logo" alt="">
+            <img :src="logo" alt="logo">
         </NuxtLink>
 
         <div class="nav right">
