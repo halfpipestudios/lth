@@ -96,10 +96,11 @@ const texts = useState('texts');
         width: 100%;
         padding: 20px;
     }
+
 }
 
 .card-info h2 {
-    
+
     text-align: center;
     
     font-family: comic;

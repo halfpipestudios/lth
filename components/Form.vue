@@ -2,8 +2,7 @@
 
     <div class="form-container" :class="theme">
         <div class="max-container">
-            <form form-item target="_blank" action="https://formsubmit.co/jlagos@halfpipe.dev" method="POST">
-                <label>{{ texts["formulatio-titulo"] }}</label>
+            <form form-item target="_blank" :action="'https://formsubmit.co/'+mail" method="POST">
                 <input  type="text" name="Nombre" required :placeholder="texts['formulario-placeholder-nombre']">
                 <div>
                     <input  type="email" name="Email" required :placeholder="texts['formulario-placeholder-email']">
@@ -28,7 +27,10 @@
         },
         animation: {
             type: String,
-        }
+        },
+        mail: {
+            type: String,
+        },
     });
 
     const texts = useState('texts');

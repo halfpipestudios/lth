@@ -24,7 +24,11 @@
         </section>
         
         <section>
-            <Form theme="dark" animation="anim-tattoo" />
+            <Form 
+                theme="dark" 
+                animation="anim-tattoo"
+                :mail="mail.Mail"
+            />
         </section>
 
         <section>
@@ -47,6 +51,8 @@ definePageMeta({
 
 const texts = useState('texts');
 const video = await useFetch("/api/videos?name=video-tattoo", { server:true });
+const {data: mail} = await useFetch("/api/mail?category=tattoo", { server:true });
+
 
 const seminarios_availables = ref(false);
 {
