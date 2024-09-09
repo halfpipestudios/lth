@@ -30,10 +30,13 @@
             });
         }
 
-        setTimeout(
-            ()=>{ is_loading.value = false; }, 
-            minimun_duration*1000
-        );
+        is_loading.value = false;
+
+        // setTimeout(
+        //     ()=>{ is_loading.value = false; }, 
+        //     minimun_duration*1000
+        // );
+        
     });
 
     useHead({
