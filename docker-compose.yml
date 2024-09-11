@@ -1,7 +1,7 @@
 services:
   node:
     build: .
-    image: harbor.halfpipe.dev/lth/node:latest
+    image: lth/node:latest
     ports:
       - "3000:3000"
     links:
@@ -11,7 +11,7 @@ services:
 
   pocketbase:
     build: ./pocketbase
-    image: harbor.halfpipe.dev/lth/pocketbase:latest
+    image: lth/pocketbase:latest
     ports:
       - "8090:8090"
     volumes:
