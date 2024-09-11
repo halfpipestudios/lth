@@ -9,7 +9,7 @@
         </section>
 
         <section>
-            <h1>TATT00 STUDIO</h1>
+            <h1>TATT00 STUDI0</h1>
         </section>
 
         <section>
