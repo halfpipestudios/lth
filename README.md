@@ -6,7 +6,7 @@
 
 Copy ./pb_data into ./pocketbase folder
 ```bash
-cp -r pb_data/ ./pocketbase/
+cp -r ./pb_data/ ./pocketbase/
 ```
 
 Make pocketbase executable
@@ -20,6 +20,9 @@ Install node dependecies
 ```bash
 npm install
 ```
+Create ./.env file and add:
+POCKETBASE_URL=http://127.0.0.1:8090/
+
 ### Run Develpment eviroment
 
 Run Nuxt3 dev eviroment
