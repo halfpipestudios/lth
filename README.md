@@ -2,7 +2,14 @@
 
 ## Setup Development Server
 
+### Clone repository
+
+Switch to dev branch
+
 ### Pocketbase Setup
+```bash
+git checkout dev
+```
 
 Copy ./pb_data into ./pocketbase folder
 ```bash
