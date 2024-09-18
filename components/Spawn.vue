@@ -6,7 +6,7 @@
 
             <NuxtImg format="webp" src="/img/spawn.png" alt="spiderman" />
 
-            <NuxtLink target="_blank" href="https://lemontree.reservadirecto.com/promos/mejor-tarifa-garantizada.html" class="dialog">
+            <NuxtLink target="_blank" href="https://www.instagram.com/lemontree_tattoo" class="dialog">
                 <p class="text">{{ texts["spawn-text"] }}</p>
                 <button class="close" ref="button">X</button>
             </NuxtLink>
