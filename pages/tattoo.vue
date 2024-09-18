@@ -74,11 +74,12 @@ const { data: anim, status, error, refresh, clear } = await useAsyncData(
 
 
 .animation {
-    width: 50%;
+    height: 70vh;
     aspect-ratio: 1;
     max-width: $size-l;
 
     @media screen and (max-width: $size-s) {
+        height: initial;
         width: 100%;
     }
 }
