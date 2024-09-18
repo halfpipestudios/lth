@@ -23,8 +23,10 @@
             <Blogs category="tatuajes" amount="2" theme="dark" />
         </section>
         
-        <section class="animation">
-            <Sprite v-if="anim && anim.frames" :frames="anim.frames" :frame_time="anim.frame_time" />
+        <section>
+            <div class="animation">
+                <Sprite v-if="anim && anim.frames" :frames="anim.frames" :frame_time="anim.frame_time" />
+            </div>
         </section>
 
         <section>
@@ -72,9 +74,13 @@ const { data: anim, status, error, refresh, clear } = await useAsyncData(
 
 
 .animation {
-    width: 100%;
+    width: 50%;
     aspect-ratio: 1;
     max-width: $size-l;
+
+    @media screen and (max-width: $size-s) {
+        width: 100%;
+    }
 }
 
 .dark-sticky {
