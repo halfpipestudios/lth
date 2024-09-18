@@ -23,12 +23,8 @@
             <Blogs category="tatuajes" amount="2" theme="dark" />
         </section>
         
-        <section>
-            <Form 
-                theme="dark" 
-                animation="anim-tattoo"
-                :mail="mail.Mail"
-            />
+        <section class="animation">
+            <Sprite v-if="anim && anim.frames" :frames="anim.frames" :frame_time="anim.frame_time" />
         </section>
 
         <section>
@@ -52,7 +48,7 @@ definePageMeta({
 const texts = useState('texts');
 const video = await useFetch("/api/videos?name=video-tattoo", { server:true });
 const {data: mail} = await useFetch("/api/mail?category=tattoo", { server:true });
-
+const language = useState('language');
 
 const seminarios_availables = ref(false);
 {
@@ -62,9 +58,24 @@ const seminarios_availables = ref(false);
     }
 }
 
+const { data: anim, status, error, refresh, clear } = await useAsyncData(
+    'sprite-animations',
+    () => $fetch(`/api/animations?animation=${"anim-tattoo-" + language.value}`),
+    {
+        watch: [language]
+    }
+)
+
 </script>
 
 <style scoped lang="scss">
+
+
+.animation {
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: $size-l;
+}
 
 .dark-sticky {
     background-color: #323232;

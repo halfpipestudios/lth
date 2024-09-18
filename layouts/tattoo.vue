@@ -3,7 +3,7 @@
         <LoaderTattoo ref="loader" :class="{ 'fade-out': !is_loading }"/>
     </div>
     <Header theme="dark"/>
-    <Spidey />
+    <Spawn />
     <slot />
     <Whatsapp />
     <Footer theme="dark" />
