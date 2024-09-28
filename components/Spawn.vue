@@ -124,7 +124,7 @@
         }
 
         @media screen and (max-width: $size-s) {
-            --spider-w: 150px;
+            --spider-w: 170px;
             width: var(--spider-w);
             top: calc(var(--spider-h) * -0.87);
         }
