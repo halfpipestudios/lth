@@ -44,7 +44,7 @@
     });
 
     const logo = computed(() => {
-        return props.theme === "dark" ? "/img/logo_tattoo.svg" : "/img/logo.svg";
+        return props.theme === "dark" ? "/img/logo_tattoo.png" : "/img/logo.svg";
     });
 
     const reserve = computed(() => {
@@ -201,8 +201,16 @@
         margin: 5px;
     }
 
-    .logo img {
+    .dark .logo img {
+        --logo-height: 60px;
+        height: var(--logo-height);
 
+        @media screen and (max-width: $size-m) {
+            height: calc(var(--logo-height) * 0.8);
+        }
+    }
+
+    .light .logo img {
         --logo-height: 40px;
         height: var(--logo-height);
 
