@@ -8,10 +8,12 @@
         <div class="nav left">
             <NuxtLink to="/rooms">{{ texts["header-navbar-habitaciones"] }}</NuxtLink>
             <NuxtLink to="/services">{{ texts["header-navbar-servicios"] }}</NuxtLink>
-            <NuxtLink to="/tattoo">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
+            <NuxtLink :to="tattoo_logo_ref">
+                <NuxtImg class="logo-tattoo" :src="tattoo_logo" alt="logo"/>
+            </NuxtLink>
         </div>
 
-        <NuxtLink to="/" ref="logo" class="logo">
+        <NuxtLink :to="logo_ref" ref="logo" class="logo">
             <img :src="logo" alt="logo">
         </NuxtLink>
 
@@ -44,8 +46,21 @@
     });
 
     const logo = computed(() => {
-        return props.theme === "dark" ? "/img/logo_tattoo.png" : "/img/logo.svg";
+        return props.theme === "dark" ? "/img/logo_tattoo.png" : "/img/logo_inverted.png";
     });
+
+    const logo_ref = computed(() => {
+        return props.theme === "dark" ? "/tattoo" : "/";
+    });
+
+    const tattoo_logo = computed(() => {
+        return props.theme === "dark" ? "/img/logo.png" : "/img/logo_tattoo_invert.png";
+    });
+
+    const tattoo_logo_ref = computed(() => {
+        return props.theme === "dark" ? "/" : "/tattoo";
+    });
+
 
     const reserve = computed(() => {
         return props.theme === "dark" ? "/img/reservar_tatto.svg" : "/img/reservar.svg";
@@ -54,6 +69,7 @@
     const background = computed(() => {
         return props.theme === "dark" ? "/img/paper_back_tatto.jpg" : "/img/paper_back.jpg";
     });
+
 
 </script>
 
@@ -211,7 +227,7 @@
     }
 
     .light .logo img {
-        --logo-height: 40px;
+        --logo-height: 60px;
         height: var(--logo-height);
 
         @media screen and (max-width: $size-m) {
@@ -221,6 +237,16 @@
 
     a {
         text-decoration: none;
+    }
+
+    .logo-tattoo {
+        --logo-height: 35px;
+        height: var(--logo-height);
+        padding-top: 10px;
+
+        @media screen and (max-width: $size-m) {
+            height: calc(var(--logo-height) * 0.8);
+        }
     }
 
 </style>

@@ -64,12 +64,11 @@
 }
 
 .dialog-container {
+    margin-top: 40px;
 
-    position: absolute;
-    bottom: 2%;
-    left: 50%;
-
-    transform: translateX(-50%);
+    @media screen and (max-width: $size-s) {
+        margin-top: 20px;
+    }
 }
 
 .dialog a {

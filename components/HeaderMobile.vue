@@ -81,7 +81,7 @@
     });
 
     const logo = computed(() => {
-        return props.theme === "dark" ? "/img/logo_tattoo.png" : "/img/logo.svg";
+        return props.theme === "dark" ? "/img/logo_tattoo.png" : "/img/logo_inverted.png";
     });
 
     const reserve = computed(() => {
@@ -197,10 +197,6 @@
         justify-content: center;
     }
 
-    .logo img {
-        height: 40px;
-    }
-
     .links {
         --font-size: 14px;
 
@@ -246,6 +242,10 @@
         top: 50%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
+    }
+
+    .logo img {
+        height: 40px;
     }
 
 

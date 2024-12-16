@@ -1,20 +1,22 @@
 <template>
 
     <div class="fullscreen-image">
-        <NuxtImg format="webp" src="/img/fire.jpg" alt="fullscreen image" />
+        <NuxtImg format="webp" :src="image" alt="fullscreen image" />
         <div class="fullscreen-image-filter" ></div>
         <div class="container-max">
             <h2>
                 {{ texts["home-separador"] }}
             </h2>
         </div>
-    </div>
+    </div>~
 
 </template>
 
 <script setup>
     const texts = useState('texts');
+    const {data: image} = await useFetch("/api/images?name=home-separator-image", { server:true });
 </script>
+
 
 <style scoped lang="scss">
 

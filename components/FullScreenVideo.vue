@@ -61,8 +61,6 @@ onMounted(() => {
     }
 
     .fullscreen {
-
-        
         width: 100%;
         height: calc(100vh - $default-header-height);
         background-color: transparent;
@@ -84,6 +82,7 @@ onMounted(() => {
         @media screen and (max-width: $size-s) {
             height: 50vh;
         }
+
     }
 
     .fullscreen .filter {
