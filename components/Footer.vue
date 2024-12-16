@@ -22,12 +22,12 @@
 
                 <NuxtLink target="_blank" href="tel:+5492616616248" class="info-item">
                     <NuxtImg src="/img/tel.svg" alt="" loading="lazy" />
-                    <p>+54 9 261 555 5555</p>
+                    <p>+54 9 2616 61-6248</p>
                 </NuxtLink>
 
                 <NuxtLink target="_blank" href="mailto:reservaslemontree@gmail.com" class="info-item">
                     <NuxtImg src="/img/mail.svg" alt="" loading="lazy" />
-                    <p>info@lemontreehostel.com.ar</p>
+                    <p>reservaslemontree@gmail.com</p>
                 </NuxtLink>
 
             </div>
