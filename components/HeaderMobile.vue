@@ -34,7 +34,7 @@
             <NuxtLink @click="collapse_menu"  to="/rooms">{{ texts["header-navbar-habitaciones"] }}</NuxtLink>
             <NuxtLink @click="collapse_menu" to="/services">{{ texts["header-navbar-servicios"] }}</NuxtLink>
             <NuxtLink @click="collapse_menu" to="/tattoo">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
-            <NuxtLink @click="collapse_menu" to="/onefam">{{ texts["header-navbar-contacto"] }}</NuxtLink>
+            <NuxtLink @click="collapse_menu" to="/restaurant">{{ texts["header-navbar-contacto"] }}</NuxtLink>
                 
             <NuxtLink to="https://lemontree.reservadirecto.com/lp.html" target="_blank" class="reservar">
                 <img :src="reserve" alt="">

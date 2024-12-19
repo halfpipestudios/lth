@@ -19,7 +19,7 @@
 
         <div class="nav right">
 
-            <NuxtLink to="/onefam">{{texts["header-navbar-contacto"]}}</NuxtLink>
+            <NuxtLink to="/restaurant">{{texts["header-navbar-contacto"]}}</NuxtLink>
                 
             <NuxtLink to="https://lemontree.reservadirecto.com/lp.html" target="_blank" class="reservar">
                 <img :src="reserve" alt="">
