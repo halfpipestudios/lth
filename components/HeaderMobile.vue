@@ -198,10 +198,10 @@
     }
 
     .links {
-        --font-size: 14px;
+        font-size: $fs-s;
 
-        font-family: open-sans;
-        font-weight: bold;
+        font-family: comic-smooth;
+        font-weight: normal;
         font-style: normal;
         
         width:100%;
@@ -221,12 +221,13 @@
     }
 
     .reservar {
+        font-size: 0;
         position: relative
     }
 
     .reservar div {
-        font-family: comic;
-        font-size: inherit;
+        font-family: comic-smooth;
+        font-size: $fs-s;
     }
 
     .dark .reservar div {

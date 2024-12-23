@@ -247,15 +247,11 @@ footer .container {
     justify-content: center;
     gap: 20px;
 
-    font-family: open-sans;
-    font-weight: 600;
+    font-family: comic-smooth;
+    font-weight: normal;
     font-style: normal;
     
-    --font-size: 20px;
-    font-size: var(--font-size);
-    @media screen and (max-width: $size-m) {
-        font-size: calc(var(--font-size) * 0.8);
-    }
+    font-size: $fs-s;
 }
 
 .info-item img {

@@ -98,9 +98,9 @@
 }
 
 .blogs button {
-    font-family: open-sans;
-    font-weight: bold;
-    font-size: 20px;
+    font-family: comic-smooth;
+    font-weight: normal;
+    font-size: $fs-s;
     background-color: white;
     border: 3px solid #8A8A8A;
     border-radius: 40px;

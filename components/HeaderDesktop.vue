@@ -140,22 +140,22 @@
         align-items: center;
         justify-content: space-around;
         
-        --font-size: 20px;
-
-        font-family: open-sans;
-        font-weight: bold;
+        font-family: comic-smooth;
+        font-weight: normal;
         font-style: normal;
-        font-size: var(--font-size);
+        font-size: $fs-m;
 
         @media screen and (max-width: $size-m) {
-            font-size: calc(var(--font-size) * 0.8);
+            font-size: $fs-s;
         }
 
     }
     
     .reservar {
+        position: relative;
         user-select: none;
         cursor: pointer;
+        font-size: 0;
     }
 
     .reservar img {
@@ -177,18 +177,19 @@
         color: black;
     }
 
-    .reservar {
-        position: relative
-    }
-
     .reservar div {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
 
-        font-family: comic;
-        font-size: 18px;
+        font-family: comic-smooth;
+        font-size: $fs-m;
+
+        @media screen and (max-width: $size-m) {
+            font-size: $fs-s;
+        }
+
     }
 
     .left {
@@ -240,7 +241,7 @@
     }
 
     .logo-tattoo {
-        --logo-height: 35px;
+        --logo-height: 40px;
         height: var(--logo-height);
         padding-top: 10px;
 

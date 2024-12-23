@@ -93,32 +93,32 @@ const texts = useState("texts");
     padding: 0;
 
     text-align: center;
-    font-family: comic;
-    font-weight: bold;
+    font-family: comic-smooth;
+    font-weight: normal;
 
-    --map-title-font-size: 48px;
-    font-size: var(--map-title-font-size);
+    --map-title-font-size: $fs-l;
+    font-size: $fs-l;
     @media screen and (max-width: $size-m) {
-        font-size: calc(var(--map-title-font-size) * 0.8);
+        font-size: $fs-m;
     }
 
     @media screen and (max-width: $size-s) {
-        font-size: 24px;
+        font-size: $fs-m;
     }
 }
 
 .map-info p {
-    font-family: open-sans;
+    font-family: comic-smooth;
     font-weight: normal;
     
-    --map-p-font-size: 36px;
-    font-size: var(--map-p-font-size);
+    --map-p-font-size: $fs-l;
+    font-size: $fs-m;
     @media screen and (max-width: $size-m) {
-        font-size: calc(var(--map-p-font-size) * 0.8);
+        font-size: $fs-s;
     }
 
     @media screen and (max-width: $size-s) {
-        font-size: 20px;
+        font-size: $fs-s;
         text-align: center;
     }
 }

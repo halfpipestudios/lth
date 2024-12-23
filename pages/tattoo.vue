@@ -123,16 +123,15 @@ const { data: anim, status, error, refresh, clear } = await useAsyncData(
     padding: 20px;
     padding-top: 40px;
 
-    --tatto-title-size: 96px;
-    font-size: var(--tatto-title-size);
+    font-size: $fs-xxl;
     @media screen and (max-width: $size-m) {
-        font-size: calc(var(--tatto-title-size) * 0.8);
+        font-size: $fs-xl;
     }
 
     @media screen and (max-width: $size-s) {
         padding: 10px;
         padding-top: 30px;
-        font-size: 56px;
+        font-size: $fs-xl;
     }
 
 }
@@ -145,20 +144,19 @@ const { data: anim, status, error, refresh, clear } = await useAsyncData(
     color: white;
 
     text-align: center;
-    font-family: open-sans;
-    --tattoo-desc-font-size: 36px;
-    font-size: var(--tattoo-desc-font-size);
+    font-family: comic-smooth;
+    font-size: $fs-l;
 
     box-sizing: border-box;
     padding: 20px;
     padding-bottom: 40px;
     
     @media screen and (max-width: $size-m) {
-        font-size: calc(var(--tattoo-desc-font-size) * 0.8);
+        font-size: $fs-m;
     }
 
     @media screen and (max-width: $size-s) {
-        font-size: 24px;
+        font-size: $fs-s;
     }
 
 }

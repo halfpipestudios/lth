@@ -93,23 +93,19 @@
     font-family: stamshons;
     font-weight: normal;
 
-    --blog-title-size: 64px;
-
     @media screen and (max-width: $size-s) {
-        font-size: 30px;
+        font-size: $fs-m;
     }
 }
 
 .light h2 {
     color: black;
     
-    font-family: comic;
-    font-weight: bold;
-
-    --blog-title-size: 48px;
+    font-family: comic-smooth;
+    font-weight: normal;
 
     @media screen and (max-width: $size-s) {
-        font-size: 24px;
+        font-size: $fs-m;
     }
 }
 
@@ -120,10 +116,10 @@
     padding: 0;
     margin: 0;
 
-    font-size: var(--blog-title-size);
+    font-size: $fs-xl;
 
     @media screen and (max-width: $size-m) {
-        font-size: calc(var(--blog-title-size) * 0.8);
+        font-size: $fs-m;
     }
 
 }
@@ -137,7 +133,7 @@
     gap: 40px;
 
         
-    --blog-height: 554px;
+    --blog-height: 400px;
     height: var(--blog-height);
 
     @media screen and (max-width: $size-m) {
@@ -201,7 +197,7 @@
     object-fit: cover;
     object-position: center;
 
-    align-self: center;
+    align-self: flex-start;
 }
 
 .dark p {
@@ -209,22 +205,21 @@
 }
 
 .light p {
-    color: black;
+    color: #181C14;
 }
 
 .blog  p {
-    font-family: open-sans;
+    font-family: comic-smooth;
     padding: 0;
     margin: 0;
     
-    --blog-p-size: 24px;
-    font-size: var(--blog-p-size);
+    font-size: $fs-m;
     @media screen and (max-width: $size-m) {
-        font-size: calc(var(--blog-p-size) * 0.8);
+        font-size: $fs-s;
     }
 
     @media screen and (max-width: $size-s) {
-        font-size: 18px;
+        font-size: $fs-s;
     }
 
 }

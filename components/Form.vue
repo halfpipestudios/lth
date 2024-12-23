@@ -88,44 +88,6 @@
     }
 }
 
-.dark label {
-    font-family: stamshons;
-    color: white;
-
-    --label-font-size: 64px;
-
-    @media screen and (max-width: $size-s) {
-        font-size: 36px;
-    }
-}
-
-.light label {
-    font-family: comic;
-    color: black;
-
-    --label-font-size: 48px;
-
-    @media screen and (max-width: $size-s) {
-        font-size: 24px;
-    }
-}
-
-label {
-
-    text-align: center;
-    font-size: var(--label-font-size);
-
-    padding-bottom: 30px;
-
-    @media screen and (max-width: $size-m) {
-        font-size: calc(var(--label-font-size) * 0.8);
-    }
-
-    @media screen and (max-width: $size-s) {
-        padding-bottom: 10px;
-    }
-}
-
 input {
     width: 100%;
     height: 63px;
@@ -155,17 +117,17 @@ input, textarea {
     box-sizing: border-box;
     padding: 10px;
 
-    font-family: open-sans;
+    font-family: comic-smooth;
     
     border-radius: 15px;
 
-    --text-font-size: 23px;
-    font-size: var(--text-font-size);
+    --text-font-size: $fs-m;
+    font-size: $fs-m;
     @media screen and (max-width: $size-m) {
-        font-size: calc(var(--text-font-size) * 0.8);
+        font-size: $fs-s;
     }
     @media screen and (max-width: $size-s) {
-        font-size: 15px;
+        font-size: $fs-s;
         border-radius: 10px;
     }
 }
@@ -194,9 +156,9 @@ button {
     border: none;
     border-radius: 15px;
 
-    font-family: open-sans;
-    font-weight: bold;
-    font-size: 32px;
+    font-family: comic-smooth;
+    font-weight: normal;
+    font-size: $fs-m;
     color: white;
 
     transition-duration: 0.4s;
@@ -204,7 +166,7 @@ button {
     @media screen and (max-width: $size-s) {
         height: 44px;
         border-radius: 10px;
-        font-size: 18px;
+        font-size: $fs-s;
     }
 }
 
