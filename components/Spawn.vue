@@ -136,8 +136,8 @@
     }
 
     .text{
-        font-family: "comic";
-        font-size: 24px;
+        font-family: comic-smooth;
+        font-size: $fs-m;
 
         margin: 0;
         padding: 30px;
@@ -151,7 +151,7 @@
 
         @media screen and (max-width: $size-s) {
             padding: 15px;
-            font-size: 12px;
+            font-size: $fs-xs;
             border-radius: 25px;
             border: 1px solid white;
         }
@@ -181,8 +181,8 @@
     }
 
     .close {
-        font-family: "comic";
-        font-size: 24px;
+        font-family: comic-smooth;
+        font-size: $fs-s;
         color: white;
 
         position: absolute;   
@@ -207,9 +207,9 @@
         @media screen and (max-width: $size-s) {
             top: -5px;
             right: -5px;
-            width: 25px;
-            height: 25px;
-            font-size: 12px;
+            width: 30px;
+            height: 30px;
+            font-size: $fs-xs;
             border: 1px solid black;
         }
 

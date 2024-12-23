@@ -103,22 +103,21 @@ const texts = useState('texts');
 
     text-align: center;
     
-    font-family: comic;
-    font-weight: bold;
+    font-family: comic-smooth;
+    font-weight: normal;
     color: black;
 
     padding: 0;
     margin: 0;
 
-    --card-h2-size: 38px;
-    font-size: var(--card-h2-size);
+    font-size: $fs-l;
 
     @media screen and (max-width: $size-m) {
-        font-size: calc(var(--card-h2-size) * 0.8);
+        font-size: $fs-m;
     }
 
     @media screen and (max-width: $size-s) {
-        font-size: 24px;
+        font-size: $fs-m;
     }
 
 }
@@ -126,18 +125,17 @@ const texts = useState('texts');
 .card-info p {
     text-align: left;
     
-    font-family: open-sans;
+    font-family: comic-smooth;
     font-weight: normal;
     color: black;
     
-    --card-p-size: 24px;
-    font-size: var(--card-p-size);
+    font-size: $fs-m;
     @media screen and (max-width: $size-m) {
-        font-size: calc(var(--card-p-size) * 0.8);
+        font-size: $fs-s;
     }
 
     @media screen and (max-width: $size-s) {
-        font-size: 18px;
+        font-size: $fs-s;
     }
     
 }

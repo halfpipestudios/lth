@@ -60,17 +60,16 @@ const texts = useState('texts');
     text-decoration: underline;
 
     color: white;
-    font-family: open-sans;
+    font-family: comic-smooth;
     
-    --card-instagram-size: 24px;
-    font-size: var(--card-instagram-size);
+    font-size: $fs-m;
 
     @media screen and (max-width: $size-m) {
-        font-size: calc(var(--card-instagram-size) * 0.8);
+        font-size: $fs-s;
     }
 
     @media screen and (max-width: $size-s) {
-        font-size: 20px;
+        font-size: $fs-s;
     }
 }
 
@@ -112,15 +111,14 @@ const texts = useState('texts');
     padding: 0;
     margin: 0;
 
-    --card-h2-size: 64px;
-    font-size: var(--card-h2-size);
+    font-size: $fs-xl;
 
     @media screen and (max-width: $size-m) {
-        font-size: calc(var(--card-h2-size) * 0.8);
+        font-size: $fs-l;
     }
 
     @media screen and (max-width: $size-s) {
-        font-size: 40px;
+        font-size: $fs-m;
     }
 
 }
@@ -128,18 +126,17 @@ const texts = useState('texts');
 .card-info p {
     text-align: left;
     
-    font-family: open-sans;
+    font-family: comic-smooth;
     font-weight: normal;
     color: white;
     
-    --card-p-size: 24px;
-    font-size: var(--card-p-size);
+    font-size: $fs-m;
     @media screen and (max-width: $size-m) {
-        font-size: calc(var(--card-p-size) * 0.8);
+        font-size: $fs-s;
     }
 
     @media screen and (max-width: $size-s) {
-        font-size: 20px;
+        font-size: $fs-s;
     }
     
 }

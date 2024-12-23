@@ -16,7 +16,7 @@
 
         <section class="container-max quienes-somos">
             <div class="title">
-                <NuxtImg format="webp" src="/img/lemon_tree_logo.png" alt="lemon tree logo" />
+                <NuxtImg format="webp" src="/img/ReservarAqui.png" alt="lemon tree logo" />
                 <h1>{{ texts["home-quienes-somos"] }}</h1>
             </div>
             <p>{{ texts["home-quienes-somos-text"] }}</p>
@@ -80,7 +80,7 @@
 }
 
 .dialog img {
-    width: 500px;
+    width: 340px;
     @media screen and (max-width: $size-s) {
         width: 300px;
     }
@@ -93,8 +93,8 @@
     padding: 0;
     margin: 0;
 
-    font-family: comic;
-    font-size: 34px;
+    font-family: comic-smooth;
+    font-size: $fs-l;
 
     position: absolute;
     left: 50%;
@@ -104,7 +104,7 @@
     color: black;
 
     @media screen and (max-width: $size-s) {
-        font-size: 24px;
+        font-size: $fs-m;
     }
 }
 
@@ -149,12 +149,16 @@
     box-sizing: border-box;
 
     padding: 40px;
+    padding-top: 0;
     
     @media screen and (max-width: $size-s) {
         gap: 16px;
-
         padding: 20px;
+        padding-top: 0;
+    
     }
+
+    
 }
 
 .quienes-somos .title {
@@ -176,25 +180,24 @@
 
     text-align: center;
 
-    font-family: open-sans;
-    font-weight: bold;
+    font-family: comic-smooth;
+    font-weight: normal;
 
-    --quienes-somos-title-font-size: 64px;
-    font-size: var(--quienes-somos-title-font-size);
+    font-size: $fs-xxl;
 
     @media screen and (max-width: $size-m) {
-        font-size: calc(var(--quienes-somos-title-font-size) * 0.8);
+        font-size: $fs-xl;
     }
 
     @media screen and (max-width: $size-s) {
-        font-size: 34px;
+        font-size: $fs-xl;
     }
 
 }
 
 .quienes-somos .title img {
     
-    --quienes-somos-image-height: 174px;
+    --quienes-somos-image-height: 300px;
     height: var(--quienes-somos-image-height);
     width: auto;
 
@@ -210,18 +213,17 @@
 
     text-align: center;
 
-    font-family: open-sans;
+    font-family: comic-smooth;
     font-weight: normal;
 
-    --quienes-somos-title-p-size: 36px;
-    font-size: var(--quienes-somos-title-p-size);
+    font-size: $fs-l;
 
     @media screen and (max-width: $size-m) {
-        font-size: calc(var(--quienes-somos-title-p-size) * 0.8);
+        font-size: $fs-m;
     }
 
     @media screen and (max-width: $size-s) {
-        font-size: 20px;
+        font-size: $fs-s;
     }
 
 }

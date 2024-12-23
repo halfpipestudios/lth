@@ -8,7 +8,7 @@
                 {{ texts["home-separador"] }}
             </h2>
         </div>
-    </div>~
+    </div>
 
 </template>
 
@@ -30,7 +30,7 @@
 
     width: 100%;
     height: initial;
-    min-height: 600px;
+    min-height: 400px;
 
     display: flex;
     align-items: center;
@@ -81,18 +81,17 @@
 
     color: white;
     text-align: center;
-    font-family: comic;
+    font-family: comic-smooth;
     
-    --fullscreen-image-font-size: 48px;
-    font-size: var(--fullscreen-image-font-size);
+    font-size: $fs-l;
     
     @media screen and (max-width: $size-m) {
-        font-size: calc(var(--fullscreen-image-font-size) * 0.8);
+        font-size: $fs-m;
     }
 
     @media screen and (max-width: $size-s) {
         margin: 20px;
-        font-size: 20px;
+        font-size: $fs-s;
     }
     
 }

@@ -57,20 +57,19 @@ rooms.value = translate_rooms(records);
     color: black;
 
     text-align: center;
-    font-family: open-sans;
-    --tattoo-desc-font-size: 36px;
-    font-size: var(--tattoo-desc-font-size);
+    font-family: comic-smooth;
+    font-size: $fs-l;
 
     box-sizing: border-box;
     padding: 20px;
 
     @media screen and (max-width: $size-m) {
-        font-size: calc(var(--tattoo-desc-font-size) * 0.8);
+        font-size: $fs-m;
         padding: 20px;
     }
 
     @media screen and (max-width: $size-s) {
-        font-size: 24px;
+        font-size: $fs-m;
     }
 
 }

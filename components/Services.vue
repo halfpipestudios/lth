@@ -3,7 +3,7 @@
 <div class="services-comp">
     <div
         class="service"
-        v-for="index in 30"
+        v-for="index in 32"
         :key="index"
     >
         <img :src="service_image(index)">
@@ -83,8 +83,8 @@
     padding: 0;
     margin: 0;
     text-align: center;
-    font-family: open-sans;
-    font-size: 20px;
+    font-family: comic-smooth;
+    font-size: $fs-s;
     color: rgba(28,28,28,0.8);
 }
 

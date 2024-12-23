@@ -116,7 +116,7 @@ onMounted(() => {
 
     .fullscreen h1 {
         color: white;
-        font-size: 96px;
+        font-size: $fs-xl;
         font-family: comic-smooth;
         text-align: center;
         padding: 20px;

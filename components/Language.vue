@@ -197,9 +197,9 @@ const background = computed(() => {
 }
 
 .language_option p {
-    font-family: open-sans;
-    font-weight: bold;
-    font-size: 20px;
+    font-family: comic-smooth;
+    font-weight: normal;
+    font-size: $fs-s;
 
     margin: 0;
     padding: 0;
@@ -232,9 +232,9 @@ const background = computed(() => {
 }
 
 .selector .text {
-    font-family: open-sans;
-    font-weight: bold;
-    font-size: 20px;
+    font-family: comic-smooth;
+    font-weight: normal;
+    font-size: $fs-s;
 }
 
 .flag {
