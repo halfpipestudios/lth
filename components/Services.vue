@@ -3,11 +3,11 @@
 <div class="services-comp">
     <div
         class="service"
-        v-for="index in 32"
+        v-for="(service, index) in services"
         :key="index"
     >
-        <img :src="service_image(index)">
-        <p>{{ service_text(index) }}</p>
+        <img :src="service.image">
+        <p>{{ service.text }}</p>
     </div>
 
 </div>
@@ -15,13 +15,23 @@
 </template>
 
 <script setup>
-    const texts = useState('texts');
-    const service_image = (index) => {
-        return `/icons/ico${String(index).padStart(2, "0")}.png`;
-    };
-    const service_text = (index) => {
-        return texts.value[`servicios-logo-${String(index).padStart(2, "0")}`]; 
-    };
+    const language = useState('language');
+    const services = ref([]);
+
+    function translate_services(services) {
+        for (let service of services) {
+            service["text"] = service["Texto_" + language.value];
+        }
+        return services;
+    }
+
+    watch(language, ()=> {
+        translate_services(services.value);
+    })
+
+    const records = await $fetch("/api/servicios");
+    services.value = translate_services(records);
+
 </script>
 
 <style scoped lang="scss">

@@ -10,7 +10,8 @@
               :title="room.title" 
               :text="room.text"
               :image="room.image"
-              :link="room.Link"/>
+              :link="room.Link"
+              :services="room.services"/>
         
     </div>
 </template>
@@ -32,7 +33,7 @@ watch(language, ()=> {
     translate_rooms(rooms.value);
 })
 
-const records = await $fetch("/api/rooms");    
+const records = await $fetch("/api/rooms");
 rooms.value = translate_rooms(records);
 
 </script>
