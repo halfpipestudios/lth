@@ -6,6 +6,11 @@
         <div class="card-info">
             <h2>{{  props.title  }}</h2>
             <p>{{ props.text }}</p>
+
+            <div class="card-services">
+                <img v-for="(service, index) in props.services" :src="service" :key="index">
+            </div>
+
         </div>
 
     </NuxtLink>
@@ -26,6 +31,10 @@ const props = defineProps({
     link: {
         type: String,
     },
+    services: {
+        type: Array,
+        default: () => []
+    },
 });
 
 const texts = useState('texts');
@@ -37,7 +46,8 @@ const texts = useState('texts');
 .room {
     text-decoration: none;
     max-width: $size-l;
-
+    height: 600px;
+    
     box-sizing: border-box;
     margin: 20px;
     border-radius: 15px;
@@ -60,6 +70,7 @@ const texts = useState('texts');
     @media screen and (max-width: $size-s) {
         flex-direction: column;
         border-radius: 10px;
+        height: initial;
     }
 }
 
@@ -74,6 +85,10 @@ const texts = useState('texts');
 .room img {
     width: 50%;
     aspect-ratio: 1;
+    
+    object-fit: cover;
+    object-position: center;
+
 
     @media screen and (max-width: $size-s) {
         width: 100%;
@@ -83,11 +98,13 @@ const texts = useState('texts');
 .card-info {
     
     width: 50%;
+    height: 100%;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    gap: 40px;
 
     box-sizing: border-box;
     padding: 40px;
@@ -116,10 +133,6 @@ const texts = useState('texts');
         font-size: $fs-m;
     }
 
-    @media screen and (max-width: $size-s) {
-        font-size: $fs-m;
-    }
-
 }
 
 .card-info p {
@@ -130,15 +143,34 @@ const texts = useState('texts');
     color: black;
     
     font-size: $fs-m;
+    padding: 0;
+    margin: 0;
+
     @media screen and (max-width: $size-m) {
         font-size: $fs-s;
     }
 
-    @media screen and (max-width: $size-s) {
-        font-size: $fs-s;
-    }
-    
 }
 
+.card-services {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    row-gap: 40px;
+
+    @media screen and (max-width: $size-s) {
+        gap: 10px;
+        row-gap: 20px;
+    } 
+}
+
+.card-services img {
+    width: 90px;
+    height: 90px;
+}
 
 </style>
