@@ -6,11 +6,11 @@
         <div class="card-info">
             <h2>{{  props.title  }}</h2>
             <p>{{ props.text }}</p>
-
+            
             <div class="card-services">
                 <img v-for="(service, index) in props.services" :src="service" :key="index">
             </div>
-
+        
         </div>
 
     </NuxtLink>
@@ -112,6 +112,7 @@ const texts = useState('texts');
     @media screen and (max-width: $size-s) {
         width: 100%;
         padding: 20px;
+        gap: 20px;
     }
 
 }
@@ -157,7 +158,7 @@ const texts = useState('texts');
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 20px;
     row-gap: 40px;
@@ -167,6 +168,10 @@ const texts = useState('texts');
         row-gap: 20px;
     } 
 }
+
+// .room:nth-child(even) .card-services {
+//     justify-content: flex-end;
+// }
 
 .card-services img {
     width: 90px;
