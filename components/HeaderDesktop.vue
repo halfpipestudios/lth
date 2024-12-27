@@ -46,19 +46,19 @@
     });
 
     const logo = computed(() => {
-        return props.theme === "dark" ? "/img/logo_tattoo.png" : "/img/logo_inverted.png";
+        return props.theme === "dark" ? "/img/logo.png" : "/img/logo_inverted.png";
     });
 
     const logo_ref = computed(() => {
-        return props.theme === "dark" ? "/tattoo" : "/";
+        return props.theme === "dark" ? "/" : "/";
     });
 
     const tattoo_logo = computed(() => {
-        return props.theme === "dark" ? "/img/logo.png" : "/img/logo_tattoo_invert.png";
+        return props.theme === "dark" ? "/img/logo_tattoo.png" : "/img/logo_tattoo_invert.png";
     });
 
     const tattoo_logo_ref = computed(() => {
-        return props.theme === "dark" ? "/" : "/tattoo";
+        return props.theme === "dark" ? "/tattoo" : "/tattoo";
     });
 
 
