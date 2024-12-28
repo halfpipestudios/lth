@@ -14,20 +14,29 @@
 
         <section>
             <div class="sticky-header">
-                <h2>{{ texts["servicios-excursiones-titulo"] }}</h2>
+                <h2>{{ texts["servicios-servicio01"] }}</h2>
             </div>
-            <Carrousel category="excursiones"/>
-            <p>{{ texts["servicios-excursiones-desc"] }}</p>
-            <Blogs category="excursiones" amount="2" />
+            <Carrousel category="servicio01"/>
+            <p>{{ texts["servicios-servicio01-desc"] }}</p>
+            <Blogs category="servicio01" amount="2" />
         </section>
 
         <section>
             <div class="sticky-header">
-                <h2>{{ texts["servicios-restaurant-titulo"] }}</h2>
+                <h2>{{ texts["servicios-servicio02"] }}</h2>
             </div>
-            <Carrousel category="restaurant"/>
-            <p>{{ texts["servicios-restaurant-desc"] }}</p>
-            <Blogs category="restaurant" amount="2" />
+            <Carrousel category="servicio02"/>
+            <p>{{ texts["servicios-servicio02-desc"] }}</p>
+            <Blogs category="servicio02" amount="2" />
+        </section>
+
+        <section>
+            <div class="sticky-header">
+                <h2>{{ texts["servicios-servicio03"] }}</h2>
+            </div>
+            <Carrousel category="servicio03"/>
+            <p>{{ texts["servicios-servicio03-desc"] }}</p>
+            <Blogs category="servicio03" amount="2" />
         </section>
 
     </div>
