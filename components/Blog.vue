@@ -89,33 +89,20 @@
 
 .dark h2 {
     color: white;
-
-    font-family: stamshons;
-    font-weight: normal;
-
-    @media screen and (max-width: $size-s) {
-        font-size: $fs-m;
-    }
 }
 
 .light h2 {
     color: black;
-    
-    font-family: comic-smooth;
-    font-weight: normal;
-
-    @media screen and (max-width: $size-s) {
-        font-size: $fs-m;
-    }
 }
 
 .blog  h2 {
-
     text-align: center;
 
     padding: 0;
     margin: 0;
 
+    font-family: comic-smooth;
+    font-weight: normal;
     font-size: $fs-xl;
 
     @media screen and (max-width: $size-m) {
@@ -124,29 +111,18 @@
 
 }
 
-.dark .text-and-image-container {
-    gap: 80px;
-    height: initial;
-}
-
-.light .text-and-image-container {
-    gap: 40px;
-
-        
-    --blog-height: 400px;
-    height: var(--blog-height);
-
-    @media screen and (max-width: $size-m) {
-        height: calc(var(--blog-height) * 0.8);
-    }
-}
-
 .blog .text-and-image-container {
 
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
+
+    gap: 40px;
+    
+    --blog-height: 400px;
+    height: var(--blog-height);
+
 
     @media screen and (max-width: $size-s) {
         flex-direction: column-reverse;
@@ -160,23 +136,14 @@
     overflow-y: auto;
 }
 
-.dark img {
-    border-radius: 50%;
-    height: 280px;
-    width: 280px;
+.blog img {
+    
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
 
-    box-sizing: border-box;
-    margin-bottom: 20px;
+    align-self: flex-start;
 
-    @media screen and (max-width: $size-s) {
-        width: 80%;
-        aspect-ratio: 1;
-        height: initial;
-    }
-
-}
-
-.light img {
     border-radius: 15px;
     height: 100%;
 
@@ -191,14 +158,6 @@
     }
 }
 
-.blog img {
-    
-    aspect-ratio: 1;
-    object-fit: cover;
-    object-position: center;
-
-    align-self: flex-start;
-}
 
 .dark p {
     color: white;
