@@ -16,9 +16,22 @@
             <p>{{ texts["tattoo-descripcion"] }}</p>
         </section>
 
-        <section v-if="seminarios_availables == true">
+        <section>
             <div class="sticky-header dark-sticky">
                 <h2>{{ texts["tattoo-seminarios-titulo"] }}</h2>
+            </div>
+            
+            <Artist v-for="(artist, index) in artists" :key="index" 
+              :name="artist.Nombre" 
+              :text="artist.text"
+              :image="artist.image"
+              :link="artist.Link"/>
+
+        </section>
+
+        <section v-if="seminarios_availables == true">
+            <div class="sticky-header dark-sticky">
+                <h2>{{ texts["tattoo-blogs-title"] }}</h2>
             </div>
             <Blogs category="tatuajes" amount="2" theme="dark" />
         </section>
@@ -51,6 +64,22 @@ const texts = useState('texts');
 const video = await useFetch("/api/videos?name=video-tattoo", { server:true });
 const {data: mail} = await useFetch("/api/mail?category=tattoo", { server:true });
 const language = useState('language');
+
+function translate_artist(artists) {
+    for (let artist of artists) {
+        artist["text"] = artist["Texto_" + language.value];
+    }
+    return artists;
+}
+
+const artists = ref([]);
+const artist_record = await $fetch("/api/artistas");
+artists.value = translate_artist(artist_record);
+
+watch(language, ()=> {
+    translate_artist(artists.value);
+})
+
 
 const seminarios_availables = ref(false);
 {

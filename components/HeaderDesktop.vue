@@ -61,7 +61,6 @@
         return props.theme === "dark" ? "/tattoo" : "/tattoo";
     });
 
-
     const reserve = computed(() => {
         return props.theme === "dark" ? "/img/reservar_tatto.svg" : "/img/reservar.svg";
     });
