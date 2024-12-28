@@ -65,6 +65,8 @@
     font-family: comic-smooth;
     font-weight: normal;
 
+    cursor: pointer;
+
     @media screen and (max-width: $size-s) {
         flex-direction: column;
         gap: 20px;
