@@ -104,21 +104,21 @@ const texts = useState('texts');
     
     text-align: center;
     
-    font-family: stamshons;
+    font-family: darkmode;
     font-weight: normal;
     color: white;
 
     padding: 0;
     margin: 0;
 
-    font-size: $fs-xl;
+    font-size: 72px;
 
     @media screen and (max-width: $size-m) {
-        font-size: $fs-l;
+        font-size: $fs-xl;
     }
 
     @media screen and (max-width: $size-s) {
-        font-size: $fs-m;
+        font-size: $fs-xl;
     }
 
 }

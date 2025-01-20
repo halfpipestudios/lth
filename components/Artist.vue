@@ -103,9 +103,12 @@
     padding: 0;
     margin: 0;
 
-    font-size: $fs-l;
+    font-family: darkmode;
+    font-weight: normal;
+
+    font-size: $fs-xxl;
     @media screen and (max-width: $size-s) {
-        font-size: $fs-m;
+        font-size: $fs-xl;
     }
 }
 
