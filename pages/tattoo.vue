@@ -147,12 +147,14 @@ const { data: anim, status, error, refresh, clear } = await useAsyncData(
     margin: 0;
     padding: 0;
     text-align: center;
-    font-family: stamshons;
+    
+    font-family: darkmode;
+    font-weight: normal;
 
     padding: 20px;
     padding-top: 40px;
 
-    font-size: $fs-xxl;
+    font-size: 64px;
     @media screen and (max-width: $size-m) {
         font-size: $fs-xl;
     }

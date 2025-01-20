@@ -2,6 +2,12 @@
 
     <div class="restaurant">
         <section>
+            <FullScreenVideo 
+                :video="video.data.value"
+            />
+        </section>
+     
+        <section>
             <div class="sticky-header">
                 <h2>{{ texts["restaurant-titulo"] }}</h2>
             </div>
@@ -11,13 +17,16 @@
                 <h2>{{ texts["restaurant-blogs-title"] }}</h2>
             </div>
             <Blogs category="restaurant" amount="2" />
-            </section>
+        </section>
     </div>
 
 </template>
 
 <script setup>
+
 const texts = useState('texts');
+const video = await useFetch("/api/videos?name=video-restaurant", { server:true });
+
 </script>
 
 <style scoped lang="scss">
