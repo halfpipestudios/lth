@@ -36,7 +36,7 @@
             <NuxtLink @click="collapse_menu" to="/tattoo">{{ texts["header-navbar-tatuajes"] }}</NuxtLink>
             <NuxtLink @click="collapse_menu" to="/restaurant">{{ texts["header-navbar-contacto"] }}</NuxtLink>
                 
-            <NuxtLink to="https://lemontree.reservadirecto.com/lp.html" target="_blank" class="reservar">
+            <NuxtLink to="https://wa.me/5492616616248?text=Hola!%20Me%20gustaria%20tener%20mas%20información%20para%20reservar..." target="_blank" class="reservar">
                 <img :src="reserve" alt="">
                 <div>{{ texts["header-navbar-reservar"] }}</div>
             </NuxtLink>
