@@ -6,7 +6,7 @@
             <FullScreenVideo
                 :video="video"
             />
-            <NuxtLink target="_blank" href="https://lemontree.reservadirecto.com/lp.html" class="dialog-container">
+            <NuxtLink target="_blank" href="https://wa.me/5492616616248?text=Hola!%20Me%20gustaria%20tener%20mas%20información%20para%20reservar..." class="dialog-container">
                 <div class="dialog">
                     <NuxtImg format="webp" src="/img/home_dialog.png" alt="lemon tree logo" />
                     <p>{{ texts["home-fullscreen-dialog"] }}</p>

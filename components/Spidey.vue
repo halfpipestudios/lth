@@ -6,7 +6,7 @@
 
             <NuxtImg format="webp" src="/img/spidy.png" alt="spiderman" />
 
-            <NuxtLink target="_blank" href="https://lemontree.reservadirecto.com/promos/mejor-tarifa-garantizada.html" class="dialog">
+            <NuxtLink target="_blank" href="https://wa.me/5492616616248?text=Hola!%20Me%20gustaria%20tener%20mas%20información%20para%20reservar..." class="dialog">
                 <p class="text">{{ texts["spiderman-text"] }}</p>
                 <button class="close" ref="button">X</button>
             </NuxtLink>
