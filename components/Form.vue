@@ -2,14 +2,18 @@
 
     <div class="form-container" :class="theme">
         <div class="max-container">
-            <form form-item target="_blank" :action="'https://formsubmit.co/'+mail" method="POST">
+            <form ref="form" form-item target="_blank" method="POST">
+                <input type="text" name="server" value="lemontreehostel.com.ar" style="display: none;">
                 <input  type="text" name="Nombre" required :placeholder="texts['formulario-placeholder-nombre']">
                 <div>
                     <input  type="email" name="Email" required :placeholder="texts['formulario-placeholder-email']">
                     <input type="tel" name="Telefono" required :placeholder="texts['formulario-placeholder-tel']">
                 </div>
                 <textarea name="Mensaje" required :placeholder="texts['formulario-placeholder-mensaje']"></textarea>
+                <div class="g-recaptcha" data-sitekey="6LeZMgIrAAAAAMaBpbiFG9R7gebDJv7ClzTIJt8D" data-action="checkout" data-theme="light" data-callback="enableSubmit"></div>
                 <button type="submit">{{ texts["formulario-boton"] }}</button>
+                <span ref="successSentForm" class="success" style="display: none;">Form was sent successfully</span>    
+                <span ref="errorSentForm" class="error" style="display: none;">Error sending form</span>
             </form>
             <div class="animation">
                 <Sprite v-if="anim && anim.frames" :frames="anim.frames" :frame_time="anim.frame_time" />
@@ -20,6 +24,25 @@
 </template>
 
 <script setup>
+
+
+    useHead({
+        meta: [
+            {
+            'http-equiv': 'Content-Security-Policy',
+            content: "frame-src 'self' https://www.google.com/ https://www.gstatic.com/"
+            }
+        ],
+        script: [
+            {
+            src: 'https://www.google.com/recaptcha/api.js',
+            async: true,
+            defer: true
+            }
+        ]
+    });
+
+
     const props = defineProps({
         theme: {
             type: String,
@@ -35,6 +58,7 @@
 
     const texts = useState('texts');
     const language = useState('language');
+
     const { data: anim, status, error, refresh, clear } = await useAsyncData(
         'sprite-animations',
         () => $fetch(`/api/animations?animation=${props.animation + "-" + language.value}`),
@@ -43,6 +67,38 @@
         }
     )
     
+    import { ref, onMounted } from 'vue';
+    const form = ref(null);
+    const errorSentForm = ref(null);
+    const successSentForm = ref(null);
+
+    onMounted(() => {
+        
+        form.value.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const data = new FormData(form.value);
+            const res = await fetch("https://halfpipe.dev/mail/send-email", {
+                method: "POST",
+                body: data,
+            })
+            if(!res.ok) {
+                const errorText = await res.text();
+                console.error(`Error sending request: ${res.status}`, errorText)
+                errorSentForm.value.style.display = "inline";
+                successSentForm.value.style.display = "none";
+            } else {
+                console.log("Request sent correctly");
+                errorSentForm.value.style.display = "none";
+                successSentForm.value.style.display = "inline";
+                form.value.reset();
+            }
+        });
+
+
+    });
+
+
 </script>
 
 <style scoped lang="scss">
@@ -229,6 +285,23 @@ button:hover {
     @media screen and (max-width: $size-s) {
         flex-direction: column;
     }
+}
+
+.g-recaptcha {
+    width: auto !important;
+    align-self: flex-start;
+}
+
+form .error {
+    color: red;
+    font-size: 12px;
+    align-self: flex-start;
+}
+
+form .success {
+    color: green;
+    font-size: 12px;
+    align-self: flex-start;
 }
 
 </style>
