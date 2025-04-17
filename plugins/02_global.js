@@ -9,11 +9,10 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     const language_repo = useState('language-repo', () => []);
 
     try {
-        const pb = useNuxtApp().$pb;
-        const data = await pb.collection('Textos').getFullList();
+        const data = await useNuxtApp().$pb.collection('Textos').getFullList();
         language_repo.value = data || [];    
     } catch(error) {
-        console.log("Error fetching texts")
+        console.log("Error fetching texts: ", + error)
     }
 
     // Fetch all texts from database
