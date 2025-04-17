@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-const {data: image} = await useFetch("/api/images?name=logo-lemon-tattoo", { server:true });
+    const { data: image } = await useAsyncData('loader-tatto-image', () => $fetch("/api/images?name=logo-lemon-tattoo"));
 </script>
 
 <style scoped lang="scss">
