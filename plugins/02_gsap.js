@@ -4,7 +4,7 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { Draggable } from 'gsap/Draggable';
 
 export default defineNuxtPlugin((nuxtApp) => {
-  if (process.client) {
+  if (import.meta.client) {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, Draggable);
   }
 
