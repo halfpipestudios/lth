@@ -61,8 +61,10 @@ definePageMeta({
 });
 
 const texts = useState('texts');
-const video = await useFetch("/api/videos?name=video-tattoo", { server:true });
-const {data: mail} = await useFetch("/api/mail?category=tattoo", { server:true });
+
+const { data: video } = await useAsyncData('tattoo-video', () => $fetch("/api/videos?name=video-tattoo"));
+const { data: mail } = await useAsyncData('tattoo-mail', () => $fetch("/api/mail?category=tattoo"));
+
 const language = useState('language');
 
 function translate_artist(artists) {

@@ -24,8 +24,8 @@
 
 <script setup>
 
-const texts = useState('texts');
-const video = await useFetch("/api/videos?name=video-restaurant", { server:true });
+    const texts = useState('texts');
+    const {data: video} = await useAsyncData('restaurant-video', () => $fetch("/api/videos?name=video-restaurant"));
 
 </script>
 

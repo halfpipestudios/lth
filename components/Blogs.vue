@@ -47,8 +47,8 @@
     async function fetch_blogs_ssr() {
         
         const amount_to_fetch_next = blogs_feched + blogs_amout + 1;
-        const {data: records, status, error, refresh, clear} = await useFetch(`/api/blogs?category=${props.category}&start=1&end=${amount_to_fetch_next}`);
-        
+        const { data: records, status, error, refresh, clear } = await useAsyncData('blogs', () => $fetch(`/api/blogs?category=${props.category}&start=1&end=${amount_to_fetch_next}`));
+
         blogs_feched = blogs_feched + blogs_amout;
         
         const translated_blogs = translate_blogs(records.value.items);

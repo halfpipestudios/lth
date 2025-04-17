@@ -34,7 +34,7 @@
         );
     });
 
-    const { data: seo } = await useFetch("/api/seo?layout=tattoo", { server:true });
+    const { data: seo } = await useAsyncData('tattoo-seo', () => $fetch("/api/seo?layout=tattoo"));
 
     useHead({
         title: seo.value.Titulo,
