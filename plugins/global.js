@@ -3,7 +3,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     // Fetch all texts from database
     const data = await $fetch('/api/texts');
     const language = useState('language');
-    const language_repo = useState('laguage-repo', () => data.value || []);
+    const language_repo = useState('laguage-repo', () => data || {});
 
     function update_texts_language() {
         let texts = {};
