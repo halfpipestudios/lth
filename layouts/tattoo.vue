@@ -35,11 +35,11 @@
     });
 
     const { data: seo } = await useAsyncData('tattoo-seo', () => $fetch("/api/seo?layout=tattoo"));
-
+    
     useHead({
         title: seo.value.Titulo,
         htmlAttrs: {
-            lang: language.value,
+            lang: language.value.value,
         },
         meta: [
             { property: 'og:title', content: seo.value.Titulo },
@@ -50,7 +50,7 @@
             { name: 'keywords', content: seo.value.Keywords }
         ],
         link: [
-            { rel: 'icon', type: 'image/png', href: seo.value.image }
+            { rel: 'icon', type: 'image/png', href: seo.image }
         ],
     })
 

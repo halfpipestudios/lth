@@ -1,6 +1,6 @@
 export default defineNuxtRouteMiddleware((to, from) => {
 
-    if (import.meta.server) {
+    // if (import.meta.server) {
 
         let lang_ext = "en";
 
@@ -14,8 +14,9 @@ export default defineNuxtRouteMiddleware((to, from) => {
             }
         }
 
-        useState('language', () => lang_ext)
+        const language = useState('language');
+        language.value = lang_ext;
 
-    }
+    // }
 
 });

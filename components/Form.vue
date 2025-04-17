@@ -66,7 +66,7 @@
             watch: [language]
         }
     )
-    
+
     import { ref, onMounted } from 'vue';
     const form = ref(null);
     const errorSentForm = ref(null);
