@@ -4,7 +4,7 @@
 
         <section>
             <FullScreenVideo 
-                :video="video.data.value"
+                :video="video.data"
             />
         </section>
 

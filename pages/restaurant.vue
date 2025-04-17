@@ -3,7 +3,7 @@
     <div class="restaurant">
         <section>
             <FullScreenVideo 
-                :video="video.data.value"
+                :video="video.data"
             />
         </section>
      
@@ -26,6 +26,7 @@
 
     const texts = useState('texts');
     const {data: video} = await useAsyncData('restaurant-video', () => $fetch("/api/videos?name=video-restaurant"));
+    console.log(video)
 
 </script>
 
