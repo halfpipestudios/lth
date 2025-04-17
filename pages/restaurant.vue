@@ -3,7 +3,7 @@
     <div class="restaurant">
         <section>
             <FullScreenVideo 
-                :video="video.data"
+                :video="video"
             />
         </section>
      
