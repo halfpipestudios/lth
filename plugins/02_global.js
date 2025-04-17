@@ -4,12 +4,22 @@ export default defineNuxtPlugin(async (nuxtApp) => {
         return;
     }
 
+    console.log("Setting up languages ...")
+
+    const language_repo = useState('language-repo', () => []);
+
+    try {
+        const pb = useNuxtApp().$pb;
+        const data = await pb.collection('Textos').getFullList();
+        language_repo.value = data || [];    
+    } catch(error) {
+        console.log("Error fetching texts")
+    }
+
     // Fetch all texts from database
     //const data = await $fetch('/api/texts');
-    const pb = useNuxtApp().$pb;
-    const data = await pb.collection('Textos').getFullList();
     const language = useState('language');
-    const language_repo = useState('laguage-repo', () => data || {});
+    const texts = useState('texts', update_texts_language);
 
     function update_texts_language() {
         let texts = {};
@@ -18,8 +28,6 @@ export default defineNuxtPlugin(async (nuxtApp) => {
         }
         return texts;
     }
-
-    const texts = useState('texts', update_texts_language);
 
     watch(language, (newValue, oldValue) => {
         if (language !== undefined) {
