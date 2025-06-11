@@ -25,7 +25,7 @@
 <script setup>
 
     const texts = useState('texts');
-    const video = await useFetch("/api/videos?name=video-restaurant", { server:true });
+    const {data: video} = await useFetch("/api/videos?name=video-restaurant", { server:true });
 </script>
 
 <style scoped lang="scss">
