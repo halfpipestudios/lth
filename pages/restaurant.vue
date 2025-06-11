@@ -25,9 +25,7 @@
 <script setup>
 
     const texts = useState('texts');
-    const {data: video} = await useAsyncData('restaurant-video', () => $fetch("/api/videos?name=video-restaurant"));
-    console.log(video)
-
+    const video = await useFetch("/api/videos?name=video-restaurant", { server:true });
 </script>
 
 <style scoped lang="scss">

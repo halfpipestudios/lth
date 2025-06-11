@@ -14,7 +14,7 @@
 
 <script setup>
     const texts = useState('texts');
-    const { data: image } = await useAsyncData('full-screen-image', () => $fetch("/api/images?name=home-separator-image"));
+    const {data: image} = await useFetch("/api/images?name=home-separator-image", { server:true });
 </script>
 
 

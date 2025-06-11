@@ -2,7 +2,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
 
     let lang_ext = "en";
-    const event =  useNuxtApp().ssrContext?.event
+    const event = useNuxtApp().ssrContext?.event
     if (event) {
         const acceptLanguage = event.node.req.headers['accept-language']
         if (acceptLanguage) {

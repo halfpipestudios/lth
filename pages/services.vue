@@ -30,15 +30,6 @@
             <Blogs category="servicio02" amount="2" />
         </section>
 
-        <section>
-            <div class="sticky-header">
-                <h2>{{ texts["servicios-servicio03"] }}</h2>
-            </div>
-            <Carrousel category="servicio03"/>
-            <p>{{ texts["servicios-servicio03-desc"] }}</p>
-            <Blogs category="servicio03" amount="2" />
-        </section>
-
     </div>
 
 </template>

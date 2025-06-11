@@ -50,9 +50,8 @@
 
 <script setup>
     const texts = useState('texts');
-    
-    const { data: video } = await useAsyncData('index-video', () => $fetch("/api/videos?name=video-home"));
-    const {data: mail} = await useAsyncData('index-mail', () => $fetch("/api/mail?category=inicio"));
+    const {data: video} = await useFetch("/api/videos?name=video-home", { server:true });
+    const {data: mail} = await useFetch("/api/mail?category=inicio", { server:true });
 </script>
 
 <style scoped lang="scss">
