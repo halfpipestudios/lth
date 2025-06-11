@@ -44,23 +44,6 @@
         return result;
     }
 
-    async function fetch_blogs_ssr() {
-        
-        const amount_to_fetch_next = blogs_feched + blogs_amout + 1;
-        const { data: records, status, error, refresh, clear } = await useAsyncData('blogs', () => $fetch(`/api/blogs?category=${props.category}&start=1&end=${amount_to_fetch_next}`));
-
-        blogs_feched = blogs_feched + blogs_amout;
-        
-        const translated_blogs = translate_blogs(records.value.items);
-        if(records.value.items.length <= blogs_feched) {
-            more_blogs_to_fetch.value = false;
-        } else {
-            translated_blogs.pop();
-        }
-        
-        blogs.value = translated_blogs;
-    }
-
     async function fetch_blogs() {
         if(more_blogs_to_fetch.value) {
       
@@ -82,7 +65,9 @@
         translate_blogs(blogs.value);
     })
 
-    await fetch_blogs_ssr();
+    onMounted(async () => {
+        await fetch_blogs();
+    });
     
 </script>
 

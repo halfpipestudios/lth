@@ -36,7 +36,7 @@
         );
     });
 
-    const { data: seo } = await useAsyncData('defaul-seo', () => $fetch("/api/seo?layout=default"));
+    const { data: seo } = await useFetch("/api/seo?layout=default", { server:true });
     useHead({
         title: seo.value.Titulo,
         htmlAttrs: {
