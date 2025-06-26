@@ -54,6 +54,8 @@
         ],
     })
 
+    import '../assets/flag-icons/css/flag-icons.min.css'
+
 </script>
 
 <style scoped lang="scss">

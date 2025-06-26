@@ -25,7 +25,8 @@
               :name="artist.Nombre" 
               :text="artist.text"
               :image="artist.image"
-              :link="artist.Link"/>
+              :link="artist.Link"
+              :flag="artist.flag"/>
 
         </section>
 
@@ -145,7 +146,11 @@ const { data: anim, status, error, refresh, clear } = await useAsyncData(
 }
 
 .tattoo h1 {
-    color: white;
+    color: greenyellow;
+    text-shadow:
+        0 0 50px greenyellow,
+        0 0 25px greenyellow;
+    
     margin: 0;
     padding: 0;
     text-align: center;
