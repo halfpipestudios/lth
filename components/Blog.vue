@@ -1,7 +1,7 @@
 <template>
 
 <div class="blog" :class="theme">
-    <div class="container-max">
+    <NuxtLink class="container-max link" :to="link" target="_blank">
         <h2>{{ title }}</h2>
         <div class="text-and-image-container">
             <div>
@@ -9,7 +9,7 @@
             </div>
             <NuxtImg format="webp" :src="image" alt="blog image" />
         </div>
-    </div>
+    </NuxtLink>
 </div>
 
 </template>
@@ -29,12 +29,20 @@
         theme: {
             type: String,
             default: "light"
+        },
+        link: {
+            type: String,
+            default: ""
         }
     });
 
 </script>
 
 <style scoped lang="scss">
+
+.link {
+    text-decoration: none;
+}
 
 .dark {
     background-color: #323232;
