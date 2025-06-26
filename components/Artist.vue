@@ -4,7 +4,10 @@
     <NuxtLink class="container-max" :to="link" target="_blank">
         <img :src="image">
         <div class="info">
-            <h2>{{ name }}</h2>
+            <div class="flag-name">
+                <span :class="`fi fi-${flag}`" style="width: 64px; height: 48px;" />
+                <h2>{{ name }}</h2>
+            </div>
             <p>{{ text }}</p>
         </div>
     </NuxtLink>
@@ -26,12 +29,23 @@
         },
         link: {
             type: String,
-        }
+        },
+        flag: {
+            type: String,
+        },
     });
 
 </script>
 
 <style scoped lang="scss">
+
+.flag-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
 
 .artist {
     width: 100%;
