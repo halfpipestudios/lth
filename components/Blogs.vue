@@ -5,6 +5,7 @@
             :image="blog.image"
             :text="blog.text"
             :theme="theme"
+            :link="blog.Link"
         />
         
         <button v-if="more_blogs_to_fetch" @click="fetch_blogs">{{ texts["blogs-cargar-mas"] }}</button>
