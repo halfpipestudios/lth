@@ -59,21 +59,24 @@
     const texts = useState('texts');
     const language = useState('language');
 
-    const { data: anim, status, error, refresh, clear } = await useAsyncData(
-        'sprite-animations',
-        () => $fetch(`/api/animations?animation=${props.animation + "-" + language.value}`),
-        {
-            watch: [language]
-        }
-    )
-
     import { ref, onMounted } from 'vue';
     const form = ref(null);
     const errorSentForm = ref(null);
     const successSentForm = ref(null);
+    const anim = ref(null);
+    
+    async function fetchAnimation() {
+        anim.value = await $fetch(`/api/animations?animation=${props.animation + "-" + language.value}`);
+    }
+
+    watch(language, ()=> {
+        fetchAnimation();
+    })
 
     onMounted(() => {
         
+        fetchAnimation();
+
         form.value.addEventListener("submit", async (e) => {
             e.preventDefault();
 
