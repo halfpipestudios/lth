@@ -64,9 +64,26 @@ definePageMeta({
 const texts = useState('texts');
 
 const {data: video} = await useFetch("/api/videos?name=video-tattoo", { server:true });
-const {data: mail} = await useFetch("/api/mail?category=tattoo", { server:true });
 
 const language = useState('language');
+
+const artists = ref([]);
+const artist_record = await $fetch("/api/artistas");
+const anim = ref(null);
+
+async function fetchAnimation() {
+    anim.value = await $fetch(`/api/animations?animation=${"anim-tattoo-" + language.value}`);
+}
+
+watch(language, async ()=> {
+    translate_artist(artists.value);
+    fetchAnimation();
+})
+
+onMounted(() => {
+    artists.value = translate_artist(artist_record);
+    fetchAnimation();
+});
 
 function translate_artist(artists) {
     for (let artist of artists) {
@@ -75,13 +92,6 @@ function translate_artist(artists) {
     return artists;
 }
 
-const artists = ref([]);
-const artist_record = await $fetch("/api/artistas");
-artists.value = translate_artist(artist_record);
-
-watch(language, ()=> {
-    translate_artist(artists.value);
-})
 
 
 const seminarios_availables = ref(false);
@@ -92,13 +102,6 @@ const seminarios_availables = ref(false);
     }
 }
 
-const { data: anim, status, error, refresh, clear } = await useAsyncData(
-    'sprite-animations',
-    () => $fetch(`/api/animations?animation=${"anim-tattoo-" + language.value}`),
-    {
-        watch: [language]
-    }
-)
 
 </script>
 
